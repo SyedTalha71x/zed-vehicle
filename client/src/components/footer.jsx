@@ -1,9 +1,10 @@
 import React from "react";
 import Footerlogo from '../../public/navbar-logo.svg'
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 mt-10  py-8 px-4 md:px-8 w-full">
+    <footer className="bg-gray-50 mt-10  py-8 px-4 md:px-8 w-full shadow-xs">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           <div className="w-full md:w-1/4 flex flex-col items-start">
@@ -47,9 +48,9 @@ const Footer = () => {
               <a href="/track-order" className="text-gray-600 hover:text-gray-900 text-sm">
                 Track Order
               </a>
-              <a href="/complaints" className="text-gray-600 hover:text-gray-900 text-sm">
+              <Link to="/compliance" className="text-gray-600 hover:text-gray-900 text-sm">
                 Complaints & Insurance
-              </a>
+              </Link>
             </div>
 
             <div className="flex flex-col gap-2">

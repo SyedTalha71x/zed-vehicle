@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import NavLogo from '../../public/navbar-logo.svg'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,24 +21,24 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
-            <a href="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
               Home
-            </a>
-            <a href="/services" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            </Link>
+            <Link to="/services" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
               About Us
-            </a>
-            <a href="/portfolio" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            </Link>
+            <Link to="/portfolio" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
               Products
-            </a>
-            <a href="/our-team" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            </Link>
+            <Link to="/our-team" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
               Our Services
-            </a>
-            <a href="/testimonials" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            </Link>
+            <Link to="/testimonials" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
               How it works
-            </a>
-            <a href="/book-consultation" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            </Link>
+            <Link to="/track-order" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
               Track Your Order 
-            </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex">
@@ -76,49 +77,49 @@ const Navbar = () => {
           </button>
         </div>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Home
-          </a>
-          <a
-            href="/services"
+          </Link>
+          <Link
+            to="/services"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Services
-          </a>
-          <a
-            href="/portfolio"
+          </Link>
+          <Link
+            to="/portfolio"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Portfolio
-          </a>
-          <a
-            href="/our-team"
+          </Link>
+          <Link
+            to="/our-team"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Our Team
-          </a>
-          <a
-            href="/testimonials"
+          </Link>
+          <Link
+            to="/testimonials"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Testimonials
-          </a>
-          <a
-            href="/book-consultation"
+          </Link>
+          <Link
+            to="/book-consultation"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Book Consultation
-          </a>
+          </Link>
           <div className="mt-4">
             <button className="w-full bg-black text-white px-4 py-2 rounded-md text-sm font-medium">Contact</button>
           </div>
         </div>
       </div>
 
-      {isOpen && <div className="fixed inset-0 bg-black/50 bg-opacity-25 z-40 md:hidden" onClick={toggleMenu}></div>}
+      {isOpen && <div className="fixed inset-0 bg-black bg-opacity-25 z-40 md:hidden" onClick={toggleMenu}></div>}
     </nav>
   )
 }

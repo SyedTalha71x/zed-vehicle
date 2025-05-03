@@ -6,16 +6,16 @@ function ServicesPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-8">
         <p className="text-sm text-gray-500  tracking-wider"> <span className="text-blue-600">Home</span> / Inventory</p>
-        <h1 className="text-2xl font-bold text-gray-900 mt-2">Services</h1>
+        <h1 className="text-2xl plus-jakarta-sans text-gray-900 mt-2">Services</h1>
       </div>
 
       <div className="mb-16">
         <div className="flex flex-col gap-3">
           <div className="flex items-center md:flex-row flex-col">
-            <h2 className="text-2xl md:w-3/2 sm:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:w-3/2 sm:text-3xl plus-jakarta-sans text-gray-900 mb-4">
               We Do What You Want — Your Custom Export Solution
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 plus-jakarta-sans-400">
               Outback Exports provides flexible and comprehensive services to meet your specific export needs. Whether
               you require sourcing only, shipping only, or full logistics management, we tailor our solutions to your
               requirements. We can also source from multiple suppliers to ensure you receive exactly what you need.
@@ -35,9 +35,9 @@ function ServicesPage() {
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-8">Why Choose Us?</h2>
+        <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-8">Why Choose Us?</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 plus-jakarta-sans-400 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-start">
             <div className="bg-blue-100 p-3 rounded-full mb-4">
               <svg
@@ -56,7 +56,7 @@ function ServicesPage() {
               </svg>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">24/7</h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 ">
               We offer support around the clock. Our team is available 24/7 to handle any issues that may arise.
             </p>
           </div>
@@ -132,7 +132,7 @@ function ServicesPage() {
             </p>
           </div>
 
-   
+
           <div className="flex flex-col items-start">
             <div className="bg-blue-100 p-3 rounded-full mb-4">
               <svg
@@ -179,14 +179,127 @@ function ServicesPage() {
               shipment.
             </p>
           </div>
-          </div>  
         </div>
-
-        <p className="text-xs text-gray-500 mt-8">
-          NOTE: We pride ourselves on being able to pay our suppliers promptly as we have negotiated the best terms with
-          carriers.
-        </p>
       </div>
+
+      <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-10 mt-16">How it Works</h2>
+
+      <div className="mt-16">
+
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-8 md:gap-y-16">
+          {/* Step 1 */}
+          <div className="flex md:-mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">1.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Inquiry</h3>
+              <p className="text-gray-600 text-sm">
+                When you get quotes, fees and details
+              </p>
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div className="flex md:mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">2.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Custom Sourcing & Quote</h3>
+              <p className="text-gray-600 text-sm">
+                Multiple quotation comparison, lowest cost and fastest delivery options
+              </p>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="flex md:-mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">3.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Custom Contract & Invoice</h3>
+              <p className="text-gray-600 text-sm">
+                Terms and conditions, payment plan from product to payment shipping and insurance
+              </p>
+            </div>
+          </div>
+
+          {/* Step 4 */}
+          <div className="flex md:mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">4.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Secure Payment</h3>
+              <p className="text-gray-600 text-sm">
+                Multiple payment methods, your funds are protected
+              </p>
+            </div>
+          </div>
+
+          {/* Step 5 */}
+          <div className="flex md:-mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">5.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Quality Check, Photos, & Insurance</h3>
+              <p className="text-gray-600 text-sm">
+                We check each order, verify insurance covers every shipment
+              </p>
+            </div>
+          </div>
+
+          {/* Step 6 */}
+          <div className="flex md:mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">6.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Shipping & Customs</h3>
+              <p className="text-gray-600 text-sm">
+                We handle all freight and import paperwork, clear requirements if provided
+              </p>
+            </div>
+          </div>
+
+          {/* Step 7 */}
+          <div className="flex md:-mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">7.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Live Tracking</h3>
+              <p className="text-gray-600 text-sm">
+                Get photos, customs documents, arrivals, real-time tracking updates, email or the portal
+              </p>
+            </div>
+          </div>
+
+          {/* Step 8 */}
+          <div className="flex md:mt-6">
+            <div className="mr-4">
+              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">8.</span>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-1">Delivery & Support</h3>
+              <p className="text-gray-600 text-sm">
+                Delivery confirmation and post-arrival support
+              </p>
+            </div>
+          </div>
+          {/* </div> */}
+        </div>
+      </div>
+
+      <p className="text-xs text-gray-500 mt-8">
+        NOTE: We pride ourselves on being able to pay our suppliers promptly as we have negotiated the best terms with
+        carriers.
+      </p>
+    </div>
   );
 }
 

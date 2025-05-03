@@ -21,29 +21,30 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Home
             </Link>
-            <Link to="/services" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/about-us" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               About Us
             </Link>
-            <Link to="/portfolio" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/portfolio" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Products
             </Link>
-            <Link to="/our-team" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/our-team" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Our Services
             </Link>
-            <Link to="/testimonials" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/testimonials" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               How it works
             </Link>
-            <Link to="/track-order" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm font-medium">
+            <Link to="/track-order" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Track Your Order 
             </Link>
           </div>
-
-          <div className="hidden md:flex">
-            <button className="bg-[#0B1518] text-gray-300 px-4 py-2 rounded-xl text-sm font-medium">Contact</button>
-          </div>
+          <Link to={"/contact-us"}>
+            <div className="hidden md:flex">
+              <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Contact</button>
+            </div>
+          </Link>
 
           <div className="md:hidden flex items-center">
             <button
@@ -63,8 +64,8 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-300 z-50 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-500 z-50 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex justify-end p-4">
@@ -84,42 +85,49 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/services"
+            to="/about-us"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
-            Services
+            About Us
           </Link>
           <Link
             to="/portfolio"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
-            Portfolio
+            Products
           </Link>
           <Link
             to="/our-team"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
-            Our Team
+            Our Services
           </Link>
           <Link
             to="/testimonials"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
-            Testimonials
+            How it Works
           </Link>
           <Link
-            to="/book-consultation"
+            to="/track-order"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
-            Book Consultation
+            Track Your Order
           </Link>
-          <div className="mt-4">
-            <button className="w-full bg-black text-white px-4 py-2 rounded-md text-sm font-medium">Contact</button>
-          </div>
+          <Link to={"/contact-us"}>
+            <div className="mt-4">
+              <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Contact</button>
+            </div>
+          </Link>
         </div>
       </div>
 
-      {isOpen && <div className="fixed inset-0 bg-black bg-opacity-25 z-40 md:hidden" onClick={toggleMenu}></div>}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 bg-opacity-25 z-40 transition-opacity duration-500 ease-in-out md:hidden" 
+          onClick={toggleMenu}
+        ></div>
+      )}
     </nav>
   )
 }

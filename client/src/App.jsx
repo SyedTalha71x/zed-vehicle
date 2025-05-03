@@ -5,6 +5,8 @@ import Navbar from './components/navbar';
 import ServicesPage from './pages/services';
 import TrackOrder from './pages/order-track'
 import CompliancePage from './pages/compiliance';
+import ContactUs from './pages/contact-us'
+import AboutUs from './pages/about-us';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<ServicesPage />} />
         <Route path="/track-order" element={<TrackOrder />} />
         <Route path="/compliance" element={<CompliancePage />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
       <Footer />
     </Router>

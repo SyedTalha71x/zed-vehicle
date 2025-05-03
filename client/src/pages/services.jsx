@@ -1,5 +1,12 @@
 import React from "react";
 import ServicePicture from '../../public/Frame 427320605.svg'
+import Frame1 from '../../public/Frame (1).svg'
+import Frame2 from '../../public/Group.svg'
+import Frame3 from '../../public/Group (1).svg'
+import Frame4 from '../../public/f4.svg fill.svg'
+import Frame5 from '../../public/f1.svg fill.svg'
+import Frame6 from '../../public/f2.svg.svg'
+import Frame7 from '../../public/f3.svg.svg'
 
 function ServicesPage() {
   return (
@@ -39,144 +46,74 @@ function ServicesPage() {
 
         <div className="grid grid-cols-1 plus-jakarta-sans-400 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-start">
-            <div className="bg-blue-100 p-3 rounded-full mb-4">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+            <div className="mb-4">
+              <img src={Frame1} alt="" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">24/7</h3>
-            <p className="text-sm text-gray-600 ">
-              We offer support around the clock. Our team is available 24/7 to handle any issues that may arise.
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Sourcing & Procurement</h3>
+            <p className="text-sm text-gray-680  plus-jakarta-sans-400">
+            Multiple suppliers compared, best price guaranteed—so you save money every time.
             </p>
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="bg-blue-100 p-3 rounded-full mb-4">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                />
-              </svg>
+            <div className="mb-4">
+              <img src={Frame2} alt="" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Custom Shipping</h3>
-            <p className="text-sm text-gray-600">
-              Choose your preferred air, ocean, or door-to-door transport. We offer flexible shipping options to meet
-              your needs.
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Custom Shipping</h3>
+            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+            Port-to-port or door-to-door, full or less-than-container, sea, air, or land.
             </p>
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="bg-blue-100 p-3 rounded-full mb-4">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
+            <div className="mb-4">
+              <img src={Frame3} alt="" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Custom Handling</h3>
-            <p className="text-sm text-gray-600">
-              Special services, documentation, legal requirements - our expert team handles all aspects of your
-              shipment.
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Custom Handling</h3>
+            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+            Export clearance, documents, legal compliance anywhere—plus import clearance on request.
             </p>
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="bg-blue-100 p-3 rounded-full mb-4">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
+            <div className="mb-4">
+              <img src={Frame4} alt="" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Insurance</h3>
-            <p className="text-sm text-gray-600">
-              Optional cargo insurance for peace of mind. Our flexible coverage ensures your shipment is protected.
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Insurance</h3>
+            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+            Optional cargo insurance for full peace of mind; certificate included with every insured shipment.
             </p>
           </div>
 
 
+
           <div className="flex flex-col items-start">
-            <div className="bg-blue-100 p-3 rounded-full mb-4">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
+            <div className="mb-4">
+              <img src={Frame5} alt="" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Custom Clearance & Handling</h3>
-            <p className="text-sm text-gray-600">
-              Our team handles all customs clearance & documentation to ensure a smooth export process.
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Custom Contracts & Invoicing</h3>
+            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+            Every deal formalized with a bespoke contract and proforma invoice to protect both parties.
             </p>
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="bg-blue-100 p-3 rounded-full mb-4">
-              <svg
-                className="w-6 h-6 text-blue-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                />
-              </svg>
+            <div className="mb-4">
+              <img src={Frame6} alt="" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Real-Time Tracking</h3>
-            <p className="text-sm text-gray-600">
-              Monitor your shipments 24/7 with our advanced tracking system. Stay informed at every stage of your
-              shipment.
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Real-Time Tracking</h3>
+            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+            Receive photo updates, document scans, and live ETAs via WhatsApp, email, or portal.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-start">
+            <div className="mb-4">
+              <img src={Frame7} alt="" />
+            </div>
+            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Flexible Payment</h3>
+            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+            Escrow, LC, T/T—pick what’s safest for you.
             </p>
           </div>
         </div>
@@ -191,12 +128,12 @@ function ServicesPage() {
           {/* Step 1 */}
           <div className="flex md:-mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">1.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">1.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Inquiry</h3>
-              <p className="text-gray-600 text-sm">
-                When you get quotes, fees and details
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Inquiry</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                Tell us what you want, how, and where.
               </p>
             </div>
           </div>
@@ -204,12 +141,12 @@ function ServicesPage() {
           {/* Step 2 */}
           <div className="flex md:mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">2.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">2.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Custom Sourcing & Quote</h3>
-              <p className="text-gray-600 text-sm">
-                Multiple quotation comparison, lowest cost and fastest delivery options
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Custom Sourcing & Quote</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                Multiple suppliers compared, lowest price negotiated, detailed quote sent.
               </p>
             </div>
           </div>
@@ -217,12 +154,12 @@ function ServicesPage() {
           {/* Step 3 */}
           <div className="flex md:-mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">3.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">3.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Custom Contract & Invoice</h3>
-              <p className="text-gray-600 text-sm">
-                Terms and conditions, payment plan from product to payment shipping and insurance
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Custom Contract & Invoice</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                We issue a custom contract and proforma invoice covering every term, from product to payment, shipping, and insurance.
               </p>
             </div>
           </div>
@@ -230,12 +167,12 @@ function ServicesPage() {
           {/* Step 4 */}
           <div className="flex md:mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">4.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">4.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Secure Payment</h3>
-              <p className="text-gray-600 text-sm">
-                Multiple payment methods, your funds are protected
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Secure Payment</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                Use escrow, LC, or bank transfer—your funds are protected.
               </p>
             </div>
           </div>
@@ -243,12 +180,12 @@ function ServicesPage() {
           {/* Step 5 */}
           <div className="flex md:-mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">5.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">5.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Quality Check, Photos, & Insurance</h3>
-              <p className="text-gray-600 text-sm">
-                We check each order, verify insurance covers every shipment
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Quality Check, Photos, & Insurance</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                We inspect, photograph, and (if requested) insure every shipment.
               </p>
             </div>
           </div>
@@ -256,39 +193,36 @@ function ServicesPage() {
           {/* Step 6 */}
           <div className="flex md:mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">6.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">6.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Shipping & Customs</h3>
-              <p className="text-gray-600 text-sm">
-                We handle all freight and import paperwork, clear requirements if provided
-              </p>
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Shipping & Customs</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                We handle all freight and export paperwork (and import customs if you want)              </p>
             </div>
           </div>
 
           {/* Step 7 */}
           <div className="flex md:-mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">7.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">7.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Live Tracking</h3>
-              <p className="text-gray-600 text-sm">
-                Get photos, customs documents, arrivals, real-time tracking updates, email or the portal
-              </p>
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Live Tracking</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                Get photos, scanned documents, and real-time ETA updates via WhatsApp, email, or the portal.              </p>
             </div>
           </div>
 
           {/* Step 8 */}
           <div className="flex md:mt-6">
             <div className="mr-4">
-              <span className="md:text-7xl text-5xl font-bold text-blue-500 block">8.</span>
+              <span className="md:text-[86px] text-5xl font-bold text-blue-500 block">8.</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold mb-1">Delivery & Support</h3>
-              <p className="text-gray-600 text-sm">
-                Delivery confirmation and post-arrival support
-              </p>
+            <div className="mt-3">
+              <h3 className="text-xl plus-jakarta-sans mb-1">Delivery & Support</h3>
+              <p className="text-gray-800 plus-jakarta-sans-400 text-sm">
+                Ongoing help until you confirm safe arrival              </p>
             </div>
           </div>
           {/* </div> */}

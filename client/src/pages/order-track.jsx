@@ -41,7 +41,7 @@ const OrderTracking = () => {
 
                     <div className="bg-white rounded-2xl p-5 border border-gray-600 shadow-lg">
                         <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-4">Sample Insurance Certificate</h3>
-                        <div className="text-sm text-gray-600 space-y-2 mt-8 plus-jakarta-sans-400 ">
+                        <div className="text-sm text-gray-600 space-y-2 mt-8 plus-jakarta-sans-400 blur-xs">
                             <p><span className="font-semibold">INSURED:</span> Your Website</p>
                             <p><span className="font-semibold">Shipping Info:</span> [Order details]</p>
                             <p><span className="font-semibold">Contact:</span> support@yourcompany.com</p>

@@ -7,6 +7,7 @@ import TrackOrder from './pages/order-track'
 import CompliancePage from './pages/compiliance';
 import ContactUs from './pages/contact-us'
 import AboutUs from './pages/about-us';
+// import Home from './pages/home'
 
 function App() {
   return (

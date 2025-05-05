@@ -210,134 +210,131 @@ function AboutUs() {
           </div>
         </div>
 
-        <div className="my-16 bg-gradient-to-b from-[#FFFFFF] via-[#E6DEDEA7] to-[#FFFFFF]">
-        <div className="p-16">
-
-        
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white rounded-lg overflow-hidden flex shadow-sm">
-              <div className="flex-1 flex">
-                <div className="border-l-4 border-red-500 h-full"></div>
-                <div className="p-6 flex-1">
-                  <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-3">Our Mission</h2>
-                  <p className="text-gray-600 text-sm">
-                    To create global trading networks, cost-effective and innovative export solutions that empower
-                    businesses to thrive in international markets.
-                  </p>
+        <div className="my-16 bg-gradient-to-b from-[#FFFFFF] via-[#E6DEDEA7] to-[#FFFFFF] py-8 px-4 rounded-lg">
+          <div className="lg:p-8 p-2">
+            {/* Mission and Vision section - exactly as in the image */}
+            <div className="grid grid-cols-1 gap-6">
+              {/* Mission with image on right */}
+              <div className="rounded-lg overflow-hidden  flex flex-col lg:flex-row">
+                <div className="flex-1 flex">
+                  <div className="p-1 h-full bg-gradient-to-b from-[#FF3F25] to-[#FEF9F9]"></div>
+                  <div className="p-6 flex-1">
+                    <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-3">Our Mission</h2>
+                    <p className="text-gray-600 text-sm">
+                      To simplify global trade by providing reliable, cost-effective, and transparent export solutions that empower businesses to thrive in international markets.
+                    </p>
+                  </div>
+                </div>
+                <div className="relative w-full lg:w-2/5 h-50 lg:h-auto">
+                  <img src={F1 || "/placeholder.svg"} alt="Office meeting" className="w-full h-full object-cover" />
                 </div>
               </div>
-              <div className="relative w-2/5 hidden lg:block">
-                <img src={F1 || "/placeholder.svg"} alt="Office meeting" className="w-full h-full object-cover" />
+              
+              {/* Vision with image on left */}
+              <div className=" rounded-lg overflow-hidden  flex flex-col-reverse lg:flex-row">
+                <div className="relative w-full lg:w-2/5 h-50 lg:mt-0 mt-3 lg:h-auto">
+                  <img src={F2 || "/placeholder.svg"} alt="Team members" className="w-full h-full object-cover" />
+                </div>
+                <div className="flex-1  flex lg:ml-8 ml-0">
+                  <div className="p-1 h-full bg-gradient-to-t from-[#FF3F25] to-[#FEF9F9]"></div>
+                  <div className="p-6 flex-1">
+                    <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-3">Our Vision</h2>
+                    <p className="text-gray-600 text-sm">
+                      To be the leading global export partner, recognized for our commitment to partner success, innovation, and ethical business practices.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg overflow-hidden flex shadow-sm">
-              <div className="relative w-2/5 hidden lg:block">
-                <img src={F2 || "/placeholder.svg"} alt="Team members" className="w-full h-full object-cover" />
-              </div>
-              <div className="flex-1 flex">
-                <div className="border-l-4 border-red-500 h-full"></div>
-                <div className="p-6 flex-1">
-                  <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-3">Our Vision</h2>
-                  <p className="text-gray-600 text-sm">
-                    To be the leading global export partner recognized for our commitment to partner success,
-                    innovation, and ethical business practices.
-                  </p>
-                </div>
-              </div>
+            <div className="flex justify-center flex-wrap space-x-4 md:space-x-26 my-6">
+              <a href="#" className="text-blue-600 underline text-sm my-2">
+                See About Services
+              </a>
+              <a href="#" className="text-blue-600 underline text-sm my-2">
+                View our Products
+              </a>
+              <a href="#" className="text-blue-600 underline text-sm my-2">
+                Contact Us for Free Consultation
+              </a>
             </div>
-          </div>
-
-          <div className="flex justify-center space-x-8 my-4">
-            <a href="#" className="text-blue-600 hover:underline text-sm">
-              See About Services
-            </a>
-            <a href="#" className="text-blue-600 hover:underline text-sm">
-              View our Products
-            </a>
-            <a href="#" className="text-blue-600 hover:underline text-sm">
-              Contact Us for Free Consultation
-            </a>
-          </div>
           </div>
         </div>
 
         <div className="my-16 bg-gradient-to-b from-[#FFFFFF]  via-[#E6DEDEA7] to-[#FFFFFF] py-8 px-4 rounded-lg">
-       <div className="p-16">
-
-      
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8 ">
-            <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-2 md:mb-0">What our customers say</h2>
-            <p className="text-sm text-gray-800 plus-jakarta-sans-400">Rated 4.7 / 5 based on 28,370 reviews Showing our 4.5 star reviews</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm  relative">
-              <div className="mb-4">
-                <p className="text-gray-700 plus-jakarta-sans-400  text-sm">
-                  "Amazing design, easy to customize and a design quality superlative account on its visual platform for
-                  the optimized performance. And we didn't run out our original designs."
-                </p>
-              </div>
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-                  <img src={P3 || "/placeholder.svg"} alt="Leslie Alexander" className="w-full h-full object-cover" />
-                </div>
-                <div className="plus-jakarta-sans-400">
-                  <p className="font-medium text-sm">Leslie Alexander</p>
-                  <p className="text-gray-500 text-xs">Lorem Ipsum</p>
-                </div>
-              </div>
-              <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+          <div className="lg:p-8 p-4">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+              <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-2 md:mb-0">What our customers say</h2>
+              <p className="text-sm text-gray-800 plus-jakarta-sans-400">Rated 4.7 / 5 based on 28,370 reviews Showing our 4.5 star reviews</p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm  relative">
-              <div className="mb-4">
-                <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
-                  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et."
-                </p>
-              </div>
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-                  <img src={P2 || "/placeholder.svg"} alt="Jenny Wilson" className="w-full h-full object-cover" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm relative">
+                <div className="mb-4">
+                  <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
+                    "Amazing design, easy to customize and a design quality superlative account on its visual platform for
+                    the optimized performance. And we didn't run out our original designs."
+                  </p>
                 </div>
-                <div className="plus-jakarta-sans-400">
-                  <p className="font-medium text-sm">Jenny Wilson</p>
-                  <p className="text-gray-500 text-xs">Lorem Ipsum</p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                    <img src={P3 || "/placeholder.svg"} alt="Leslie Alexander" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="plus-jakarta-sans-400">
+                    <p className="font-medium text-sm">Leslie Alexander</p>
+                    <p className="text-gray-500 text-xs">Lorem Ipsum</p>
+                  </div>
                 </div>
+                <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
               </div>
-              <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm relative">
+                <div className="mb-4">
+                  <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
+                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et."
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                    <img src={P2 || "/placeholder.svg"} alt="Jenny Wilson" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="plus-jakarta-sans-400">
+                    <p className="font-medium text-sm">Jenny Wilson</p>
+                    <p className="text-gray-500 text-xs">Lorem Ipsum</p>
+                  </div>
+                </div>
+                <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm relative">
+                <div className="mb-4">
+                  <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
+                    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                    <img src={P1 || "/placeholder.svg"} alt="Courtney Henry" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="plus-jakarta-sans-400">
+                    <p className="font-medium text-sm">Courtney Henry</p>
+                    <p className="text-gray-500 text-xs">Lorem Ipsum</p>
+                  </div>
+                </div>
+                <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm  relative">
-              <div className="mb-4">
-                <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
-                  "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                  deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati."
-                </p>
-              </div>
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-                  <img src={P1 || "/placeholder.svg"} alt="Courtney Henry" className="w-full h-full object-cover" />
-                </div>
-                <div className="plus-jakarta-sans-400">
-                  <p className="font-medium text-sm">Courtney Henry</p>
-                  <p className="text-gray-500 text-xs">Lorem Ipsum</p>
-                </div>
-              </div>
-              <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+            <div className="flex justify-start mt-6 items-center">
+              <button className="w-11 h-8 cursor-pointer rounded-xl bg-white border border-gray-300 flex items-center justify-center mx-1 shadow-sm">
+                <span className="text-gray-800">&lt;</span>
+              </button>
+              <button className="w-11 h-8 cursor-pointer rounded-xl bg-white border border-gray-300 flex items-center justify-center mx-1 shadow-sm">
+                <span className="text-gray-800">&gt;</span>
+              </button>
             </div>
-          </div>
-
-          <div className="flex justify-start mt-6 items-center">
-            <button className="w-11 h-8 cursor-pointer rounded-xl bg-white border border-gray-300 flex items-center justify-center mx-1 shadow-sm">
-              <span className="text-gray-800">&lt;</span>
-            </button>
-            <button className="w-11 h-8 cursor-pointer rounded-xl bg-white border border-gray-300 flex items-center justify-center mx-1 shadow-sm">
-              <span className="text-gray-800">&gt;</span>
-            </button>
-          </div>
           </div>
         </div>
       </div>

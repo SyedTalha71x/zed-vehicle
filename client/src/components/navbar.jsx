@@ -1,17 +1,26 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import NavLogo from '../../public/navbar-logo.svg'
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
+
+  // Close the sidebar when the route changes
+  useEffect(() => {
+    if (isOpen) {
+      setIsOpen(false)
+    }
+  }, [location.pathname])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
   return (
-    <nav className="bg-gray-50 shadow-xs w-full">
+    <nav className="bg-gray-50 shadow-xs w-full sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-30 items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -27,13 +36,13 @@ const Navbar = () => {
             <Link to="/about-us" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               About Us
             </Link>
-            <Link to="/portfolio" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
+            <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Products
             </Link>
-            <Link to="/our-team" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
+            <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Our Services
             </Link>
-            <Link to="/testimonials" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
+            <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               How it works
             </Link>
             <Link to="/track-order" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
@@ -63,8 +72,9 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile menu - slides in from left */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform ease-in-out duration-500 z-50 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white  shadow-lg transform transition-transform ease-in-out duration-300 z-50 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -91,19 +101,19 @@ const Navbar = () => {
             About Us
           </Link>
           <Link
-            to="/portfolio"
+            to="/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Products
           </Link>
           <Link
-            to="/our-team"
+            to="/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Our Services
           </Link>
           <Link
-            to="/testimonials"
+            to="/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             How it Works
@@ -113,6 +123,12 @@ const Navbar = () => {
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Track Your Order
+          </Link>
+          <Link 
+            to="/compliance"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+          >
+            Compliance & Insurance
           </Link>
           <Link to={"/contact-us"}>
             <div className="mt-4">
@@ -124,7 +140,7 @@ const Navbar = () => {
 
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 bg-opacity-25 z-40 transition-opacity duration-500 ease-in-out md:hidden" 
+          className="fixed inset-0 bg-black/50 bg-opacity-25 z-40 transition-opacity duration-300 ease-in-out md:hidden" 
           onClick={toggleMenu}
         ></div>
       )}

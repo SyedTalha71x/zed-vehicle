@@ -1,8 +1,9 @@
 import AboutPic from "../../public/Background.png"
-import Image1 from "../../public/Figure → Link.png"
-import Image2 from "../../public/g2.jpg.png"
-import Image3 from "../../public/g3.jpg.png"
-import Image4 from "../../public/Link (1).png"
+import MountainImage from "../../public/Figure → Link.png"
+import MenImage from "../../public/g2.jpg.svg"
+import WareHouseImage from "../../public/g3.jpg.png"
+import HandShakeImage from "../../public/g1.jpg.svg"
+import Containers from '../../public/g4.jpg.png'
 
 import Frame1 from "../../public/f1.svg fill.svg"
 import Frame2 from "../../public/f2.svg.svg"
@@ -16,6 +17,8 @@ import F2 from "../../public/Frame 427320598.png"
 import P1 from "../../public/team3-150x150.jpg.png"
 import P2 from "../../public/team5-150x150.jpg.png"
 import P3 from "../../public/test1-150x150.jpg.png"
+
+import Vector from '../../public/Vector.svg'
 
 function AboutUs() {
   return (
@@ -47,41 +50,62 @@ function AboutUs() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-5 gap-4">
-            <div className="col-span-2">
-              <div className="relative h-full bg-red-500 rounded-lg overflow-hidden">
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-[0.6fr_1.2fr_1.2fr] gap-4">
+            {/* Left column */}
+            <div className="flex flex-col">
+              <div className="relative h-60 bg-red-500 rounded-lg overflow-hidden mb-4">
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
                   <h3 className="text-xl font-bold text-white">Your Global Export Partner</h3>
                 </div>
               </div>
-            </div>
-            <div className="col-span-3 grid grid-cols-2 grid-rows-2 gap-4">
-              <div className="relative h-40 bg-gray-200 rounded-lg overflow-hidden">
+              <div className="relative h-48 bg-gray-200 rounded-lg overflow-hidden">
                 <img
-                  src={Image1 || "/placeholder.svg"}
-                  alt="Business handshake"
+                  src={HandShakeImage || "/placeholder.svg"}
+                  alt="Global handshake"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="relative h-40 bg-gray-200 rounded-lg overflow-hidden">
+            </div>
+
+            {/* Center column */}
+            <div className="relative h-full bg-gray-200 rounded-lg overflow-hidden">
+              <img
+                src={MenImage || "/placeholder.svg"}
+                alt="Business men"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Right column */}
+            <div className="flex flex-col gap-4">
+              <div className="relative h-full bg-gray-200 overflow-hidden">
                 <img
-                  src={Image2 || "/placeholder.svg"}
+                  src={WareHouseImage || "/placeholder.svg"}
                   alt="Warehouse interior"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="relative h-40 bg-gray-200 rounded-lg overflow-hidden">
-                <img
-                  src={Image3 || "/placeholder.svg"}
-                  alt="Shipping containers"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="relative h-40 bg-gray-200 rounded-lg overflow-hidden">
-                <img src={Image4 || "/placeholder.svg"} alt="Global shipping" className="w-full h-full object-cover" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="relative h-48 bg-gray-200 overflow-hidden">
+                  <img
+                    src={Containers || "/placeholder.svg"}
+                    alt="Shipping containers"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="relative h-48 bg-gray-200 overflow-hidden">
+                  <img
+                    src={MountainImage || "/placeholder.svg"}
+                    alt="Mountain landscape"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
+
+
         </div>
 
         <div className="mb-16">
@@ -229,7 +253,7 @@ function AboutUs() {
                   <img src={F1 || "/placeholder.svg"} alt="Office meeting" className="w-full h-full object-cover" />
                 </div>
               </div>
-              
+
               {/* Vision with image on left */}
               <div className=" rounded-lg overflow-hidden  flex flex-col-reverse lg:flex-row">
                 <div className="relative w-full lg:w-2/5 h-50 lg:mt-0 mt-3 lg:h-auto">
@@ -270,6 +294,12 @@ function AboutUs() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-sm relative">
+                <div className="flex items-center mb-4 justify-between">
+                  <div className="plus-jakarta-sans-400">Lorem Ipsum</div>
+                  <div>
+                    <img src={Vector} alt="" />
+                  </div>
+                </div>
                 <div className="mb-4">
                   <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
                     "Amazing design, easy to customize and a design quality superlative account on its visual platform for
@@ -285,10 +315,16 @@ function AboutUs() {
                     <p className="text-gray-500 text-xs">Lorem Ipsum</p>
                   </div>
                 </div>
-                <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+                {/* <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div> */}
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm relative">
+              <div className="flex items-center mb-4 justify-between">
+                  <div className="plus-jakarta-sans-400">Lorem Ipsum</div>
+                  <div>
+                    <img src={Vector} alt="" />
+                  </div>
+                </div>
                 <div className="mb-4">
                   <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
                     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
@@ -304,10 +340,16 @@ function AboutUs() {
                     <p className="text-gray-500 text-xs">Lorem Ipsum</p>
                   </div>
                 </div>
-                <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+                {/* <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div> */}
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm relative">
+              <div className="flex items-center mb-4 justify-between">
+                  <div className="plus-jakarta-sans-400">Lorem Ipsum</div>
+                  <div>
+                    <img src={Vector} alt="" />
+                  </div>
+                </div>
                 <div className="mb-4">
                   <p className="text-gray-700 plus-jakarta-sans-400 text-sm">
                     "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
@@ -323,7 +365,7 @@ function AboutUs() {
                     <p className="text-gray-500 text-xs">Lorem Ipsum</p>
                   </div>
                 </div>
-                <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div>
+                {/* <div className="absolute top-6 right-6 text-gray-300 text-4xl">"</div> */}
               </div>
             </div>
 

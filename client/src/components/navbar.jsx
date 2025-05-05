@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
-  // Close the sidebar when the route changes
   useEffect(() => {
     if (isOpen) {
       setIsOpen(false)

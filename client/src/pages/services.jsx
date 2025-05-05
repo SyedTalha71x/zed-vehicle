@@ -44,7 +44,8 @@ function ServicesPage() {
       <div>
         <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-8">Why Choose Us?</h2>
 
-        <div className="grid grid-cols-1 plus-jakarta-sans-400 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* First row of 4 items */}
+        <div className="grid grid-cols-1 plus-jakarta-sans-400 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="flex flex-col items-start">
             <div className="mb-4">
               <img src={Frame1} alt="" />
@@ -84,46 +85,47 @@ function ServicesPage() {
             Optional cargo insurance for full peace of mind; certificate included with every insured shipment.
             </p>
           </div>
+        </div>
 
-
-
-          <div className="flex flex-col items-start">
-            <div className="mb-4">
-              <img src={Frame5} alt="" />
+        {/* Second row of 3 items - centered */}
+        <div className="flex justify-center ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-4xl lg:mt-10 mt-0">
+            <div className="flex flex-col items-start">
+              <div className="mb-4">
+                <img src={Frame5} alt="" />
+              </div>
+              <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Custom Contracts & Invoicing</h3>
+              <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+              Every deal formalized with a bespoke contract and proforma invoice to protect both parties.
+              </p>
             </div>
-            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Custom Contracts & Invoicing</h3>
-            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
-            Every deal formalized with a bespoke contract and proforma invoice to protect both parties.
-            </p>
-          </div>
 
-          <div className="flex flex-col items-start">
-            <div className="mb-4">
-              <img src={Frame6} alt="" />
+            <div className="flex flex-col items-start">
+              <div className="mb-4">
+                <img src={Frame6} alt="" />
+              </div>
+              <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Real-Time Tracking</h3>
+              <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+              Receive photo updates, document scans, and live ETAs via WhatsApp, email, or portal.
+              </p>
             </div>
-            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Real-Time Tracking</h3>
-            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
-            Receive photo updates, document scans, and live ETAs via WhatsApp, email, or portal.
-            </p>
-          </div>
 
-          <div className="flex flex-col items-start">
-            <div className="mb-4">
-              <img src={Frame7} alt="" />
+            <div className="flex flex-col items-start">
+              <div className="mb-4">
+                <img src={Frame7} alt="" />
+              </div>
+              <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Flexible Payment</h3>
+              <p className="text-sm text-gray-800 plus-jakarta-sans-400">
+              Escrow, LC, T/T—pick what's safest for you.
+              </p>
             </div>
-            <h3 className="text-lg plus-jakarta-sans text-gray-900 mb-2">Flexible Payment</h3>
-            <p className="text-sm text-gray-800 plus-jakarta-sans-400">
-            Escrow, LC, T/T—pick what’s safest for you.
-            </p>
           </div>
         </div>
       </div>
 
-      <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-10 mt-16">How it Works</h2>
+      <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-10 mt-20">How it Works</h2>
 
       <div className="mt-16">
-
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-8 md:gap-y-16">
           {/* Step 1 */}
           <div className="flex md:-mt-6">
@@ -225,7 +227,6 @@ function ServicesPage() {
                 Ongoing help until you confirm safe arrival              </p>
             </div>
           </div>
-          {/* </div> */}
         </div>
       </div>
 

@@ -21,6 +21,7 @@ import P3 from "../../public/test1-150x150.jpg.png"
 import Vector from '../../public/Vector.svg'
 
 function AboutUs() {
+  
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

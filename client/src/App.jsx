@@ -9,7 +9,9 @@ import ContactUs from './pages/contact-us'
 import AboutUs from './pages/about-us';
 import Products from './pages/products';
 import FAQS from './pages/faqs'
-// import Home from './pages/home'
+import Blog from './pages/blog'
+import BLOGDetail from './pages/blog-detail'
+// import Home from './pges/home'
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/products" element={<Products />} />
         <Route path="/faqs" element={<FAQS />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog-details/:id" element={<BLOGDetail />} />
+
       </Routes>
       <Footer />
     </Router>

@@ -38,14 +38,14 @@ const Footer = () => {
                 <Link to="/" className="text-gray-800 hover:text-gray-900 text-sm">
                   Home
                 </Link>
-                <Link to="/" className="text-gray-800 hover:text-gray-900 text-sm">
-                  Inventory
+                <Link to="/blog" className="text-gray-800 hover:text-gray-900 text-sm">
+                  Blogs
                 </Link>
                 <Link to="/about-us" className="text-gray-800 hover:text-gray-900 text-sm">
                   About Us
                 </Link>
                 <Link to="/faqs" className="text-gray-800 hover:text-gray-900 text-sm">
-                  FAQ & Blog
+                  FAQS
                 </Link>
                 <Link to="/contact-us" className="text-gray-800 hover:text-gray-900 text-sm">
                   Contact Us

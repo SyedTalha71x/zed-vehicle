@@ -73,7 +73,7 @@ const Navbar = () => {
 
       {/* Mobile menu - slides in from left */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white  shadow-lg transform transition-transform ease-in-out duration-300 z-50 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white  shadow-lg transform transition-transform ease-in-out duration-500 z-50 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

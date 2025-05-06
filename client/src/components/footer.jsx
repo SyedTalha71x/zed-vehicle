@@ -19,7 +19,7 @@ const Footer = () => {
       {/* Add ScrollToTop component here */}
       <ScrollToTop />
       
-      <footer className="bg-[#E6DEDEA7] mt-10 py-8 px-4 md:px-8 w-full shadow-xs">
+      <footer className="bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] mt-10 py-8 px-4 md:px-8 w-full shadow-xs">
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row items-start justify-between gap-8">
             <div className="w-full md:w-1/4 flex flex-col items-start">

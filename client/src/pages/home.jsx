@@ -1,7 +1,11 @@
-import { useRef, useState, useEffect } from "react"
-import Hero from "../../public/Hero.png"
+"use client"
 
+import { useRef, useState, useEffect } from "react"
 import gsap from "gsap"
+import { MdOutlineArrowOutward } from "react-icons/md"
+import Hero from "../../public/Hero.png"
+import QuickBenefits from "../components/quick-benefits"
+
 import Image1 from "../../public/image 15.png"
 import Image2 from "../../public/image 15 (1).png"
 import Image4 from "../../public/image 15 (3).png"
@@ -12,94 +16,69 @@ import BuildinMaterials from "../../public/image 15 (2 -2).png"
 import Oil from "../../public/image 15 (3 - 2).png"
 import RetailImage from "../../public/image 15 (1 - 1).png"
 
-import { FaSearch, FaDollarSign, FaTruck } from "react-icons/fa"
+import Background from "../../public/Background.svg"
 
+import pic1 from "../../public/1-2.svg"
+import pic2 from "../../public/image 15.png"
 
-import Background from '../../public/Background.svg'
-
-import pic1 from '../../public/1-2.svg'
-import pic2 from '../../public/image 15.png'
-import { MdOutlineArrowOutward } from "react-icons/md"
-
-
-import P1 from '../../public/about-images/Group (1).svg'
-import P2 from '../../public/about-images/Group.svg'
-import P3 from '../../public/about-images/Vector.svg'
+import P1 from "../../public/about-images/Group (1).svg"
+import P2 from "../../public/about-images/Group.svg"
+import P3 from "../../public/about-images/Vector.svg"
 
 const categories = [
     {
         id: 1,
-        title: "Minerals & Raw Materials",
-        image: Image1,
-        link: "#",
-        description:
-            "We source certified traceable coal, gemstones, and other minerals from trusted suppliers, ensuring consistent quality at competitive pricing.",
-        features: ["Flexible Terms", "Reliable Supply", "Competitive Prices", "Quality Assurance"],
+        title: "Machinery",
+        image: Machiner,
+        key: "New Entry",
     },
     {
         id: 2,
-        title: "Heavy Machinery & Equipment",
-        image: Machiner,
-        link: "#",
-        description:
-            "Industrial machinery and equipment sourced from reputable manufacturers with warranty and maintenance support.",
-        features: ["New & Used Options", "Technical Support", "Competitive Pricing", "Quality Assurance"],
+        title: "Apparel",
+        image: Image1,
+        key: "New Entry",
     },
     {
         id: 3,
-        title: "Electronics & Appliances",
+        title: "Agricultural Products",
         image: Image2,
-        link: "#",
-        description: "Consumer and industrial electronics from leading brands with international warranty coverage.",
-        features: ["Latest Models", "Bulk Discounts", "Warranty Support", "Quality Certification"],
+        key: " ",
     },
     {
         id: 4,
-        title: "Textiles & Apparel",
+        title: "Minerals",
         image: Image4,
-        link: "#",
-        description: "OEM and aftermarket automotive components for all major vehicle brands with certification.",
-        features: ["OEM Quality", "Extensive Inventory", "Competitive Pricing", "Fast Shipping"],
+        key: "New Entry",
     },
     {
         id: 5,
-        title: "Food & Agricultural Products",
+        title: "Machinery",
         image: Agriculture,
-        link: "#",
-        description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-        features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+        key: "New Entry",
     },
     {
         id: 6,
-        title: "Vehicles & Spare Parts",
+        title: "Apparel",
         image: Image4,
-        link: "#",
-        description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-        features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+        key: "",
     },
     {
         id: 7,
-        title: "Oil and Petroleum Products",
+        title: "Agricultural Products",
         image: Oil,
-        link: "#",
-        description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-        features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+        key: "",
     },
     {
         id: 8,
-        title: "Consumer & Retail Goods",
+        title: "Minerals",
         image: RetailImage,
-        link: "#",
-        description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-        features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+        key: "",
     },
     {
         id: 9,
-        title: "Building Materials",
+        title: "Machinery",
         image: BuildinMaterials,
-        link: "#",
-        description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-        features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+        key: "",
     },
 ]
 
@@ -234,8 +213,13 @@ const Home = () => {
 
     return (
         <div className="">
+            {/* Add the QuickBenefits component here, before the Hero image */}
+
             <div className="mt-8 p-2 max-w-7xl mx-auto w-full">
                 <img src={Hero || "/placeholder.svg"} className="h-full w-full" alt="Hero" />
+            </div>
+            <div>
+                <QuickBenefits />
             </div>
 
             <div className="my-12 px-2 md:px-6 max-w-7xl mx-auto w-full">
@@ -289,32 +273,36 @@ const Home = () => {
                         {visibleCategories.map((category) => (
                             <div
                                 key={category.id}
-                                className="plus-jakarta-sans-400 cursor-pointer"
+                                className="plus-jakarta-sans-400 cursor-pointer relative rounded-xl overflow-hidden"
                                 onClick={() => handleProductClick(category)}
                             >
-                                <div className="rounded-md overflow-hidden h-full">
+                                <div className="relative h-full aspect-[4/5]">
+                                    {/* Image */}
                                     <img
                                         src={category.image || "/placeholder.svg"}
                                         alt={category.title}
                                         className="w-full h-full rounded-md object-cover"
                                     />
-                                </div>
-                                <div className="mt-2">
-                                    <h3 className="font-medium text-gray-900 text-sm sm:text-base">{category.title}</h3>
-                                    <a
-                                        href="#"
-                                        className="block text-blue-600 text-xs sm:text-sm mt-1 underline"
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            handleProductClick(category)
-                                        }}
-                                    >
-                                        Show more
-                                    </a>
+
+                                    {/* Black Overlay */}
+                                    <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 z-10"></div>
+
+                                    {/* Key Tag */}
+                                    {category.key && category.key.trim() && (
+                                        <div className="absolute z-20 plus-jakarta-sans-400 top-3 left-3 bg-red-500 text-white text-xs px-4 py-1.5 rounded-md">
+                                            {category.key}
+                                        </div>
+                                    )}
+
+                                    {/* Title Overlay */}
+                                    <div className="absolute z-20 bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+                                        <h3 className="plus-jakarta-sans text-white text-xl">{category.title}</h3>
+                                    </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+
 
                     <div className="flex justify-center mt-26 pb-10 sm:mt-28 space-x-2">
                         {categories.slice(0, categories.length - (window.innerWidth < 640 ? 1 : 2)).map((_, index) => (
@@ -330,25 +318,28 @@ const Home = () => {
                 </div>
             </div>
 
-            <div ref={howItWorksRef} className="max-w-7xl bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] rounded-xl mx-auto w-full   my-16">
-                <div className="flex flex-col md:flex-row gap-8">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src={Background}
-                            alt="Cargo ship with shipping containers"
-                            className="w-full h-auto object-cover rounded-md"
-                        />
-                    </div>
+            <div className="p-2">
+                <div className="max-w-7xl bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] rounded-xl mx-auto w-full   my-16">
+                    <div className="flex flex-col md:flex-row gap-8">
+                        <div className="w-full md:w-1/2">
+                            <img
+                                src={Background || "/placeholder.svg"}
+                                alt="Cargo ship with shipping containers"
+                                className="w-full h-auto object-cover rounded-md"
+                            />
+                        </div>
 
-                    <div className="w-full md:w-1/2 flex flex-col justify-center">
-                        <h2 className="text-2xl plus-jakarta-sans mb-3">How It Works</h2>
-                        <p className="text-gray-800 mb-4 plus-jakarta-sans-400">
-                            Custom process for your business: Tell us what you need; we source, negotiate and secure the best price; you choose your service level—sourcing only, shipping, full logistics, or door-to-door.
-                        </p>
-                        <div>
-                            <button className="bg-red-500 plus-jakarta-sans-400 hover:bg-red-600 text-white py-2 px-8 rounded-2xl text-sm">
-                                Learn More
-                            </button>
+                        <div className="w-full p-3 md:w-1/2 flex flex-col justify-center md:items-start items-center">
+                            <h2 className="text-2xl plus-jakarta-sans mb-3">How It Works</h2>
+                            <p className="text-gray-800 mb-4 plus-jakarta-sans-400">
+                                Custom process for your business: Tell us what you need; we source, negotiate and secure the best price;
+                                you choose your service level—sourcing only, shipping, full logistics, or door-to-door.
+                            </p>
+                            <div>
+                                <button className="bg-red-500 plus-jakarta-sans-400 hover:bg-red-600 text-white py-2 px-8 rounded-2xl text-sm">
+                                    Learn More
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -359,7 +350,7 @@ const Home = () => {
 
                 <div className="flex flex-col md:flex-row gap-6 ">
                     {/* Left side - Product categories */}
-                    <div className="w-full md:w-1/2 space-y-6" ref={featuredProductsRef}>
+                    <div className="w-full md:w-1/2 space-y-6">
                         {/* Minerals */}
                         <div className="flex flex-wrap items-center gap-2">
                             <p className="plus-jakarta-sans">Minerals:</p>
@@ -367,7 +358,10 @@ const Home = () => {
                                 Reliable supply of iron ore, copper, and other minerals for global industries.
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
-                                Explore now <div><MdOutlineArrowOutward size={20} /></div>
+                                Explore now{" "}
+                                <div>
+                                    <MdOutlineArrowOutward size={20} />
+                                </div>
                             </a>
                         </div>
 
@@ -378,16 +372,24 @@ const Home = () => {
                                 Heavy equipment solutions for construction, agriculture, and manufacturing.
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
-                                Explore now <div><MdOutlineArrowOutward size={20} /></div>
+                                Explore now{" "}
+                                <div>
+                                    <MdOutlineArrowOutward size={20} />
+                                </div>
                             </a>
                         </div>
 
                         {/* Exports */}
                         <div className="flex flex-wrap items-center gap-2">
                             <p className="plus-jakarta-sans">Exports:</p>
-                            <p className="text-sm text-gray-700   plus-jakarta-sans-400">Comprehensive logistics solutions for global exports.</p>
+                            <p className="text-sm text-gray-700   plus-jakarta-sans-400">
+                                Comprehensive logistics solutions for global exports.
+                            </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
-                                Explore now <div><MdOutlineArrowOutward size={20} /></div>
+                                Explore now{" "}
+                                <div>
+                                    <MdOutlineArrowOutward size={20} />
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -396,14 +398,14 @@ const Home = () => {
                     <div className="w-full md:w-1/2 flex gap-3 mt-4 md:mt-0">
                         <div className="w-1/2">
                             <img
-                                src={pic2}
+                                src={pic2 || "/placeholder.svg"}
                                 alt="Mining operations"
                                 className="w-full h-auto rounded-md object-cover"
                             />
                         </div>
                         <div className="w-1/2">
                             <img
-                                src={pic1}
+                                src={pic1 || "/placeholder.svg"}
                                 alt="Logistics truck"
                                 className="w-full h-auto rounded-md object-cover"
                             />
@@ -413,11 +415,11 @@ const Home = () => {
             </div>
 
             <div className="max-w-7xl mx-auto w-full px-4 md:px-6 my-16">
-                <div ref={serviceIconsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     {/* Inquiry */}
                     <div className="flex flex-col items-center">
                         <div className="w-16 h-16 flex items-center justify-center mb-4">
-                            <img src={P3} alt="Inquiry Icon" className="w-full h-full object-contain" />
+                            <img src={P3 || "/placeholder.svg"} alt="Inquiry Icon" className="w-full h-full object-contain" />
                         </div>
                         <p className="text-gray-800 text-sm">
                             <span className="font-semibold">Inquiry:</span> Tell us your needs and where you want it shipped.
@@ -427,26 +429,26 @@ const Home = () => {
                     {/* Negotiate */}
                     <div className="flex flex-col items-center">
                         <div className="w-16 h-16 flex items-center justify-center mb-4">
-                            <img src={P2} alt="Negotiate Icon" className="w-full h-full object-contain" />
+                            <img src={P2 || "/placeholder.svg"} alt="Negotiate Icon" className="w-full h-full object-contain" />
                         </div>
                         <p className="text-gray-800 text-sm">
-                            <span className="font-semibold">We Negotiate the Best Price:</span> Our team finds the best suppliers and saves you money.
+                            <span className="font-semibold">We Negotiate the Best Price:</span> Our team finds the best suppliers and
+                            saves you money.
                         </p>
                     </div>
 
                     {/* Logistics */}
                     <div className="flex flex-col items-center">
                         <div className="w-16 h-16 flex items-center justify-center mb-4">
-                            <img src={P1} alt="Logistics Icon" className="w-full h-full object-contain" />
+                            <img src={P1 || "/placeholder.svg"} alt="Logistics Icon" className="w-full h-full object-contain" />
                         </div>
                         <p className="text-gray-800 text-sm">
-                            <span className="font-semibold">We Handle Logistics & Customs:</span> Expert shipping and compliance to your destination.
+                            <span className="font-semibold">We Handle Logistics & Customs:</span> Expert shipping and compliance to
+                            your destination.
                         </p>
                     </div>
                 </div>
             </div>
-
-
 
             <div
                 className="max-w-7xl rounded-2xl mx-auto px-1 sm:px-6 md:px-10 lg:px-20 mt-12 bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] "
@@ -461,7 +463,8 @@ const Home = () => {
                             Want to know more About Us!
                         </h3>
                         <p className="text-sm sm:text-base plus-jakarta-sans-400 text-black mt-4">
-                            Get a fast custom quote for your specific requirements. Contact us today by using the form below, sending a WhatsApp message, or giving us a call.
+                            Get a fast custom quote for your specific requirements. Contact us today by using the form below, sending
+                            a WhatsApp message, or giving us a call.
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-2 mt-4">
@@ -474,8 +477,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }

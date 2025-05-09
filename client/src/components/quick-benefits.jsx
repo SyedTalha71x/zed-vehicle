@@ -38,14 +38,14 @@ const QuickBenefits = () => {
   return (
     <div className="w-full py-12 px-4 md:px-6 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-2">Quick Benefits</h2>
-        <p className="text-gray-600 max-w-3xl mx-auto">
+        <h2 className="text-3xl plus-jakarta-sans mb-2">Quick Benefits</h2>
+        <p className="text-gray-600 plus-jakarta-sans-400 max-w-3xl mx-auto">
           We deliver quality Equipments that exceed industry standards, tailored to your unique requirements.
         </p>
       </div>
 
       {/* Desktop version with Archer connectors (hidden on mobile) */}
-      <div className="hidden md:block">
+      <div className="hidden md:block plus-jakarta-sans-400">
         <ArcherContainer strokeColor="#33AAB4" strokeWidth={2} strokeDasharray="5,5" arrowLength={8} arrowThickness={4}>
           <div className="relative">
             {/* Top row */}
@@ -59,6 +59,8 @@ const QuickBenefits = () => {
                       targetAnchor: "left",
                       sourceAnchor: "right",
                       style: { strokeDasharray: "5,5" },
+                      sourceOffset: { x: 80, y: 0 },  // Extends the arrow from source
+                      targetOffset: { x: 80, y: 0 },  // Extends the arrow to target
                       label: <div className="archer-label"></div>,
                     },
                   ]}

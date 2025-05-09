@@ -37,7 +37,6 @@ const CommentSection = () => {
 
     return (
         <div className="mt-12">
-            {/* Reactions */}
             <div className="mb-4">
                 <span className="text-sm font-medium plus-jakarta-sans-400 plus-jakarta-sans-400">Reactions</span>
                 <div className="flex items-center gap-2 mt-1">
@@ -47,7 +46,6 @@ const CommentSection = () => {
                 </div>
             </div>
 
-            {/* Admin Comment */}
             <div className="flex gap-3 mb-6">
                 <img
                     src={Admin1}
@@ -62,22 +60,19 @@ const CommentSection = () => {
                 </div>
             </div>
 
-            {/* Post Navigation */}
             <div className="flex justify-between items-center py-4 border-t border-b border-gray-200 mb-8">
-                <a href="#" className="text-sm text-gray-800 hover:text-gray-900 plus-jakarta-sans-400">
+                <a href="#" className="text-sm text-black hover:text-gray-900 plus-jakarta-sans">
                     ← Previous Post<br />
                     <span className="plus-jakarta-sans-400">How to Maintain Your BMW for the Long Run</span>
                 </a>
-                <a href="#" className="text-sm text-gray-800 hover:text-gray-900 text-right plus-jakarta-sans-400">
+                <a href="#" className="text-sm text-black hover:text-gray-900 text-right plus-jakarta-sans">
                     Next Post →<br />
                     <span className="plus-jakarta-sans-400">LUXURY AT ITS PEAK: BMW's New Flagship Sedan</span>
                 </a>
             </div>
 
-            {/* Comments Section */}
             <h3 className="text-xl font-medium plus-jakarta-sans mb-6">3 Comments</h3>
 
-            {/* Comment 1 */}
             <div className="flex gap-3 mb-6">
                 <img
                     src={Admin1}

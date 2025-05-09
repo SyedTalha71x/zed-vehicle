@@ -11,15 +11,15 @@ import Products from './pages/products';
 import FAQS from './pages/faqs'
 import Blog from './pages/blog'
 import BLOGDetail from './pages/blog-detail'
-// import Home from './pges/home'
+import Home from './pages/home'
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/" element={<ServicesPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/track-order" element={<TrackOrder />} />
         <Route path="/compliance" element={<CompliancePage />} />
         <Route path="/contact-us" element={<ContactUs />} />

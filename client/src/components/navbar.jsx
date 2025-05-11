@@ -48,11 +48,20 @@ const Navbar = () => {
               Track Your Order 
             </Link>
           </div>
+          <div className="flex items-center gap-4">
+
           <Link to={"/contact-us"}>
             <div className="hidden md:flex">
               <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Contact</button>
             </div>
           </Link>
+
+          <Link to={"/dashboard/vehicle-detail"} className="md:block hidden">
+            <div className="">
+              <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Admin Dashboard</button>
+            </div>
+          </Link>
+          </div>
 
           <div className="md:hidden flex items-center">
             <button
@@ -132,6 +141,11 @@ const Navbar = () => {
           <Link to={"/contact-us"}>
             <div className="mt-4">
               <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Contact</button>
+            </div>
+          </Link>
+          <Link to={"/dashboard/vehicle-detail"}>
+            <div className="mt-4">
+              <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Admin Dashboard</button>
             </div>
           </Link>
         </div>

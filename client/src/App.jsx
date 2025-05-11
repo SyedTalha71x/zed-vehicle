@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
 import Footer from './components/footer';
 import Navbar from './components/navbar';
 import ServicesPage from './pages/services';
@@ -13,10 +14,28 @@ import Blog from './pages/blog'
 import BLOGDetail from './pages/blog-detail'
 import Home from './pages/home'
 
+
+
+import Dashboard from './layout/dashboard-layout'
+import VehicleDetail from './dashboard/vehicle-detail';
+
+
 function App() {
   return (
     <Router>
-      <Navbar />
+    <AppRoutes/>
+    </Router>
+  );
+}
+
+function AppRoutes() {
+  const location = useLocation();
+  const isRouteCheck = location.pathname.startsWith('/dashboard');
+
+  return (
+    <>
+      {!isRouteCheck && <Navbar />}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -28,10 +47,13 @@ function App() {
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details/:id" element={<BLOGDetail />} />
-
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="vehicle-detail" element={<VehicleDetail />} />
+        </Route>
       </Routes>
-      <Footer />
-    </Router>
+
+      {!isRouteCheck && <Footer />}
+    </>
   );
 }
 

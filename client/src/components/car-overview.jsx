@@ -138,8 +138,8 @@ const CarOverview = () => {
         </div>
       </div>
 
-      <div className="mt-6">
-        <button className="rounded-full py-3 w-full bg-red-500 text-white font-medium">
+      <div className="mt-6 w-full">
+        <button className="rounded-full py-2 w-full text-sm bg-red-500 text-white font-medium">
           See Cart
         </button>
       </div>

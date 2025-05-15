@@ -41,9 +41,9 @@ const QuickBenefits = () => {
   return (
     <div className="w-full mt-10 py-12 px-4 md:px-6 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl plus-jakarta-sans mb-2">Quick Benefits</h2>
+        <h2 className="text-3xl plus-jakarta-sans mb-2">Personalized Process</h2>
         <p className="text-gray-600 plus-jakarta-sans-400 max-w-3xl mx-auto">
-          We deliver quality Equipments that exceed industry standards, tailored to your unique requirements.
+        We deliver quality Equipments that exceed industry standards, tailored to your unique requirements.
         </p>
       </div>
 

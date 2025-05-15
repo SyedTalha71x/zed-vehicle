@@ -20,7 +20,7 @@ function ServicesPage() {
         <div className="flex flex-col gap-3">
           <div className="flex items-center md:flex-row flex-col">
             <h2 className="text-2xl md:w-3/2 sm:text-3xl plus-jakarta-sans text-gray-900 mb-4">
-              We Do What You Want — Your Custom Export Solution
+            Tailored Solutions — Your Custom Export Solution
             </h2>
             <p className="text-gray-600 mb-4 plus-jakarta-sans-400">
               Outback Exports provides flexible and comprehensive services to meet your specific export needs. Whether

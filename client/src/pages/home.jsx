@@ -12,12 +12,14 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-import Image1 from "../../public/image 15.png"
+import MineralImage from "../../public/image 15.png"
 import Image2 from "../../public/image 15 (1).png"
-import Image4 from "../../public/image 15 (3).png"
+import Image4 from "../../public/image 15 (3).png"  
+import ApparelImage from "../../public/image 15 (2).png"  
+import MachineryImage from "../../public/image 15 (2 - mach).png"
+import AgricultureImage from "../../public/image 15 (2 - agr).png"
 
-import Machiner from "../../public/image 15 (2 - mach).png"
-import Agriculture from "../../public/image 15 (2 - agr).png"
+
 import BuildinMaterials from "../../public/image 15 (2 -2).png"
 import Oil from "../../public/image 15 (3 - 2).png"
 import RetailImage from "../../public/image 15 (1 - 1).png"
@@ -35,56 +37,26 @@ const categories = [
     {
         id: 1,
         title: "Machinery",
-        image: Machiner,
+        image: MachineryImage,
         key: "New Entry",
     },
     {
         id: 2,
         title: "Apparel",
-        image: Image1,
+        image: ApparelImage,
         key: "New Entry",
     },
     {
         id: 3,
         title: "Agricultural Products",
-        image: Image2,
+        image: AgricultureImage,
         key: " ",
     },
     {
         id: 4,
         title: "Minerals",
-        image: Image4,
+        image: MineralImage,
         key: "New Entry",
-    },
-    {
-        id: 5,
-        title: "Machinery",
-        image: Agriculture,
-        key: "New Entry",
-    },
-    {
-        id: 6,
-        title: "Apparel",
-        image: Image4,
-        key: "",
-    },
-    {
-        id: 7,
-        title: "Agricultural Products",
-        image: Oil,
-        key: "",
-    },
-    {
-        id: 8,
-        title: "Minerals",
-        image: RetailImage,
-        key: "",
-    },
-    {
-        id: 9,
-        title: "Machinery",
-        image: BuildinMaterials,
-        key: "",
     },
 ]
 

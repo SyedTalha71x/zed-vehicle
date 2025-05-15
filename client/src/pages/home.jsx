@@ -1,10 +1,16 @@
-"use client"
-
-import { useRef, useState, useEffect } from "react"
-import gsap from "gsap"
+/* eslint-disable no-unused-vars */
+import { useRef, useState } from "react"
 import { MdOutlineArrowOutward } from "react-icons/md"
 import Hero from "../../public/Hero.png"
 import QuickBenefits from "../components/quick-benefits"
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+// import required modules
+import { Pagination } from 'swiper/modules';
 
 import Image1 from "../../public/image 15.png"
 import Image2 from "../../public/image 15 (1).png"
@@ -83,137 +89,11 @@ const categories = [
 ]
 
 const Home = () => {
-    const [activeIndex, setActiveIndex] = useState(0)
     const [selectedProduct, setSelectedProduct] = useState(null)
-    const carouselRef = useRef(null)
     const popupRef = useRef(null)
-    const howItWorksRef = useRef(null)
-    const featuredProductsRef = useRef(null)
-    const serviceIconsRef = useRef(null)
-
-    // Calculate which categories to show based on active index and screen size
-    const getVisibleCategories = () => {
-        const isMobile = window.innerWidth < 640
-        const itemsToShow = isMobile ? 2 : 3
-
-        const visibleItems = categories.slice(activeIndex, activeIndex + itemsToShow)
-
-        if (visibleItems.length < itemsToShow) {
-            visibleItems.push(...categories.slice(0, itemsToShow - visibleItems.length))
-        }
-
-        return visibleItems
-    }
-
-    const [visibleCategories, setVisibleCategories] = useState(getVisibleCategories())
-
-    useEffect(() => {
-        // Update visible categories when activeIndex changes or on window resize
-        const handleResize = () => {
-            setVisibleCategories(getVisibleCategories())
-        }
-
-        // Add resize listener
-        window.addEventListener("resize", handleResize)
-        handleResize()
-
-        return () => {
-            window.removeEventListener("resize", handleResize)
-        }
-    }, [activeIndex])
-
-    useEffect(() => {
-        // Add GSAP animation whenever visibleCategories change
-        if (carouselRef.current) {
-            gsap.fromTo(
-                carouselRef.current.children,
-                {
-                    opacity: 0,
-                    x: 50,
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.6,
-                    stagger: 0.15,
-                    ease: "power2.out",
-                },
-            )
-        }
-
-        // Animate new sections on load
-        if (howItWorksRef.current) {
-            gsap.fromTo(howItWorksRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" })
-        }
-
-        if (featuredProductsRef.current) {
-            gsap.fromTo(
-                featuredProductsRef.current.children,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" },
-            )
-        }
-
-        if (serviceIconsRef.current) {
-            gsap.fromTo(
-                serviceIconsRef.current.children,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", delay: 0.3 },
-            )
-        }
-    }, [visibleCategories])
-
-    // Animation for popup
-    useEffect(() => {
-        if (selectedProduct && popupRef.current) {
-            // Animate popup in
-            gsap.fromTo(
-                popupRef.current,
-                {
-                    opacity: 0,
-                    y: 20,
-                    scale: 0.95,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 0.3,
-                    ease: "power2.out",
-                },
-            )
-        }
-    }, [selectedProduct])
-
-    const handleDotClick = (index) => {
-        // Animate out the current items
-        if (carouselRef.current) {
-            gsap.to(carouselRef.current.children, {
-                opacity: 0,
-                x: -50,
-                duration: 0.4,
-                stagger: 0.1,
-                ease: "power2.in",
-                onComplete: () => {
-                    // After animation out completes, update the state
-                    setActiveIndex(index)
-                    // Animation in will be handled by the useEffect above
-                },
-            })
-        } else {
-            setActiveIndex(index)
-        }
-    }
-
-    const handleProductClick = (product) => {
-        setSelectedProduct(product)
-        // Add body class to prevent scrolling when popup is open
-        document.body.style.overflow = "hidden"
-    }
-
+    
     return (
         <div className="">
-            {/* Add the QuickBenefits component here, before the Hero image */}
 
             <div className="mt-8 p-2 max-w-7xl mx-auto w-full">
                 <img src={Hero || "/placeholder.svg"} className="h-full w-full" alt="Hero" />
@@ -263,57 +143,69 @@ const Home = () => {
                 className="px-4 sm:px-6 md:px-10 lg:px-20 py-12 bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] relative"
                 style={{
                     clipPath: "polygon(61% 0, 73% 5%, 100% 5%, 100% 100%, 55% 100%, 45% 95%, 0 95%, 0 0)",
-                    // backgroundImage: "linear-gradient(to bottom, #FFFFFF, #E6DEDEA7, #FFFFFF)",
                 }}
             >
                 <div className="max-w-7xl mx-auto pt-8 pb-4">
                     <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-8">What We Export</h2>
 
-                    <div ref={carouselRef} className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
-                        {visibleCategories.map((category) => (
-                            <div
-                                key={category.id}
-                                className="plus-jakarta-sans-400 cursor-pointer relative rounded-xl overflow-hidden"
-                                onClick={() => handleProductClick(category)}
-                            >
-                                <div className="relative h-full aspect-[4/5]">
-                                    {/* Image */}
-                                    <img
-                                        src={category.image || "/placeholder.svg"}
-                                        alt={category.title}
-                                        className="w-full h-full rounded-md object-cover"
-                                    />
+                    <div className="relative">
+                        <Swiper
+                            slidesPerView={1}
+                            spaceBetween={20}
+                            pagination={{
+                                clickable: true,
+                                el: '.swiper-pagination',
+                                dynamicBullets: true,
+                            }}
+                            breakpoints={{
+                                640: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 20,
+                                },
+                                768: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 30,
+                                },
+                            }}
+                            modules={[Pagination]}
+                            className="mySwiper"
+                        >
+                            {categories.map((category) => (
+                                <SwiperSlide key={category.id}>
+                                    <div
+                                        className="plus-jakarta-sans-400 cursor-pointer relative rounded-xl overflow-hidden"
+                                        // onClick={() => handleProductClick(category)}
+                                    >
+                                        <div className="relative h-full aspect-[4/5]">
+                                            {/* Image */}
+                                            <img
+                                                src={category.image || "/placeholder.svg"}
+                                                alt={category.title}
+                                                className="w-full h-full rounded-md object-cover"
+                                            />
 
-                                    {/* Black Overlay */}
-                                    <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 z-10"></div>
+                                            {/* Black Overlay */}
+                                            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 z-10"></div>
 
-                                    {/* Key Tag */}
-                                    {category.key && category.key.trim() && (
-                                        <div className="absolute z-20 plus-jakarta-sans-400 top-3 left-3 bg-red-500 text-white text-xs px-4 py-1.5 rounded-md">
-                                            {category.key}
+                                            {/* Key Tag */}
+                                            {category.key && category.key.trim() && (
+                                                <div className="absolute z-20 plus-jakarta-sans-400 top-3 left-3 bg-red-500 text-white text-xs px-4 py-1.5 rounded-md">
+                                                    {category.key}
+                                                </div>
+                                            )}
+
+                                            {/* Title Overlay */}
+                                            <div className="absolute z-20 bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+                                                <h3 className="plus-jakarta-sans text-white text-xl">{category.title}</h3>
+                                            </div>
                                         </div>
-                                    )}
-
-                                    {/* Title Overlay */}
-                                    <div className="absolute z-20 bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
-                                        <h3 className="plus-jakarta-sans text-white text-xl">{category.title}</h3>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-
-                    <div className="flex justify-center mt-26 pb-10 sm:mt-28 space-x-2">
-                        {categories.slice(0, categories.length - (window.innerWidth < 640 ? 1 : 2)).map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handleDotClick(index)}
-                                className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 ${activeIndex === index ? "bg-[#FF3F25]" : "bg-black"
-                                    }`}
-                                aria-label={`Go to slide ${index + 1}`}
-                            />
-                        ))}
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        
+                        {/* Custom pagination container positioned slightly below the carousel */}
+                        <div className="swiper-pagination mt-6 relative bottom-0" style={{ position: 'relative' }} />
                     </div>
                 </div>
             </div>
@@ -454,7 +346,6 @@ const Home = () => {
                 className="max-w-7xl rounded-2xl mx-auto px-1 sm:px-6 md:px-10 lg:px-20 mt-12 bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] "
                 style={{
                     clipPath: "polygon(41% 0, 51% 9%, 100% 9%, 100% 100%, 60% 100%, 43% 100%, 0 100%, 0 0)",
-                    // backgroundImage: "linear-gradient(to bottom, #FFFFFF, #E6DEDEA7, #FFFFFF)",
                 }}
             >
                 <div className=" p-6 sm:p-18">

@@ -51,44 +51,64 @@ function App() {
 
   const faqItems = [
     {
-      question: "Can you source anything",
-      answer: "You can browse our inventory, select a vehicle, and request a quote. Once you confirm, our team will guide you through the ordering process."
+      question: "Can you source anything?",
+      answer: "Yes — we act as your export broker and can source a wide range of goods, from vehicles and machinery to specialty items. Let us know what you're after and we’ll do the legwork."
     },
     {
       question: "How do I know I’m getting the best deal?",
-      answer: "Yes, we offer comprehensive shipping insurance to protect your items during transit."
+      answer: "We work directly with verified suppliers and auction platforms, and always aim to secure competitive wholesale pricing. You'll receive clear breakdowns and photos before any commitment."
     },
     {
-      question: "Do you offer shipping insurance?",
-      answer: "We have expertise in handling customs procedures for most countries around the world."
+      question: "Do you offer shipping insurance?c",
+      answer: "Yes, shipping insurance is available upon request. We can include this in your quote and provide policy documentation if needed."
     },
     {
       question: "Can you handle customs in my country?",
-      answer: "We provide real-time tracking information for all shipments through our online portal."
+      answer: "We can help coordinate with agents in your country and provide the paperwork required for customs clearance. While we don’t directly control overseas customs, we ensure you’re prepared."
     },
     {
       question: "What’s in your tracking updates?",
-      answer: "Yes, all our documentation is suitable for tax accounting purposes."
+      answer: "Tracking updates include real-time shipping status, estimated delivery timeframes, port details, and any relevant customs or transport updates."
     },
     {
       question: "Can I see your contract form or insurance certificate before committing?",
-      answer: "We accept credit cards, PayPal, bank transfers, and various other payment methods."
+      answer: "Absolutely. Transparency is key — we're happy to share sample contracts, terms of service, and insurance certificates beforehand."
     },
     {
       question: "What payment methods do you support?",
-      answer: "Our most popular services include international shipping, customs clearance, and insurance coverage."
+      answer: "We accept bank transfers, international wire (SWIFT), and secure online payments depending on your country. We’ll confirm all options in your invoice."
     },
     {
       question: "What are your most popular exports?",
-      answer: "We export to over 200 countries and territories worldwide."
+      answer: "Used 4x4 vehicles (like Toyota Land Cruisers and Hilux), heavy equipment, and auto parts are among our top exports — especially to African and Pacific regions."
     },
     {
       question: "Which countries do you export to?",
-      answer: "Yes, our team can provide guidance on compliance requirements and necessary legal documentation."
+      answer: "We export globally, with strong relationships in Africa, Southeast Asia, and the Pacific Islands. If you're unsure, contact us to confirm."
     },
     {
         question: "Can you advise on compliance or legal docs?",
-        answer: "Yes, our team can provide guidance on compliance requirements and necessary legal documentation."
+        answer: "Yes — we provide guidance on export documentation, legal compliance, import permits, and vehicle regulations specific to your country."
+      },
+      {
+        question: "Do you offer inspections or photos before shipment?",
+        answer: "Yes, we provide detailed photos, condition reports, and optional third-party inspections before anything is sent."
+      },
+      {
+        question: "Is there a minimum or maximum order size?",
+        answer: "There’s no strict minimum. We ship anything from a single car to full container loads depending on your needs."
+      },
+      {
+        question: " Can I request specific brands or models?",
+        answer: "Of course — let us know your specs and we’ll do our best to find exactly what you’re after."
+      },
+      {
+        question: " How long does shipping take?",
+        answer: "Shipping times vary by destination and product. We’ll give you an ETA before you place your order."
+      },
+      {
+        question: "Can I pick up the goods myself?",
+        answer: "Yes, if you prefer to arrange your own shipping or pick-up, we can coordinate that too."
       }
   ];
 

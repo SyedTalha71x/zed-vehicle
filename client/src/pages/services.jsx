@@ -1,5 +1,5 @@
 import React from "react";
-import ServicePicture from '../../public/Frame 427320605.svg'
+import ServicePicture from '../../public/dashboard-images/Frame 427320605.svg'
 import Frame1 from '../../public/Frame (1).svg'
 import Frame2 from '../../public/Group.svg'
 import Frame3 from '../../public/Group (1).svg'

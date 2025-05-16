@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import NavLogo from '../../public/navbar-logo.svg'
@@ -41,9 +42,9 @@ const Navbar = () => {
             <Link to="/services" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Our Services
             </Link>
-            {/* <Link to="/" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
+            <Link to="/how-it-works" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               How it works
-            </Link> */}
+            </Link>
             <Link to="/track-order" className="text-gray-700 hover:text-gray-900 px-2 py-2 text-sm plus-jakarta-sans-400">
               Track Your Order 
             </Link>
@@ -120,12 +121,12 @@ const Navbar = () => {
           >
             Our Services
           </Link>
-          {/* <Link
-            to="/"
+          <Link
+            to="/how-it-works"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             How it Works
-          </Link> */}
+          </Link>
           <Link
             to="/track-order"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"

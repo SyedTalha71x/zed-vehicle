@@ -13,6 +13,7 @@ import FAQS from './pages/faqs'
 import Blog from './pages/blog'
 import BLOGDetail from './pages/blog-detail'
 import Home from './pages/home'
+import HowItWorks from './pages/how-it-works'
 
 
 
@@ -47,6 +48,9 @@ function AppRoutes() {
         <Route path="/faqs" element={<FAQS />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details/:id" element={<BLOGDetail />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+
+
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="vehicle-detail" element={<VehicleDetail />} />
         </Route>

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import PreLoader from '../../public/about-images/preloader 1.svg';
-import QuickBenefitsImg from '../../public/about-images/2025-05-10_14-20.png'
+import QuickBenefitsImg from '../../public/blog-images/team5-150x150.jpg.png'
 
 const QuickBenefits = () => {
   const benefits = [
@@ -12,7 +12,7 @@ const QuickBenefits = () => {
     {
       id: "02",
       title: "Custom Service",
-      description: "We Do What You Want",
+      description: "Tailored Solutions",
     },
     {
       id: "03",
@@ -32,7 +32,7 @@ const QuickBenefits = () => {
     {
       id: "06",
       title: "Total Logistics & Customs",
-      description: "We Do What You Want",
+      description: "Personalized Logistics",
     },
   ];
 

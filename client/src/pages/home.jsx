@@ -14,8 +14,8 @@ import { Pagination } from 'swiper/modules';
 
 import MineralImage from "../../public/image 15.png"
 import Image2 from "../../public/image 15 (1).png"
-import Image4 from "../../public/image 15 (3).png"  
-import ApparelImage from "../../public/image 15 (2).png"  
+import Image4 from "../../public/image 15 (3).png"
+import ApparelImage from "../../public/image 15 (2).png"
 import MachineryImage from "../../public/image 15 (2 - mach).png"
 import AgricultureImage from "../../public/image 15 (2 - agr).png"
 
@@ -58,12 +58,30 @@ const categories = [
         image: MineralImage,
         key: "New Entry",
     },
+    {
+        id: 5,
+        title: "Industrial Materials",
+        image: BuildinMaterials,
+        key: "New Entry",
+    },
+    {
+        id: 6,  
+        title: "Energy & Fuels",
+        image: Oil,
+        key: "New Entry",
+    },
+    {
+        id: 7,  
+        title: "Consumer Goods",
+        image: RetailImage,
+        key: "New Entry",
+    },
 ]
 
 const Home = () => {
     const [selectedProduct, setSelectedProduct] = useState(null)
     const popupRef = useRef(null)
-    
+
     return (
         <div className="">
 
@@ -146,7 +164,7 @@ const Home = () => {
                                 <SwiperSlide key={category.id}>
                                     <div
                                         className="plus-jakarta-sans-400 cursor-pointer relative rounded-xl overflow-hidden"
-                                        // onClick={() => handleProductClick(category)}
+                                    // onClick={() => handleProductClick(category)}
                                     >
                                         <div className="relative h-full aspect-[4/5]">
                                             {/* Image */}
@@ -175,7 +193,7 @@ const Home = () => {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        
+
                         {/* Custom pagination container positioned slightly below the carousel */}
                         <div className="swiper-pagination mt-6 relative bottom-0" style={{ position: 'relative' }} />
                     </div>
@@ -219,7 +237,7 @@ const Home = () => {
                         <div className="flex flex-wrap items-center gap-2">
                             <p className="plus-jakarta-sans">Minerals and raw materials:</p>
                             <p className="text-sm text-gray-700  plus-jakarta-sans-400">
-                            We supply a comprehensive range of minerals, essential raw materials, and various scrap metals to meet the diverse needs of industries worldwide.
+                                We supply a comprehensive range of minerals, essential raw materials, and various scrap metals to meet the diverse needs of industries worldwide.
 
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
@@ -234,7 +252,7 @@ const Home = () => {
                         <div className="flex flex-wrap items-center gap-2">
                             <p className="plus-jakarta-sans">Automotive & Machinery:</p>
                             <p className="text-sm text-gray-700 plus-jakarta-sans-400">
-                            We broker a diverse range of used vehicles, machinery, and spare parts—including cars, trucks, heavy equipment, and components—sourced globally to meet varied client needs.
+                                We broker a diverse range of used vehicles, machinery, and spare parts—including cars, trucks, heavy equipment, and components—sourced globally to meet varied client needs.
 
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
@@ -249,7 +267,7 @@ const Home = () => {
                         <div className="flex flex-wrap items-center gap-2">
                             <p className="plus-jakarta-sans">Consumer Goods:</p>
                             <p className="text-sm text-gray-700   plus-jakarta-sans-400">
-                            We facilitate the export of new and used clothing, footwear, household items, and electronics, ensuring quality and affordability for diverse markets.
+                                We facilitate the export of new and used clothing, footwear, household items, and electronics, ensuring quality and affordability for diverse markets.
 
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
@@ -281,36 +299,56 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Export Solutions Section - NEW */}
             <div className="max-w-7xl mx-auto w-full px-4 md:px-6 my-16 bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] rounded-xl py-8">
                 <h2 className="text-2xl plus-jakarta-sans mb-6 px-4">Export Solutions</h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 pb-6">
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-4 pb-6">
                     <div className="space-y-2">
                         <h3 className="font-medium plus-jakarta-sans">Product Sourcing</h3>
                         <p className="text-sm text-gray-700 plus-jakarta-sans-400">
                             Identifying and securing reliable suppliers globally to meet your specific product requirements.
                         </p>
                     </div>
-                    
+
                     <div className="space-y-2">
                         <h3 className="font-medium plus-jakarta-sans">Freight Forwarding</h3>
                         <p className="text-sm text-gray-700 plus-jakarta-sans-400">
                             Coordinating international shipments via air, sea, or land to ensure timely and cost-effective delivery.
                         </p>
                     </div>
-                    
+
                     <div className="space-y-2">
                         <h3 className="font-medium plus-jakarta-sans">Customs Brokerage</h3>
                         <p className="text-sm text-gray-700 plus-jakarta-sans-400">
                             Managing all customs documentation and clearance processes to comply with international trade regulations.
                         </p>
                     </div>
+
+                    <div className="space-y-2">
+                        <h3 className="font-medium plus-jakarta-sans">Logistics & Warehousing</h3>
+                        <p className="text-sm text-gray-700 plus-jakarta-sans-400">
+                            Providing storage solutions and inventory management to streamline the supply chain.
+                        </p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="font-medium plus-jakarta-sans">Trade Compliance Consulting</h3>
+                        <p className="text-sm text-gray-700 plus-jakarta-sans-400">
+                            Offering expert advice on export regulations, tariffs, and documentation to minimize risks and costs.
+                        </p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="font-medium plus-jakarta-sans">Cargo Insurance</h3>
+                        <p className="text-sm text-gray-700 plus-jakarta-sans-400">
+                            Arranging insurance coverage to protect shipments against potential losses or damages during transit.
+                        </p>
+                    </div>
                 </div>
-                
+
                 <div className="text-center mt-2 mb-4">
-                    <a 
-                        href="/services" 
+                    <a
+                        href="/services"
                         className="inline-flex items-center gap-2 bg-[#33AAB4] text-white py-2 px-6 rounded-lg text-sm hover:bg-[#2a8a92] transition-colors"
                     >
                         View All Export Services

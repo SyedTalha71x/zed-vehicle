@@ -217,9 +217,10 @@ const Home = () => {
                     <div className="w-full md:w-1/2 space-y-6">
                         {/* Minerals */}
                         <div className="flex flex-wrap items-center gap-2">
-                            <p className="plus-jakarta-sans">Minerals:</p>
+                            <p className="plus-jakarta-sans">Minerals and raw materials:</p>
                             <p className="text-sm text-gray-700  plus-jakarta-sans-400">
-                                Reliable supply of iron ore, copper, and other minerals for global industries.
+                            We supply a comprehensive range of minerals, essential raw materials, and various scrap metals to meet the diverse needs of industries worldwide.
+
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
                                 Explore now{" "}
@@ -231,9 +232,10 @@ const Home = () => {
 
                         {/* Machinery */}
                         <div className="flex flex-wrap items-center gap-2">
-                            <p className="plus-jakarta-sans">Machinery:</p>
+                            <p className="plus-jakarta-sans">Automotive & Machinery:</p>
                             <p className="text-sm text-gray-700 plus-jakarta-sans-400">
-                                Heavy equipment solutions for construction, agriculture, and manufacturing.
+                            We broker a diverse range of used vehicles, machinery, and spare parts—including cars, trucks, heavy equipment, and components—sourced globally to meet varied client needs.
+
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
                                 Explore now{" "}
@@ -245,9 +247,10 @@ const Home = () => {
 
                         {/* Exports */}
                         <div className="flex flex-wrap items-center gap-2">
-                            <p className="plus-jakarta-sans">Exports:</p>
+                            <p className="plus-jakarta-sans">Consumer Goods:</p>
                             <p className="text-sm text-gray-700   plus-jakarta-sans-400">
-                                Comprehensive logistics solutions for global exports.
+                            We facilitate the export of new and used clothing, footwear, household items, and electronics, ensuring quality and affordability for diverse markets.
+
                             </p>
                             <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
                                 Explore now{" "}
@@ -275,6 +278,44 @@ const Home = () => {
                             />
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Export Solutions Section - NEW */}
+            <div className="max-w-7xl mx-auto w-full px-4 md:px-6 my-16 bg-gradient-to-tl from-[#d6d0d0] via-[#f3eeeea7] to-[#d6d0d0] rounded-xl py-8">
+                <h2 className="text-2xl plus-jakarta-sans mb-6 px-4">Export Solutions</h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 pb-6">
+                    <div className="space-y-2">
+                        <h3 className="font-medium plus-jakarta-sans">Product Sourcing</h3>
+                        <p className="text-sm text-gray-700 plus-jakarta-sans-400">
+                            Identifying and securing reliable suppliers globally to meet your specific product requirements.
+                        </p>
+                    </div>
+                    
+                    <div className="space-y-2">
+                        <h3 className="font-medium plus-jakarta-sans">Freight Forwarding</h3>
+                        <p className="text-sm text-gray-700 plus-jakarta-sans-400">
+                            Coordinating international shipments via air, sea, or land to ensure timely and cost-effective delivery.
+                        </p>
+                    </div>
+                    
+                    <div className="space-y-2">
+                        <h3 className="font-medium plus-jakarta-sans">Customs Brokerage</h3>
+                        <p className="text-sm text-gray-700 plus-jakarta-sans-400">
+                            Managing all customs documentation and clearance processes to comply with international trade regulations.
+                        </p>
+                    </div>
+                </div>
+                
+                <div className="text-center mt-2 mb-4">
+                    <a 
+                        href="/services" 
+                        className="inline-flex items-center gap-2 bg-[#33AAB4] text-white py-2 px-6 rounded-lg text-sm hover:bg-[#2a8a92] transition-colors"
+                    >
+                        View All Export Services
+                        <MdOutlineArrowOutward size={16} />
+                    </a>
                 </div>
             </div>
 

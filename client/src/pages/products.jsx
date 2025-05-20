@@ -22,77 +22,100 @@ import RetailImage from "../../public/image 15 (1 - 1).png"
 const categories = [
   {
     id: 1,
-    title: "Minerals & Raw Materials",
-    image: Image1,
+    title: "🚗 Automotive & Machinery",
+    image: VehicleSpareParts,
     link: "#",
     description:
-      "We source certified traceable coal, gemstones, and other minerals from trusted suppliers, ensuring consistent quality at competitive pricing.",
-    features: ["Flexible Terms", "Reliable Supply", "Competitive Prices", "Quality Assurance"],
+      "We export used vehicles, spare parts, and heavy equipment, ensuring quality and compliance with international standards.",
+    features: [
+      "Used Vehicles: We export a diverse range of used vehicles, including passenger cars, commercial trucks, buses, and specialized vehicles. Each unit is thoroughly inspected to ensure quality and compliance with international standards.",
+      "Spare Parts: Our inventory includes engines, transmissions, tyres, batteries, and other essential components, catering to the maintenance and repair needs of various vehicles.",
+      "Heavy Equipment: We supply used construction machinery, mining vehicles, and agricultural equipment, providing cost-effective solutions for large-scale operations."
+    ],
   },
   {
     id: 2,
-    title: "Heavy Machinery & Equipment",
-    image: Machiner,
+    title: "🏗️ Industrial Materials",
+    image: BuildinMaterials,
     link: "#",
     description:
-      "Industrial machinery and equipment sourced from reputable manufacturers with warranty and maintenance support.",
-    features: ["New & Used Options", "Technical Support", "Competitive Pricing", "Quality Assurance"],
+      "We offer metals, minerals, scrap materials, and construction supplies essential for manufacturing and industrial processes.",
+    features: [
+      "Metals & Minerals: We offer raw materials such as iron ore, copper, aluminum, and bauxite, essential for manufacturing and industrial processes.",
+      "Scrap Materials: Our offerings include ferrous and non-ferrous scrap metals, as well as used tyres, suitable for recycling and repurposing in various industries.",
+      "Construction Supplies: We provide bulk construction materials like cement, concrete, and steel beams, supporting infrastructure and development projects."
+    ],
   },
   {
     id: 3,
-    title: "Electronics & Appliances",
-    image: Image2,
+    title: "⚡ Energy & Fuels",
+    image: Oil,
     link: "#",
-    description: "Consumer and industrial electronics from leading brands with international warranty coverage.",
-    features: ["Latest Models", "Bulk Discounts", "Warranty Support", "Quality Certification"],
+    description: "Our exports include petroleum products, natural gas, and renewable resources to meet diverse energy needs.",
+    features: [
+      "Petroleum Products: Our exports encompass diesel, petrol, and lubricants, meeting the energy needs of diverse markets.",
+      "Natural Gas: We supply liquefied natural gas (LNG) and compressed natural gas (CNG), catering to both industrial and domestic energy requirements.",
+      "Renewable Resources: We offer used cooking oil, a valuable resource for biodiesel production, contributing to sustainable energy solutions."
+    ],
   },
   {
     id: 4,
-    title: "Textiles & Apparel",
-    image: Image4,
+    title: "🌾 Agricultural & Food Products",
+    image: Agriculture,
     link: "#",
-    description: "OEM and aftermarket automotive components for all major vehicle brands with certification.",
-    features: ["OEM Quality", "Extensive Inventory", "Competitive Pricing", "Fast Shipping"],
+    description: "We export a variety of meat, seafood, grains, dairy, and fresh produce to global markets.",
+    features: [
+      "Meat & Poultry: Our selection includes beef, lamb, and chicken, processed and packaged to meet international food safety standards.",
+      "Seafood: We export a variety of seafood, including fish, crustaceans, and mollusks, sourced from certified suppliers.",
+      "Grains & Cereals: Our offerings include wheat, rice, barley, and other grains, essential for food production and consumption.",
+      "Dairy Products: We provide milk, cheese, butter, and other dairy products, ensuring freshness and quality through controlled logistics.",
+      "Fruits & Vegetables: Our exports feature fresh and processed fruits and vegetables, catering to the nutritional needs of global markets."
+    ],
   },
   {
     id: 5,
-    title: "Food & Agricultural Products",
-    image: Agriculture,
+    title: "🛍️ Consumer Goods",
+    image: RetailImage,
     link: "#",
-    description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-    features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+    description: "We supply clothing, footwear, and household items to meet diverse consumer needs worldwide.",
+    features: [
+      "Clothing & Textiles: We supply new and used garments, as well as various textiles, supporting the apparel industry and second-hand markets.",
+      "Footwear: Our inventory includes new and used shoes and boots, catering to diverse consumer preferences.",
+      "Household Items: We offer appliances, kitchenware, furniture, and other household goods, meeting the everyday needs of consumers."
+    ],
   },
   {
     id: 6,
-    title: "Vehicles & Spare Parts",
-    image: VehicleSpareParts,
+    title: "📱 Electronics & Devices",
+    image: Image2,
     link: "#",
-    description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-    features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+    description: "Our range includes consumer and industrial electronics, both new and refurbished.",
+    features: [
+      "Consumer Electronics: Our range includes mobile phones, laptops, televisions, and other electronic devices, both new and refurbished.",
+      "Industrial Electronics: We provide manufacturing equipment, control systems, and other industrial electronic components, supporting various sectors."
+    ],
   },
   {
     id: 7,
-    title: "Oil and Petroleum Products",
-    image: Oil,
+    title: "🧴 Health & Personal Care",
+    image: Image1,
     link: "#",
-    description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-    features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+    description: "We export pharmaceuticals and personal care products adhering to international regulations.",
+    features: [
+      "Pharmaceuticals: We export over-the-counter medications and supplements, ensuring adherence to international health regulations.",
+      "Personal Care Products: Our offerings include skincare, haircare, and hygiene items, catering to the personal well-being of consumers."
+    ],
   },
   {
     id: 8,
-    title: "Consumer & Retail Goods",
-    image: RetailImage,
+    title: "📦 Packaging & Containers",
+    image: Machiner,
     link: "#",
-    description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-    features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
-  },
-  {
-    id: 9,
-    title: "Building Materials",
-    image: BuildinMaterials,
-    link: "#",
-    description: "Wide range of consumer products from trusted manufacturers with competitive wholesale pricing.",
-    features: ["Bulk Orders", "Custom Branding", "Competitive Pricing", "Quality Control"],
+    description: "We supply storage solutions and logistics supplies for efficient product handling and transportation.",
+    features: [
+      "Storage Solutions: We supply oil drums, IBC containers, pallets, and other storage options, facilitating efficient logistics and storage.",
+      "Logistics Supplies: Our range includes packaging materials and shipping containers, essential for safe and secure product transportation."
+    ],
   },
 ]
 
@@ -170,7 +193,7 @@ const Products = () => {
         }}
       >
         <div className="max-w-7xl mx-auto pt-8 pb-4">
-          <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-8">Top-Quality Vehicles & Accessories</h2>
+          <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-8">Top-Quality Products & Services</h2>
 
           <div className="relative">
             <Swiper
@@ -266,7 +289,7 @@ const Products = () => {
         <div className="fixed inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div
             ref={popupRef}
-            className="bg-white rounded-lg max-w-2xl w-full overflow-hidden shadow-xl md:p-4 p-3 max-h-[80vh] overflow-y-auto relative"
+            className="bg-white rounded-lg max-w-4xl w-full overflow-hidden shadow-xl md:p-4 p-3 max-h-[80vh] overflow-y-auto relative"
           >
             <button onClick={closePopup} className="absolute top-3 right-3 text-gray-800">
               <svg
@@ -294,12 +317,11 @@ const Products = () => {
                 <p className="text-gray-900 plus-jakarta-sans-400">{selectedProduct.description}</p>
 
                 <div className="plus-jakarta-sans-400">
-                  <h1 className="mb-2 font-semibold">Key features</h1>
-                  <ul className="space-y-1">
+                  <h1 className="mb-2 font-semibold">Key Products</h1>
+                  <ul className="list-disc ml-4 space-y-3">
                     {selectedProduct.features?.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-black rounded-full mt-1 mr-2"></div>
-                        <span className="text-sm">{feature}</span>
+                      <li key={index} className="text-sm">
+                        {feature}
                       </li>
                     ))}
                   </ul>
@@ -308,7 +330,7 @@ const Products = () => {
             </div>
 
             <div className="text-sm text-center text-gray-700 mt-4 plus-jakarta-sans-400">
-              <p>"We source minerals from trusted suppliers, ensuring consistent quality and competitive pricing."</p>
+              <p>"We source quality products from trusted suppliers, ensuring competitive pricing and reliable delivery."</p>
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-2 mt-4 plus-jakarta-sans-400">

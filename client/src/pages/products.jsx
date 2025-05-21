@@ -11,6 +11,7 @@ import Image1 from "../../public/image 15.png"
 import Image2 from "../../public/image 15 (1).png"
 import Image4 from "../../public/image 15 (2).png"
 
+
 import VehicleSpareParts from '../../public/image 15 (3).png'
 
 import Machiner from "../../public/image 15 (2 - mach).png"

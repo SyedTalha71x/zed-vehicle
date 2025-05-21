@@ -6,7 +6,6 @@ import SelectedVehicles from "../components/selected-vehicle"
 import CarOverview from "../components/car-overview"
 
 const VehicleDetail = () => {
-  const [quantity, setQuantity] = useState(21)
 
   return (
     <div className="p-4 md:p-8 ">

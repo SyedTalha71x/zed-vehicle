@@ -4,17 +4,14 @@ import { MdOutlineArrowOutward } from "react-icons/md"
 import Hero from "../../public/Hero.png"
 import QuickBenefits from "../components/quick-benefits"
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-// import required modules
 import { Pagination } from 'swiper/modules';
 
+import Image1 from "../../public/about-images/WhatsApp Image 2025-05-22 at 12.42.46 PM.jpeg"
+
 import MineralImage from "../../public/image 15.png"
-import Image2 from "../../public/image 15 (1).png"
-import Image4 from "../../public/image 15 (3).png"
 import ApparelImage from "../../public/image 15 (2).png"
 import MachineryImage from "../../public/image 15 (2 - mach).png"
 import AgricultureImage from "../../public/image 15 (2 - agr).png"
@@ -74,6 +71,12 @@ const categories = [
         id: 7,  
         title: "Consumer Goods",
         image: RetailImage,
+        key: "New Entry",
+    },
+    {
+        id: 7,  
+        title: "Health & Care",
+        image: Image1,
         key: "New Entry",
     },
 ]

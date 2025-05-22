@@ -7,7 +7,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import ServicePicture from "../../public/Frame 427320605.svg"
-import Image1 from "../../public/image 15.png"
+import Image1 from "../../public/about-images/WhatsApp Image 2025-05-22 at 12.42.46 PM.jpeg"
 import Image2 from "../../public/image 15 (1).png"
 import Image4 from "../../public/image 15 (2).png"
 

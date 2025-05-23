@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import { useRef, useState, useEffect } from "react"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
 import markerIcon from "leaflet/dist/images/marker-icon.png"
 import markerShadow from "leaflet/dist/images/marker-shadow.png"
 
-// Fix Leaflet's default icon issue
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon,
@@ -17,28 +16,51 @@ L.Icon.Default.mergeOptions({
 })
 
 function App() {
+  const mapRef = useRef(null)
+  const [selectedOffice, setSelectedOffice] = useState(0)
+  
   const offices = [
     {
       city: "San Francisco",
       address: "45 Dewey Road, San Francisco, CA 94116, USA",
       email: "sf@gocare.com",
       phone: "+1 650 123 456",
+      position: [37.7749, -122.4194]
     },
     {
       city: "New York",
       address: "123-240 Wilson Ave, Brooklyn, NY 11237, USA",
       email: "ny@gocare.com",
       phone: "+1 756 123 456",
+      position: [40.7128, -73.9352]
     },
     {
       city: "London",
       address: "127-143 Borough High St, London SE1 1NP, UK",
       email: "ldn@gocare.com",
       phone: "+76 222 333 888",
+      position: [51.5074, -0.1278]
     },
   ]
 
-  const position = [37.7749, -122.4194]
+  const scrollToMap = (officeIndex) => {
+    setSelectedOffice(officeIndex)
+    if (mapRef.current) {
+      mapRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (mapRef.current && window.L) {
+      const mapInstance = mapRef.current.leafletMap
+      if (mapInstance) {
+        mapInstance.setView(offices[selectedOffice].position, 13)
+      }
+    }
+  }, [selectedOffice])
 
   return (
     <div className="min-h-screen">
@@ -53,21 +75,39 @@ function App() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto w-full h-[400px] border border-gray-200 relative" style={{ zIndex: 0 }}>
+      <div 
+        ref={mapRef}
+        className="max-w-7xl mx-auto w-full h-[400px] border border-gray-200 relative" 
+        style={{ zIndex: 0 }}
+      >
         <MapContainer 
-          center={position} 
+          center={offices[selectedOffice].position} 
           zoom={13} 
           style={{ height: "100%", width: "100%" }}
           zoomControl={true}
           className="leaflet-container"
+          ref={(map) => {
+            if (map && mapRef.current) {
+              mapRef.current.leafletMap = map
+            }
+          }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker position={position}>
-            <Popup>Our San Francisco Office</Popup>
-          </Marker>
+          {offices.map((office, index) => (
+            <Marker key={index} position={office.position}>
+              <Popup>
+                <div>
+                  <h3 className="font-medium">{office.city} Office</h3>
+                  <p className="text-sm text-gray-600">{office.address}</p>
+                  <p className="text-sm text-blue-600 mt-1">{office.email}</p>
+                  <p className="text-sm text-gray-700">{office.phone}</p>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
         </MapContainer>
       </div>
 
@@ -79,7 +119,7 @@ function App() {
               <p className="text-gray-800 mb-6 plus-jakarta-sans-400">
                 Feel free to reach out to us with any questions or inquiries. We're here to help!
               </p>
-              <form className="grid grid-cols-1 gap-6 plus-jakarta-sans-400">
+              <div className="grid grid-cols-1 gap-6 plus-jakarta-sans-400">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -128,13 +168,16 @@ function App() {
                 </div>
                 <div>
                   <button
-                    type="submit"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      alert('Message sent!')
+                    }}
                     className="px-6 py-2 bg-[#FF3F25] text-white text-sm plus-jakarta-sans-400 cursor-pointer font-medium rounded-3xl hover:bg-red-600 transition-colors"
                   >
                     Send Message
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
 
             <div>
@@ -246,122 +289,49 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl plus-jakarta-sans text-gray-900 mb-8">Our Offices</h2>
           <div className="grid grid-cols-1 plus-jakarta-sans-400 md:grid-cols-3 gap-8">
-            <div className="space-y-2">
-              <h3 className="text-base font-medium">San Francisco</h3>
-              <p className="text-sm text-gray-600">
-                45 Dewey Road, San Francisco,
-                <br />
-                CA 94116, USA
-              </p>
-              <p className="text-sm text-blue-600 flex items-center cursor-pointer">
-                See on Map
-                <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center space-x-2">
-                  <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
+            {offices.map((office, index) => (
+              <div key={index} className="space-y-2">
+                <h3 className="text-base font-medium">{office.city}</h3>
+                <p className="text-sm text-gray-600">
+                  {office.address.split(', ').slice(0, -1).join(', ')}
+                  <br />
+                  {office.address.split(', ').slice(-1)[0]}
+                </p>
+                <button
+                  onClick={() => scrollToMap(index)}
+                  className="text-sm text-blue-600 flex items-center cursor-pointer hover:text-blue-800 transition-colors"
+                >
+                  See on Map
+                  <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                  <span className="text-sm">sf@gocare.com</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  <span className="text-sm">+1 650 123 456</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-base font-medium">New York</h3>
-              <p className="text-sm text-gray-600">
-                123-240 Wilson Ave, Brooklyn,
-                <br />
-                NY 11237, USA
-              </p>
-              <p className="text-sm text-blue-600 flex items-center cursor-pointer">
-                See on Map
-                <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center space-x-2">
-                  <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span className="text-sm">ny@gocare.com</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  <span className="text-sm">+1 756 123 456</span>
+                </button>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center space-x-2">
+                    <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">{office.email}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                    <span className="text-sm">{office.phone}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-base font-medium">London</h3>
-              <p className="text-sm text-gray-600">
-                127-143 Borough High St,
-                <br />
-                London SE1 1NP, UK
-              </p>
-              <p className="text-sm text-blue-600 flex items-center cursor-pointer">
-                See on Map
-                <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center space-x-2">
-                  <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span className="text-sm">ldn@gocare.com</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg className="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  <span className="text-sm">+76 222 333 888</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

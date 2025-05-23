@@ -29,6 +29,7 @@ import pic2 from "../../public/image 15.png"
 import P1 from "../../public/about-images/Group (1).svg"
 import P2 from "../../public/about-images/Group.svg"
 import P3 from "../../public/about-images/Vector.svg"
+import { useNavigate } from "react-router-dom";
 
 const categories = [
     {
@@ -82,9 +83,14 @@ const categories = [
 ]
 
 const Home = () => {
+    const navigate = useNavigate();
     const [selectedProduct, setSelectedProduct] = useState(null)
     const popupRef = useRef(null)
 
+
+    const redirectToPage = () =>{
+        navigate("/how-it-works")
+    }
     return (
         <div className="">
 
@@ -215,13 +221,13 @@ const Home = () => {
                         </div>
 
                         <div className="w-full p-3 md:w-1/2 flex flex-col justify-center md:items-start items-center">
-                            <h2 className="text-2xl plus-jakarta-sans mb-3">How It Works</h2>
+                            <h2  className="text-2xl plus-jakarta-sans mb-3">How It Works</h2>
                             <p className="text-gray-800 mb-4 plus-jakarta-sans-400">
                                 Custom process for your business: Tell us what you need; we source, negotiate and secure the best price;
                                 you choose your service level—sourcing only, shipping, full logistics, or door-to-door.
                             </p>
                             <div>
-                                <button className="bg-red-500 plus-jakarta-sans-400 hover:bg-red-600 text-white py-2 px-8 rounded-2xl text-sm">
+                                <button onClick={redirectToPage} className="bg-red-500 cursor-pointer plus-jakarta-sans-400 hover:bg-red-600 text-white py-2 px-8 rounded-2xl text-sm">
                                     Learn More
                                 </button>
                             </div>
@@ -243,7 +249,7 @@ const Home = () => {
                                 We supply a comprehensive range of minerals, essential raw materials, and various scrap metals to meet the diverse needs of industries worldwide.
 
                             </p>
-                            <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
+                            <a href="/products" className="text-blue-600 text-sm flex items-center gap-2">
                                 Explore now{" "}
                                 <div>
                                     <MdOutlineArrowOutward size={20} />
@@ -258,7 +264,7 @@ const Home = () => {
                                 We broker a diverse range of used vehicles, machinery, and spare parts—including cars, trucks, heavy equipment, and components—sourced globally to meet varied client needs.
 
                             </p>
-                            <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
+                            <a href="/products" className="text-blue-600 text-sm flex items-center gap-2">
                                 Explore now{" "}
                                 <div>
                                     <MdOutlineArrowOutward size={20} />
@@ -273,7 +279,7 @@ const Home = () => {
                                 We facilitate the export of new and used clothing, footwear, household items, and electronics, ensuring quality and affordability for diverse markets.
 
                             </p>
-                            <a href="#" className="text-blue-600 text-sm flex items-center gap-2">
+                            <a href="/products" className="text-blue-600 text-sm flex items-center gap-2">
                                 Explore now{" "}
                                 <div>
                                     <MdOutlineArrowOutward size={20} />

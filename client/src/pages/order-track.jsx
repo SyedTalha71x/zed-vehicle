@@ -1,25 +1,20 @@
-"use client"
-
 import { useState, useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import TrackOrderImage from "../../public/container-order-trackig.svg"
+import { Link } from "react-router-dom"
 
 const OrderTracking = () => {
-  // Form state management
   const [activeForm, setActiveForm] = useState("login") // 'login', 'signup', 'reset'
 
-  // Form data
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [name, setName] = useState("")
 
-  // Refs for animation
   const loginFormRef = useRef(null)
   const signupFormRef = useRef(null)
   const resetFormRef = useRef(null)
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault()
     if (activeForm === "login") {
@@ -31,6 +26,12 @@ const OrderTracking = () => {
     }
   }
 
+
+  const switchToLogin = () =>{
+    setActiveForm("login")
+    gsap.to("#signup-form", { opacity: 0, y: 20, duration: 0.3 })
+    gsap.fromTo("#login-form", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4 })
+  }
   // Switch between forms with animation
   const switchForm = (formType) => {
     // Hide current form
@@ -206,12 +207,14 @@ const OrderTracking = () => {
                 </button>
               </div>
 
+<Link to={"/"}>
               <button
                 type="submit"
                 className="bg-[#FF3F25] mt-2 w-auto hover:bg-red-600 cursor-pointer text-white py-1.5 text-sm px-10 rounded-2xl transition duration-500"
-              >
+                >
                 Login
               </button>
+                  </Link>
             </form>
 
             <div className="mt-5 text-sm">
@@ -286,6 +289,7 @@ const OrderTracking = () => {
               </div>
 
               <button
+              onClick={switchToLogin}
                 type="submit"
                 className="bg-[#FF3F25] mt-2 w-auto hover:bg-red-600 cursor-pointer text-white py-1.5 text-sm px-10 rounded-2xl transition duration-500"
               >

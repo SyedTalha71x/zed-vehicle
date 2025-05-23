@@ -273,13 +273,13 @@ function AboutUs() {
             </div>
 
             <div className="flex justify-center flex-wrap space-x-4 md:space-x-26 my-6">
-              <a href="#" className="text-blue-600 underline text-sm my-2">
+              <a href="services" className="text-blue-600 underline text-sm my-2">
                 See About Services
               </a>
-              <a href="#" className="text-blue-600 underline text-sm my-2">
+              <a href="products" className="text-blue-600 underline text-sm my-2">
                 View our Products
               </a>
-              <a href="#" className="text-blue-600 underline text-sm my-2">
+              <a href="contact-us" className="text-blue-600 underline text-sm my-2">
                 Contact Us for Free Consultation
               </a>
             </div>

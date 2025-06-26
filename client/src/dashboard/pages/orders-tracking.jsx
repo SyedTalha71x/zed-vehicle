@@ -9,7 +9,7 @@ import {
     CircleCheckBig,
     Truck,
 } from "lucide-react";
-import ShipmentStatisticsChart from "../components/chart";
+import ShipmentStatisticsChart from "../components/shipment-chart";
 
 const trackingStats = [
     {

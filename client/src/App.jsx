@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
@@ -61,7 +61,9 @@ function AppRoutes() {
                     <Route path="/how-it-works" element={<HowItWorks />} />
                 </Route>
 
+
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/*" element={<Navigate to={'/'} />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/confirm-otp" element={<Otp />} />
 

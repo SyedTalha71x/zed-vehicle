@@ -57,7 +57,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <Link to={"/dashboard/vehicle-detail"} className="md:block hidden">
+          <Link to={"/dashboard/home"} className="md:block cursor-pointer hidden">
             <div className="">
               <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">Admin Dashboard</button>
             </div>

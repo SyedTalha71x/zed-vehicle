@@ -1,29 +1,38 @@
 import React from "react";
-import { Divider, Radio, Table } from "antd";
+import { Table } from "antd";
 
-// rowSelection object indicates the need for row selection
-const rowSelection = {
-    onChange: (selectedRows) => {
-        console.log(
-            `selectedRowKeys: ${selectedRows}`,
-            "selectedRows: ",
-            selectedRows
-        );
+// rowSelection config must receive selectedRowKeys & selectedRows
+const getRowSelection = (onSelectionChange) => ({
+    onChange: (selectedRowKeys, selectedRows) => {
+        console.log("selectedRowKeys:", selectedRowKeys);
+        console.log("selectedRows:", selectedRows);
+        if (onSelectionChange) {
+            onSelectionChange(selectedRowKeys, selectedRows);
+        }
     },
     getCheckboxProps: (record) => ({
-        disabled: record.name === "Disabled User", // Column configuration not to be checked
+        disabled: record.name === "Disabled User",
         name: record.name,
     }),
-};
+});
 
-const DataTable = ({ columns, data, size = "", pagination = true }) => {
+const DataTable = ({
+    columns,
+    data,
+    size = "",
+    pagination = true,
+    onSelectionChange,
+}) => {
     return (
         <Table
             pagination={pagination}
             size={size}
-            rowSelection={{ ...rowSelection }}
+            rowSelection={getRowSelection(onSelectionChange)}
             columns={columns}
-            dataSource={data}
+            dataSource={data.map((item, index) => ({
+                key: item.customerId || index, // Ensure every row has a unique key
+                ...item,
+            }))}
             scroll={{ x: "max-content" }}
         />
     );

@@ -7,6 +7,7 @@ import {
     ArrowUpRight,
     Box,
     CreditCard,
+    Eye,
     Info,
     MapPin,
     Package,
@@ -19,6 +20,7 @@ import {
 } from "lucide-react";
 import DataTable from "../components/table";
 import { trackingOrderData } from "../libs/table-data";
+import { Link } from "react-router-dom";
 const trackingOrderColumns = [
     {
         title: "Order ID",
@@ -52,13 +54,29 @@ const trackingOrderColumns = [
                 className={`py-1 text-xs px-2 rounded-sm font-medium ${
                     text === "Pending"
                         ? "bg-[#F9F2E5] text-[#DBAA00]"
-                        : text === "Shipping"
+                        : text === "In Progress"
                         ? "bg-[#DCF3FF] text-[#3D81DB]"
+                        : text === "Cancelled"
+                        ? "bg-[#f5ae9cb0] text-[#df2100]"
                         : "bg-[#ECF8F0CC] text-[#1C8C6E]"
                 }`}
             >
                 {text}
             </span>
+        ),
+    },
+    {
+        title: "Action",
+        dataIndex: "action",
+        render: (_, record) => (
+            <div className="flex items-center justify-center gap-2">
+                <Link
+                    to={`/dashboard/orders-tracking/${record.orderId}`}
+                    className="text-blue-500 cursor-pointer hover:underline"
+                >
+                    <Eye className="size-4" />
+                </Link>
+            </div>
         ),
     },
 ];

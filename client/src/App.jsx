@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
 
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
@@ -29,6 +34,9 @@ import Reviews from "./dashboard/pages/reviews";
 import Staff from "./dashboard/pages/staff";
 import WebsiteContent from "./dashboard/pages/website-content";
 import AddStaff from "./dashboard/pages/add-staff";
+import AllCustomers from "./dashboard/pages/all-customers";
+import SingleCustomer from "./dashboard/pages/single-customer";
+import SingleOrderTracking from "./dashboard/pages/single-order";
 
 function App() {
     return (
@@ -61,15 +69,20 @@ function AppRoutes() {
                     <Route path="/how-it-works" element={<HowItWorks />} />
                 </Route>
 
-
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/*" element={<Navigate to={'/'} />} />
+                <Route path="/*" element={<Navigate to={"/"} />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/confirm-otp" element={<Otp />} />
 
                 <Route path="/dashboard" element={<DashboardLayout />}>
                     <Route path="home" element={<Dashboard />} />
+                    <Route path="customers/all" element={<AllCustomers />} />
+                    <Route path="customers/:id" element={<SingleCustomer />} />
                     <Route path="customers" element={<Customers />} />
+                    <Route
+                        path="orders-tracking/:id"
+                        element={<SingleOrderTracking />}
+                    />
                     <Route path="staff/add" element={<AddStaff />} />
                     <Route
                         path="website-content"

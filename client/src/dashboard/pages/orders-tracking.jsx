@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import DataTable from "../components/table";
-import { trackingListData } from "../libs/table-data";
+import { trackingOrderData } from "../libs/table-data";
 import {
     ArrowDownRight,
     ArrowUpRight,
     Box,
     Boxes,
     CircleCheckBig,
+    Eye,
     Truck,
 } from "lucide-react";
 import ShipmentStatisticsChart from "../components/shipment-chart";
+import { Link } from "react-router-dom";
 
 const trackingStats = [
     {
@@ -49,7 +51,7 @@ const columns = [
     },
     {
         title: "Date of Loading",
-        dataIndex: "date",
+        dataIndex: "shippingDate",
     },
     {
         title: "Category",
@@ -65,15 +67,31 @@ const columns = [
         render: (text) => (
             <span
                 className={`py-1 text-xs px-2 rounded-sm font-medium ${
-                    text === "In Transit"
-                        ? " text-[#E63946]"
-                        : text === "Shipped"
-                        ? " text-[#FF9900]"
-                        : "text-[#1C8C6E]"
+                    text === "Pending"
+                        ? " text-[#DBAA00]"
+                        : text === "In Progress"
+                        ? " text-[#3D81DB]"
+                        : text === "Cancelled"
+                        ? " text-[#df2100]"
+                        : " text-[#1C8C6E]"
                 }`}
             >
                 {text}
             </span>
+        ),
+    },
+    {
+        title: "Action",
+        dataIndex: "action",
+        render: (_, record) => (
+            <div className="flex items-center justify-center gap-2">
+                <Link
+                    to={`/dashboard/orders-tracking/${record.orderId}`}
+                    className="text-blue-500 cursor-pointer hover:underline"
+                >
+                    <Eye className="size-4" />
+                </Link>
+            </div>
         ),
     },
 ];
@@ -95,7 +113,7 @@ const OrdersTracking = () => {
                             <DataTable
                                 size="small"
                                 columns={columns}
-                                data={trackingListData}
+                                data={trackingOrderData.slice(0, 6)}
                                 pagination={false}
                             />
                         </div>

@@ -25,12 +25,11 @@ const Customers = () => {
             <div className="w-full h-full p-8">
                 <div className="w-full h-full">
                     <div className="flex justify-end">
-                        <Link
-                            to={"add"}
+                        <button
                             className="font-medium bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white "
                         >
                             + Add New Customer
-                        </Link>
+                        </button>
                     </div>
                     <div className="w-full grid md:grid-cols-2  lg:grid-cols-3 grid-cols-1 gap-4 mt-5">
                         <div className="col-span-1 md:col-span-2 lg:col-span-2  lg:row-span-2  bg-white rounded-xl shadow-sm ">
@@ -133,14 +132,16 @@ const Customers = () => {
                                             "/dashboard-images/staff-2.jpg"
                                         }
                                     />
-                                    <div className="p-3 relative flex items-center flex-col gap-3">
-                                        <div className="rounded-full bg-[#F1F1F1] text-[#303030] overflow-hidden size-24 flex items-center justify-center">
-                                            <ArrowRight />
+                                    <Link to={"all"}>
+                                        <div className="p-3 relative flex items-center flex-col gap-3">
+                                            <div className="rounded-full bg-[#F1F1F1] text-[#303030] overflow-hidden size-24 flex items-center justify-center">
+                                                <ArrowRight />
+                                            </div>
+                                            <p className="text-sm text-[#303030] font-bold">
+                                                View All
+                                            </p>
                                         </div>
-                                        <p className="text-sm text-[#303030] font-bold">
-                                            View All
-                                        </p>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +182,7 @@ const Customers = () => {
                                     {labels.map((item, idx) => (
                                         <div
                                             key={idx}
-                                            className="flex flex-col items-center space-y-1"
+                                            className="flex flex-col  items-center space-y-1"
                                         >
                                             <div
                                                 className="text-2xl"
@@ -192,8 +193,8 @@ const Customers = () => {
                                             <span className="text-gray-500">
                                                 {item.name}
                                             </span>
-                                            <span className="font-medium">
-                                                {item.value}
+                                            <span className="font-bold text-xl">
+                                                {item.value}%
                                             </span>
                                         </div>
                                     ))}

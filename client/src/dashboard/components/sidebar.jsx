@@ -4,6 +4,7 @@ import {
     ChevronDown,
     ChevronUp,
     LayoutDashboard,
+    Menu,
     ScrollText,
     ShoppingCart,
     Sparkles,
@@ -57,16 +58,24 @@ const mainMenu = [
         Icon: SquarePen,
     },
 ];
-const Sidebar = ({ isSidebarOpen }) => {
+const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
     return (
         <aside
-            className={`${
-                isSidebarOpen ? "w-60 " : "w-0 lg:w-60"
+            className={`fixed ${
+                isSidebarOpen
+                    ? "w-60  max-lg:z-[999]"
+                    : "w-0 lg:w-60"
             } transition-all overflow-hidden duration-300  `}
         >
             <div className="w-full flex flex-col justify-between p-3 min-h-screen bg-white shadow-lg border-r border border-gray-200">
                 <div className="w-full h-full">
+                    <button
+                        className="lg:hidden outline-none"
+                        onClick={() => setIsSidebarOpen((prev) => !prev)}
+                    >
+                        <Menu />
+                    </button>
                     <div className="flex items-center justify-center">
                         <img
                             src="/dashboard-images/logo.png"

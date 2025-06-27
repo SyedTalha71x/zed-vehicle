@@ -177,7 +177,7 @@ const Navbar = () => {
                             </button>
                         </div>
                     </Link>
-                    <Link to={"/dashboard/vehicle-detail"}>
+                    <Link to={"/dashboard/home"}>
                         <div className="mt-4">
                             <button className="bg-[#0B1518] text-gray-200 px-8 py-2 rounded-xl text-sm plus-jakarta-sans-400">
                                 Admin Dashboard

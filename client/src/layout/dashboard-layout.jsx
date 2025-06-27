@@ -11,7 +11,7 @@ function App() {
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
             />
-            <div className={`flex-1 overflow-auto`}>
+            <div className={`${isSidebarOpen ? "lg:pl-60" : "lg:pl-60"} flex-1 overflow-auto`}>
                 <Navbar
                     isSidebarOpen={isSidebarOpen}
                     setIsSidebarOpen={setIsSidebarOpen}

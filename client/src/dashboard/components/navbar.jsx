@@ -17,7 +17,7 @@ const Navbar = ({ setIsSidebarOpen }) => {
                     >
                         <Menu />
                     </button>
-                    <h2 className="font-medium capitalize text-xl text-[#0B131B]">
+                    <h2 className="font-medium capitalize md:text-lg text-base text-[#0B131B]">
                         {title}
                     </h2>
                 </div>
@@ -29,10 +29,10 @@ const Navbar = ({ setIsSidebarOpen }) => {
                         <option value="en">ENG</option>
                         <option value="en">SPN</option>
                     </select>
-                    <button className="px-2 py-2 text-sm rounded-lg border border-[#0000001A] text-[#3A4656]">
+                    <button className="px-2 py-2 hidden sm:block text-sm rounded-lg border border-[#0000001A] text-[#3A4656]">
                         <Bell size={14} />
                     </button>
-                    <button className="px-2 py-2 text-sm rounded-lg border border-[#0000001A] text-[#3A4656]">
+                    <button className="px-2 hidden sm:block py-2 text-sm rounded-lg border border-[#0000001A] text-[#3A4656]">
                         <Search size={14} />
                     </button>
                     <button className="px-2 py-2 text-sm rounded-lg border border-[#0000001A] text-[#3A4656]">

@@ -43,7 +43,7 @@ const WebsiteContent = () => {
                                 <img
                                     src={URL.createObjectURL(bannerFile)}
                                     alt="Selected Banner"
-                                    className="h-full w-full object-cover rounded shadow"
+                                    className="h-full w-full object-contain rounded shadow"
                                 />
                                 <div className="flex items-center gap-2 text-sm">
                                     <p className="text-xs truncate max-w-[200px]">
@@ -99,24 +99,96 @@ const WebsiteContent = () => {
                                 className="w-full sm:w-1/2 px-2 py-1 rounded-xl bg-white border"
                             />
                         </div>
-                        <button className="font-medium self-end bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white ">
-                            + Save
-                        </button>
-                        {/* <div>
+
+                        <div className="flex flex-col gap-1">
                             <label
                                 htmlFor="bannerImage"
                                 className="text-sm flex items-center gap-1 font-medium"
                             >
                                 Banner Image <Info className="size-4" />
                             </label>
-                            <div>
-                                <button>Browws</button>
+                            <div className="w-full sm:w-1/2 rounded-md flex items-center text-sm font-medium text-black">
+                                <button className="bg-[#8F97AB99] px-2 py-2">
+                                    Browse
+                                </button>
+                                <div
+                                    className="w-full bg-[#5B5B5B99]  px-2 py-2  text-center"
+                                    type="file"
+                                >
+                                    Choose File
+                                </div>
                             </div>
+                        </div>
+                        <div className="flex flex-col mt-5 gap-1">
+                            <label
+                                htmlFor="slug"
+                                className="text-sm flex items-center gap-1 font-medium"
+                            >
+                                Short Description
+                                <sup className="text-red-500 text-base">*</sup>
+                            </label>
+                            <div className="w-full sm:w-1/2 p-2 h-56 bg-[#E463200D] border border-[#E4E5EB] rounded ">
+                                <textarea
+                                    id="description"
+                                    placeholder="Short description"
+                                    className="resize-none p-2 outline-none placeholder:text-sm placeholder:font-medium w-full h-full"
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-1">
+                            <label
+                                htmlFor="slug"
+                                className="text-sm flex items-center gap-1 font-medium"
+                            >
+                                Meta Title
+                            </label>
                             <input
-                                className="w-full sm:w-1/2 px-2 py-1 rounded-xl bg-white border"
-                                type="file"
+                                id="slug"
+                                type="text"
+                                className="w-full sm:w-1/2 px-2 py-1 rounded outline-none bg-[#E463200D] border border-[#E4E5EB]"
                             />
-                        </div> */}
+                        </div>
+
+                        <div className="flex flex-col gap-1">
+                            <label
+                                htmlFor="bannerImage"
+                                className="text-sm flex items-center gap-1 font-medium"
+                            >
+                                Banner Image <Info className="size-4" />
+                            </label>
+                            <div className="w-full sm:w-1/2 rounded-md flex items-center text-sm font-medium text-black">
+                                <button className="bg-[#8F97AB99] px-2 py-2">
+                                    Browse
+                                </button>
+                                <div
+                                    className="w-full bg-[#5B5B5B99]  px-2 py-2  text-center"
+                                    type="file"
+                                >
+                                    Choose File
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col mt-5 gap-1">
+                            <label
+                                htmlFor="slug"
+                                className="text-sm flex items-center gap-1 font-medium"
+                            >
+                                Meta Description
+                                <sup className="text-red-500 text-base">*</sup>
+                            </label>
+                            <div className="w-full sm:w-1/2 p-2 h-56 bg-[#E463200D] border border-[#E4E5EB] rounded ">
+                                <textarea
+                                    id="description"
+                                    placeholder="Meta description"
+                                    className="resize-none p-2 outline-none placeholder:text-sm placeholder:font-medium w-full h-full"
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <button className="font-medium self-end bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white ">
+                            + Save
+                        </button>
                     </div>
                 </div>
             </div>

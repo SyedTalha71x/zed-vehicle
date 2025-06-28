@@ -17,8 +17,8 @@ const WebsiteContent = () => {
         inputRef.current.value = null;
     };
     return (
-        <div className="w-full min-h-screen">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 <div className="space-y-6">
                     <div className="relative bg-[#E463200D] border border-black border-dashed rounded-md w-full h-32 sm:h-44 md:h-52 lg:h-72 flex flex-col justify-center items-center">
                         {!bannerFile ? (
@@ -43,7 +43,7 @@ const WebsiteContent = () => {
                                 <img
                                     src={URL.createObjectURL(bannerFile)}
                                     alt="Selected Banner"
-                                    className="h-full object-contain rounded shadow"
+                                    className="h-full w-full object-cover rounded shadow"
                                 />
                                 <div className="flex items-center gap-2 text-sm">
                                     <p className="text-xs truncate max-w-[200px]">
@@ -99,9 +99,7 @@ const WebsiteContent = () => {
                                 className="w-full sm:w-1/2 px-2 py-1 rounded-xl bg-white border"
                             />
                         </div>
-                         <button
-                            className="font-medium self-end bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white "
-                        >
+                        <button className="font-medium self-end bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white ">
                             + Save
                         </button>
                         {/* <div>

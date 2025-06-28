@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { customersList } from "../libs/table-data";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { customersList } from "../libs/dummy-data";
 import DataTable from "../components/table";
-import { Eye, Pencil, Save } from "lucide-react";
+import { ArrowLeft, Eye, Pencil, Save } from "lucide-react";
 
 const columns = [
     {
@@ -50,13 +50,16 @@ const columns = [
 
 const SingleCustomer = () => {
     const { id: customerId } = useParams();
+    const navigate = useNavigate();
     const customer = customersList.filter(
         (customer) => customer.customerId === customerId
     )[0];
+    console.log(customer);
+
     const [isEditing, setIsEditing] = useState(false);
-    const [notes, setNotes] = useState(customer.internalNotes || "");
+    const [notes, setNotes] = useState(customer?.internalNotes || "");
     const [originalNotes, setOriginalNotes] = useState(
-        customer.internalNotes || ""
+        customer?.internalNotes || ""
     );
 
     const hasChanges = notes !== originalNotes;
@@ -72,9 +75,32 @@ const SingleCustomer = () => {
         setIsEditing(false);
     };
 
+    if (!customer) {
+        return (
+            <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+                <div className="w-full h-full p-3 sm:p-5 lg:p-8">
+                    <div className="flex items-center gap-4 mb-6">
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="p-2 border bg-white cursor-pointer border-[#292D3214] shadow rounded-lg hover:bg-gray-50"
+                        >
+                            <ArrowLeft className="size-5 text-[#3A4656]" />
+                        </button>
+                        <h1 className="text-2xl font-semibold text-[#23293D]">
+                            Back
+                        </h1>
+                    </div>
+                    <p className="font-medium text-gray-700">
+                        No customer found with this id
+                    </p>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="w-full min-h-screen">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="w-full h-full col-span-1 md:col-span-2 bg-white rounded-lg shadow p-6">
                         <p className="font-medium mb-6 text-lg">

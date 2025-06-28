@@ -1,91 +1,18 @@
 import { EllipsisVertical } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
-
-const staffs = [
-    {
-        id: 1,
-        name: "Courtney Henry",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 2,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 3,
-        name: "Courtney Henry",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 4,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 5,
-        name: "Courtney Henry",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 6,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 7,
-        name: "Courtney Hnery",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 8,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 9,
-        name: "Courtney Hnery",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 10,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 11,
-        name: "Courtney Hnery",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 12,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 13,
-        name: "Courtney Hnery",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-    {
-        id: 14,
-        name: "Cameron Williamson",
-        picture: "/dashboard-images/staff-1.jpg",
-    },
-    {
-        id: 15,
-        name: "Courtney Hnery",
-        picture: "/dashboard-images/staff-2.jpg",
-    },
-];
+import StaffCard from "../components/staff-card";
+import { staffs } from "../libs/dummy-data";
 
 const Staff = () => {
     return (
-        <div className="w-full min-h-screen">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 <div className="flex justify-end">
-                    <Link to={'add'} className="font-medium bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white ">
+                    <Link
+                        to={"add"}
+                        className="font-medium bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white "
+                    >
                         + Add New Staff
                     </Link>
                 </div>
@@ -100,24 +27,3 @@ const Staff = () => {
 };
 
 export default Staff;
-
-const StaffCard = ({ name, picture }) => (
-    <div className=" p-3 relative">
-        <div className="w-full flex justify-end">
-            <button>
-                {" "}
-                <EllipsisVertical className="size-5" />
-            </button>
-        </div>
-        <div className="w-full h-full flex flex-col gap-3 items-center">
-            <div className="rounded-full size-20 overflow-hidden">
-                <img
-                    src={picture}
-                    alt={name}
-                    className="w-full h-full object-cover"
-                />
-            </div>
-            <p className="text-sm font-medium text-center">{name}</p>
-        </div>
-    </div>
-);

@@ -37,6 +37,7 @@ import AddStaff from "./dashboard/pages/add-staff";
 import AllCustomers from "./dashboard/pages/all-customers";
 import SingleCustomer from "./dashboard/pages/single-customer";
 import SingleOrderTracking from "./dashboard/pages/single-order";
+import AddCustomer from "./dashboard/pages/add-customer";
 
 function App() {
     return (
@@ -78,6 +79,7 @@ function AppRoutes() {
                     <Route path="home" element={<Dashboard />} />
                     <Route path="customers/all" element={<AllCustomers />} />
                     <Route path="customers/:id" element={<SingleCustomer />} />
+                    <Route path="customers/add" element={<AddCustomer />} />
                     <Route path="customers" element={<Customers />} />
                     <Route
                         path="orders-tracking/:id"

@@ -1,3 +1,210 @@
+import {
+    Box,
+    Boxes,
+    CircleCheckBig,
+    CreditCard,
+    Package,
+    Send,
+    Truck,
+} from "lucide-react";
+
+export const staffs = [
+    {
+        id: 1,
+        name: "Courtney Henry",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 2,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 3,
+        name: "Courtney Henry",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 4,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 5,
+        name: "Courtney Henry",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 6,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 7,
+        name: "Courtney Hnery",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 8,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 9,
+        name: "Courtney Hnery",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 10,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 11,
+        name: "Courtney Hnery",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 12,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 13,
+        name: "Courtney Hnery",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+    {
+        id: 14,
+        name: "Cameron Williamson",
+        picture: "/dashboard-images/staff-1.jpg",
+    },
+    {
+        id: 15,
+        name: "Courtney Hnery",
+        picture: "/dashboard-images/staff-2.jpg",
+    },
+];
+export const trackingStats = [
+    {
+        title: "Total Shipments",
+        value: 6521,
+        change: "+23.5%",
+        changeType: "increase",
+        Icon: Box, // Lucide Icon
+    },
+    {
+        title: "In Transit",
+        value: 1800,
+        change: "-6%",
+        changeType: "decrease",
+        Icon: Boxes, // Lucide Icon
+    },
+    {
+        title: "On Delivery",
+        value: "1000",
+        change: "-7.3%",
+        changeType: "decrease",
+        Icon: Truck, // Lucide Icon
+    },
+    {
+        title: "Delivered",
+        value: 1840,
+        change: "+23.1%",
+        changeType: "increase",
+        Icon: CircleCheckBig, // Lucide icon
+    },
+];
+
+export const blogs = [
+    {
+        id: 1,
+        title: "Lorem Ipsum",
+        content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        date: new Date().toLocaleDateString().replaceAll("/", ", "),
+        duration: "13 Min",
+        picture: "/dashboard-images/blog.png",
+    },
+    {
+        id: 2,
+        title: "Lorem Ipsum",
+        content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        date: new Date().toLocaleDateString().replaceAll("/", ", "),
+        duration: "13 Min",
+        picture: "/dashboard-images/blog.png",
+    },
+    {
+        id: 3,
+        title: "Lorem Ipsum",
+        content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        date: new Date().toLocaleDateString().replaceAll("/", ", "),
+        duration: "13 Min",
+        picture: "/dashboard-images/blog.png",
+    },
+];
+
+export const shipments = [
+    {
+        id: 1,
+        shipmentNo: "#001234ABCD",
+        start: "87 Wern Ddu Lane",
+        end: "15 Vicar Lane",
+        details: {
+            category: "Electronic",
+            distance: "60.41 km",
+            estimation: "1d 6h",
+            weight: "25kg",
+            fee: "$1,050",
+        },
+    },
+    {
+        id: 2,
+        shipmentNo: "#001234ABCD",
+        start: "40 Broomfield Place",
+        end: "44 Helland Bridge",
+        details: {
+            category: "Electronic",
+            distance: "60.41 km",
+            estimation: "1d 6h",
+            weight: "25kg",
+            fee: "$1,050",
+        },
+    },
+];
+export const dashboardStats = [
+    {
+        title: "Total Shipments",
+        value: 6521,
+        change: "+1.3%",
+        changeType: "increase",
+        icon: Truck, // Lucide icon
+    },
+    {
+        title: "Total Order",
+        value: 10105,
+        change: "-2.1%",
+        changeType: "decrease",
+        icon: Package, // Lucide icon
+    },
+    {
+        title: "Revenue",
+        value: "$12,167",
+        change: "+1.3%",
+        changeType: "increase",
+        icon: CreditCard, // Lucide icon
+    },
+    {
+        title: "Delivered",
+        value: 1840,
+        change: "-3.1%",
+        changeType: "decrease",
+        icon: Send, // Lucide icon
+    },
+];
+
 export const customersList = [
     {
         customerId: "CUST-1001",

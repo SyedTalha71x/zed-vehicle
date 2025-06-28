@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import {
-    ArrowDownLeft,
-    ArrowDownRight,
-    ArrowRight,
-    ArrowUpLeft,
-    ArrowUpRight,
     Box,
-    CreditCard,
     Eye,
-    Info,
-    MapPin,
-    Package,
     Search,
-    Send,
     Settings2,
     Share,
-    Truck,
     TruckElectric,
 } from "lucide-react";
 import DataTable from "../components/table";
-import { trackingOrderData } from "../libs/table-data";
+import {
+    trackingOrderData,
+    dashboardStats,
+    shipments,
+} from "../libs/dummy-data";
 import { Link } from "react-router-dom";
+import StatCard from "../components/stat-card";
+import ShipmentCard from "../components/shipment-card";
 const trackingOrderColumns = [
     {
         title: "Order ID",
@@ -80,72 +75,13 @@ const trackingOrderColumns = [
         ),
     },
 ];
-const dashboardStats = [
-    {
-        title: "Total Shipments",
-        value: 6521,
-        change: "+1.3%",
-        changeType: "increase",
-        icon: Truck, // Lucide icon
-    },
-    {
-        title: "Total Order",
-        value: 10105,
-        change: "-2.1%",
-        changeType: "decrease",
-        icon: Package, // Lucide icon
-    },
-    {
-        title: "Revenue",
-        value: "$12,167",
-        change: "+1.3%",
-        changeType: "increase",
-        icon: CreditCard, // Lucide icon
-    },
-    {
-        title: "Delivered",
-        value: 1840,
-        change: "-3.1%",
-        changeType: "decrease",
-        icon: Send, // Lucide icon
-    },
-];
-
-const shipments = [
-    {
-        id: 1,
-        shipmentNo: "#001234ABCD",
-        start: "87 Wern Ddu Lane",
-        end: "15 Vicar Lane",
-        details: {
-            category: "Electronic",
-            distance: "60.41 km",
-            estimation: "1d 6h",
-            weight: "25kg",
-            fee: "$1,050",
-        },
-    },
-    {
-        id: 2,
-        shipmentNo: "#001234ABCD",
-        start: "40 Broomfield Place",
-        end: "44 Helland Bridge",
-        details: {
-            category: "Electronic",
-            distance: "60.41 km",
-            estimation: "1d 6h",
-            weight: "25kg",
-            fee: "$1,050",
-        },
-    },
-];
 
 const Dashboard = () => {
     const [type, setType] = useState("overviews");
     const [selectedShipment, setSelectedShipment] = useState(1);
     return (
-        <div className="w-full min-h-screen">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 <div className="w-full h-full">
                     <div className="flex items-center flex-wrap gap-3 justify-between">
                         <div className="bg-[#EBEEF4] p-1  font-medium text-sm rounded-md flex gap-2">
@@ -251,7 +187,10 @@ const Dashboard = () => {
                                         <div className="flex justify-between flex-wrap gap-3">
                                             {Object.entries(details).map(
                                                 ([key, value]) => (
-                                                    <div className="flex flex-col gap-1 pr-5 border-r border-[#EBECEF]">
+                                                    <div
+                                                        key={key}
+                                                        className="flex flex-col gap-1 pr-5 border-r border-[#EBECEF]"
+                                                    >
                                                         <p className="text-xs capitalize text-[#7D7D91]">
                                                             {key}
                                                         </p>
@@ -270,14 +209,14 @@ const Dashboard = () => {
                         className="w-full mt-5 flex flex-col p-4
                         bg-white border-2 border-[#1A2F570F] shadow rounded-xl gap-5"
                     >
-                        <div className="flex justify-between">
+                        <div className="flex flex-wrap justify-between gap-2">
                             <div className="flex items-center gap-2">
                                 <div className="p-1 border border-[#292D3214]  shadow rounded-lg">
                                     <Box className="size-5" color="#307EF3" />
                                 </div>
                                 <p className="font-medium">Tracking Order</p>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center flex-wrap gap-2">
                                 <div className=" w-44 text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] ">
                                     <Search className="size-5" />
                                     <input
@@ -286,14 +225,16 @@ const Dashboard = () => {
                                         className="w-full text-[#3A4656] outline-none text-sm"
                                     />
                                 </div>
-                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
-                                    <Settings2 className="size-4" />
-                                    Filter
-                                </button>
-                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
-                                    <Share className="size-4" />
-                                    Exports
-                                </button>
+                                <div className="flex items-center gap-2">
+                                    <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
+                                        <Settings2 className="size-4" />
+                                        Filter
+                                    </button>
+                                    <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
+                                        <Share className="size-4" />
+                                        Exports
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <DataTable
@@ -308,88 +249,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-const StatCard = ({ title, value, change, changeType, Icon }) => (
-    <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-3 flex flex-col gap-2">
-        <div className="flex  justify-between items-start">
-            <div>
-                <div className="flex items-center gap-2">
-                    <h4 className="text-[#7D7D91] text-sm">{title}</h4>
-                    <Info color="#7D7D9166" className="size-4" />
-                </div>
-                <h2 className="font-medium text-xl mt-2">{value}</h2>
-            </div>
-            <div className="p-2 border border-[#292D3214]  shadow rounded-lg">
-                <Icon color={"#307EF3"} />
-            </div>
-        </div>
-        <div className="flex items-center gap-4">
-            <p className="text-sm text-[#7D7D91]">Vs Last Week</p>
-            <span
-                className={` flex items-center gap-1 rounded-full px-2 py-0.5  ${
-                    changeType === "increase"
-                        ? "text-[#1C8C6E] bg-[#F0F9F3]"
-                        : "bg-[#E65E5E1A] text-[#E65E5E]"
-                } text-xs`}
-            >
-                {change}
-                {changeType === "increase" ? (
-                    <ArrowUpRight className="size-4" />
-                ) : (
-                    <ArrowDownRight className="size-4" />
-                )}
-            </span>
-        </div>
-    </div>
-);
-
-const ShipmentCard = ({
-    shipmentNo,
-    start,
-    end,
-    id,
-    selectedShipment,
-    setSelectedShipment,
-}) => (
-    <div
-        onClick={() => setSelectedShipment(id)}
-        key={id}
-        className={`${
-            id === selectedShipment
-                ? "border-[#E46320] shadow-[#E463201A] "
-                : "border-[#1A2F5712] shadow"
-        } cursor-pointer border-2   w-full rounded-lg`}
-    >
-        <div className="flex items-center justify-between p-2">
-            <div className="flex flex-col gap-3">
-                <h4 className="text-[#7D7D91] text-sm">Shipment number</h4>
-                <h2 className="font-medium text-lg">{shipmentNo}</h2>
-                <div className="text-[#23293D] flex gap-2 items-center text-xs font-medium">
-                    <div className="flex items-center gap-1">
-                        <span className="p-1.5 flex items-center justify-center bg-[#E8F9EE] rounded-full">
-                            <span className="bg-[#0EBC93] p-1 rounded-full" />
-                        </span>
-                        <p>{start} </p>
-                    </div>
-                    <ArrowRight className="size-4 text-[#718096]" />
-                    <div className="flex items-center gap-1">
-                        <span className="p-1.5 flex items-center justify-center bg-[#4E87F81A] rounded-full">
-                            <MapPin
-                                className="text-[#E46320] size-3"
-                                fill="#E46320"
-                            />
-                        </span>
-                        <p>{end} </p>
-                    </div>
-                </div>
-            </div>
-            <div className="w-44">
-                <img
-                    src="/dashboard-images/truck.png"
-                    alt="Truck Icon"
-                    className="w-full h-full object-contain"
-                />
-            </div>
-        </div>
-    </div>
-);

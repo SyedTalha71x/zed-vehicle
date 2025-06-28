@@ -1,7 +1,12 @@
 import { Bell, Bolt, Menu, Search } from "lucide-react";
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = ({ setIsSidebarOpen }) => {
+    const { pathname } = useLocation();
+    console.log(pathname.split("/")[2]);
+    const title = pathname.split("/")[2].split("-").join(" ");
+
     return (
         <div className="w-full h-14 sticky z-50 top-0 bg-white border-b border-gray-200 shadow-lg">
             <div className="w-full h-full flex justify-between items-center px-4">
@@ -12,8 +17,8 @@ const Navbar = ({ setIsSidebarOpen }) => {
                     >
                         <Menu />
                     </button>
-                    <h2 className="font-medium text-xl text-[#0B131B]">
-                        Dashboard
+                    <h2 className="font-medium capitalize text-xl text-[#0B131B]">
+                        {title}
                     </h2>
                 </div>
                 <div className="flex items-center gap-2">

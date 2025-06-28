@@ -1,5 +1,5 @@
 import React from "react";
-import { customersList } from "../libs/table-data";
+import { customersList } from "../libs/dummy-data";
 import DataTable from "../components/table";
 import { Link } from "react-router-dom";
 import { Eye } from "lucide-react";
@@ -51,9 +51,14 @@ const AllCustomers = () => {
         console.log("Selection changed");
     };
     return (
-        <div className="w-full min-h-screen">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 <div className="w-full h-full">
+                    <div className="flex justify-end mb-5">
+                        <Link to={'/dashboard/customers/add'} className="font-medium bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white ">
+                            + Add New Customer
+                        </Link>
+                    </div>
                     <div className=" w-full h-full bg-white rounded-lg shadow p-4 ">
                         <div className="w-full h-full">
                             <p className="font-medium mb-4 text-lg">

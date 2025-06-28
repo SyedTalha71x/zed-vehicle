@@ -1,7 +1,7 @@
 import React from "react";
 import { Info } from "lucide-react";
 
-const AddStaff = () => {
+const AddCustomer = () => {
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
@@ -66,4 +66,4 @@ const AddStaff = () => {
     );
 };
 
-export default AddStaff;
+export default AddCustomer;

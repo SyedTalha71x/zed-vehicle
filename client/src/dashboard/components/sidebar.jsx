@@ -64,11 +64,11 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <aside
             className={`fixed ${
                 isSidebarOpen
-                    ? "w-60  max-lg:z-[999]"
-                    : "w-0 lg:w-60"
-            } transition-all overflow-hidden duration-300  `}
+                    ? "w-60  translate-x-0 md:translate-x-0 "
+                    : " md:translate-x-0 -translate-x-full w-60"
+            } transition-all delay-150 z-[999] overflow-y-auto duration-500  `}
         >
-            <div className="w-full flex flex-col justify-between p-3 min-h-screen bg-white shadow-lg border-r border border-gray-200">
+            <div className="w-full flex flex-col justify-between p-3 min-h-screen bg-white shadow-lg border-r border border-gray-200 ">
                 <div className="w-full h-full">
                     <button
                         className="lg:hidden outline-none"
@@ -79,7 +79,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                     <div className="flex items-center justify-center">
                         <img
                             src="/dashboard-images/logo.png"
-                            className="w-28"
+                            className="w-24 md:w-28"
                             alt=""
                         />
                     </div>
@@ -130,6 +130,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                                     title={menu.title}
                                     Icon={menu.Icon}
                                     path={menu.path}
+                                    setIsSidebarOpen={setIsSidebarOpen}
                                 />
                             ))}
                         </div>
@@ -162,8 +163,9 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
 export default Sidebar;
 
-const NavLinkItem = ({ path, title, Icon }) => (
+const NavLinkItem = ({ path, title, Icon, setIsSidebarOpen }) => (
     <NavLink
+        onClick={() => setIsSidebarOpen(false)}
         to={path}
         className={({ isActive }) =>
             `${

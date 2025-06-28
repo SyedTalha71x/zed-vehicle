@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
-import ShipmentStatisticsChart from "../components/shipment-chart";
 import PieChart from "../components/pie-chart";
 import BarChart from "../components/bar-chart";
 import ProductChart from "../components/product-chat";
@@ -21,15 +20,16 @@ const Customers = () => {
         { name: "Desktop", value: 40.5, color: "#A3BCFF", icon: Laptop },
     ];
     return (
-        <div className="w-full min-h-screen">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 <div className="w-full h-full">
                     <div className="flex justify-end">
-                        <button
+                        <Link
+                            to={"/dashboard/customers/add"}
                             className="font-medium bg-[#E46320] shadow-[#E46320]  shadow-md  text-sm cursor-pointer rounded-md py-2 px-4 text-white "
                         >
                             + Add New Customer
-                        </button>
+                        </Link>
                     </div>
                     <div className="w-full grid md:grid-cols-2  lg:grid-cols-3 grid-cols-1 gap-4 mt-5">
                         <div className="col-span-1 md:col-span-2 lg:col-span-2  lg:row-span-2  bg-white rounded-xl shadow-sm ">

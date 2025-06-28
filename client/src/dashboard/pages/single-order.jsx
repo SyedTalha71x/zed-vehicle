@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
     ArrowLeft,
     ArrowUpDown,
+    Box,
     Calendar,
     CheckCircle,
     Clock,
@@ -18,15 +19,15 @@ import {
     User,
     X,
 } from "lucide-react";
-import { trackingOrderData } from "../libs/table-data";
-import { useParams } from "react-router-dom";
+import { trackingOrderData } from "../libs/dummy-data";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SingleOrderTracking = () => {
     const { id: orderId } = useParams();
+    const navigate = useNavigate();
     const orderData = trackingOrderData.filter(
         (order) => order.orderId === orderId
     )[0];
-
 
     // Initial tracking steps
     const [trackingSteps, setTrackingSteps] = useState([
@@ -159,23 +160,40 @@ const SingleOrderTracking = () => {
             )
         );
     };
+    if (!orderData) {
+        return (
+            <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+                <div className="w-full h-full p-3 sm:p-5 lg:p-8">
+                    <div className="flex items-center gap-4 mb-6">
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="p-2 border bg-white cursor-pointer border-[#292D3214] shadow rounded-lg hover:bg-gray-50"
+                        >
+                            <ArrowLeft className="size-5 text-[#3A4656]" />
+                        </button>
+                        <h1 className="text-2xl font-semibold text-[#23293D]">
+                            Back
+                        </h1>
+                    </div>
+                    <p className="font-medium text-gray-700">
+                        No order found with this id
+                    </p>
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <div className="w-full min-h-screen bg-[#FAFAFA]">
-            <div className="w-full h-full p-8">
+        <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
+            <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-6">
-                    <button className="p-2 border border-[#292D3214] shadow rounded-lg hover:bg-gray-50">
-                        <ArrowLeft className="size-5 text-[#3A4656]" />
+                    <button className="p-2 border bg-white border-[#292D3214] shadow rounded-lg hover:bg-gray-50">
+                        <Box className="size-5 text-[#3A4656]" />
                     </button>
-                    <div>
-                        <h1 className="text-2xl font-semibold text-[#23293D]">
-                            Order Details
-                        </h1>
-                        <p className="text-[#7D7D91]">
-                            Manage order tracking and documentation
-                        </p>
-                    </div>
+                    <h1 className="text-2xl font-semibold text-[#23293D]">
+                        Order Details
+                    </h1>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

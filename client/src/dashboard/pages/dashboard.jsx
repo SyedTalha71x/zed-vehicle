@@ -37,9 +37,14 @@ const trackingOrderColumns = [
         title: "Route",
         dataIndex: "route",
     },
+   {
+        title: "Order Amount",
+        dataIndex: "orderAmount",
+        render: (text) => <span className="text-blue-500">${text}</span>,
+    },
     {
         title: "Broker Revenue",
-        dataIndex: "fee",
+        dataIndex: "brokerRevenue",
         render: (text) => <span className="text-blue-500">${text}</span>,
     },
     {
@@ -126,10 +131,10 @@ const Dashboard = () => {
                         ))}
                     </div>
                     <div
-                        className="w-full mt-5 flex flex-col md:flex-row  md:justify-between md:items-start p-2
+                        className="w-full mt-5 p-2
                         bg-white border-2 border-[#1A2F570F] shadow rounded-xl gap-5"
                     >
-                        <div className="w-full md:w-1/2 p-2 flex flex-col gap-4">
+                        <div className="w-full p-2 flex flex-col gap-4">
                             <div className="flex justify-between">
                                 <div className="flex items-center gap-2">
                                     <div className="p-1 border border-[#292D3214]  shadow rounded-lg">
@@ -142,12 +147,11 @@ const Dashboard = () => {
                                         Ongoing Delivery
                                     </p>
                                 </div>
-                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
-                                    <Settings2 className="size-4" />
-                                    Filter
-                                </button>
+                                <p className="text-sm  text-[#3A4656]">
+                                    26/6/2025
+                                </p>
                             </div>
-                            <div className="flex flex-col gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {shipments?.map((shipment) => (
                                     <ShipmentCard
                                         key={shipment.id}
@@ -160,51 +164,6 @@ const Dashboard = () => {
                                 ))}
                             </div>
                         </div>
-                        {shipments
-                            .filter(
-                                (shipment) => shipment.id === selectedShipment
-                            )
-                            .map(({ id, details }) => (
-                                <div
-                                    key={id}
-                                    className="w-full md:w-1/2 p-2 flex flex-col gap-4"
-                                >
-                                    <div className="flex justify-between">
-                                        <p className="font-medium">
-                                            On the way{" "}
-                                        </p>
-                                        <p className="text-sm  text-[#3A4656]">
-                                            26/6/2025
-                                        </p>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <div className="w-full h-52">
-                                            <img
-                                                src="/dashboard-images/map.png"
-                                                alt="MAP"
-                                                className="w-full h-full object-center rounded-lg"
-                                            />
-                                        </div>
-                                        <div className="flex justify-between flex-wrap gap-3">
-                                            {Object.entries(details).map(
-                                                ([key, value]) => (
-                                                    <div
-                                                        key={key}
-                                                        className="flex flex-col gap-1 pr-5 border-r border-[#EBECEF]"
-                                                    >
-                                                        <p className="text-xs capitalize text-[#7D7D91]">
-                                                            {key}
-                                                        </p>
-                                                        <p className=" text-sm  font-medium">
-                                                            {value}
-                                                        </p>
-                                                    </div>
-                                                )
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
                     </div>
                     <div
                         className="w-full mt-5 flex flex-col p-4

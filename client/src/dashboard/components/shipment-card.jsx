@@ -40,7 +40,7 @@ const ShipmentCard = ({
                     </div>
                 </div>
             </div>
-            <div className="w-44">
+            <div className="w-44 max-sm:hidden">
                 <img
                     src="/dashboard-images/truck.png"
                     alt="Truck Icon"

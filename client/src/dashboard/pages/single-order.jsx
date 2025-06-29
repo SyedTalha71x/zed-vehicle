@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     ArrowLeft,
     ArrowUpDown,
@@ -27,9 +27,14 @@ import { useNavigate, useParams } from "react-router-dom";
 const SingleOrderTracking = () => {
     const { id: orderId } = useParams();
     const navigate = useNavigate();
-    const orderData = trackingOrderData.filter(
-        (order) => order.orderId === orderId
-    )[0];
+    const [order, setOrder] = useState(null);
+
+    useEffect(() => {
+        const orderData = trackingOrderData.filter(
+            (order) => order.orderId === orderId
+        )[0];
+        setOrder(orderData);
+    }, [orderId]);
 
     const [isAddingStep, setIsAddingStep] = useState(false);
     const [editingStep, setEditingStep] = useState(null);
@@ -88,33 +93,6 @@ const SingleOrderTracking = () => {
     const deleteStep = (id) => {
         setTrackingSteps(trackingSteps.filter((step) => step.id !== id));
     };
-
-    // Updated order object structure
-    const [order, setOrder] = useState({
-        key: "2",
-        orderId: "0023456LKH",
-        status: "Pending",
-        customerName: "Mark Jennings",
-        businessName: "Jennings Corp",
-        customerEmail: "mark.jen@example.com",
-        customerPhone: "+1 (555) 123-4567",
-        notes: "Handle with care - fragile items included",
-        orderAmount: 25000,
-        productDetails: `Model: Deluxe Furniture Set
-Quantity: 3
-Type: Living Room Furniture
-Custom specs: Custom upholstery in navy blue
-Delivery info: Ground floor delivery required`,
-        category: "Furniture",
-        arrivalTime: "7/3/2023",
-        weight: "50kg",
-        route: "40 Broomfield Place → 44 Helland Bridge",
-        brokerRevenue: 2200,
-        files: [
-            { name: "invoice_001.pdf", type: "pdf", visible: true },
-            { name: "product_specs.jpg", type: "image", visible: true },
-        ],
-    });
 
     // Track which fields are being edited
     const [editingField, setEditingField] = useState(null);
@@ -1119,5 +1097,3 @@ const EditStepForm = ({ step, onSave, onCancel, statusOptions }) => {
 };
 
 export default SingleOrderTracking;
-// this is the code, after merging, now I want you do some things which are admin could also edit orderId and customer and, also add brokerRevent and orderAmount separate  and show in the revenue section, both different and also admin can edit them too
-// this is the code, after merging, now I want you do some things which add brokerRevent and orderAmount separate  and show in the revenue section, both different and also admin can edit them too, and also if we click on attachment it should get seen as pop up or get download on device

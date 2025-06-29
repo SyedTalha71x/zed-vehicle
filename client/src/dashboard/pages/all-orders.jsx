@@ -26,8 +26,13 @@ const trackingOrderColumns = [
         dataIndex: "route",
     },
     {
+        title: "Order Amount",
+        dataIndex: "orderAmount",
+        render: (text) => <span className="text-blue-500">${text}</span>,
+    },
+    {
         title: "Broker Revenue",
-        dataIndex: "fee",
+        dataIndex: "brokerRevenue",
         render: (text) => <span className="text-blue-500">${text}</span>,
     },
     {
@@ -100,7 +105,7 @@ const AllOrders = () => {
                         <p className="font-black text-lg">
                             $
                             {filteredOrders.reduce((acc, item) => {
-                                return (acc += item.fee);
+                                return (acc += item.brokerRevenue);
                             }, 0)}
                         </p>
                     ) : (

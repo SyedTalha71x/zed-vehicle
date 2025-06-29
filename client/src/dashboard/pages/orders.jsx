@@ -32,8 +32,13 @@ const columns = [
         dataIndex: "route",
     },
     {
+        title: "Order Amount",
+        dataIndex: "orderAmount",
+        render: (text) => <span className="text-blue-500">${text}</span>,
+    },
+    {
         title: "Broker Revenue",
-        dataIndex: "fee",
+        dataIndex: "brokerRevenue",
         render: (text) => <span className="text-blue-500">${text}</span>,
     },
     {

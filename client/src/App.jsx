@@ -28,7 +28,7 @@ import Signin from "./dashboard/pages/signin";
 import Otp from "./dashboard/pages/otp";
 import Dashboard from "./dashboard/pages/dashboard";
 import Customers from "./dashboard/pages/customers";
-import OrdersTracking from "./dashboard/pages/orders-tracking";
+import OrdersTracking from "./dashboard/pages/orders";
 import Blogs from "./dashboard/pages/blogs";
 import Reviews from "./dashboard/pages/reviews";
 import Staff from "./dashboard/pages/staff";
@@ -38,6 +38,7 @@ import AllCustomers from "./dashboard/pages/all-customers";
 import SingleCustomer from "./dashboard/pages/single-customer";
 import SingleOrderTracking from "./dashboard/pages/single-order";
 import AddCustomer from "./dashboard/pages/add-customer";
+import AllOrders from "./dashboard/pages/all-orders";
 
 function App() {
     return (
@@ -82,9 +83,11 @@ function AppRoutes() {
                     <Route path="customers/add" element={<AddCustomer />} />
                     <Route path="customers" element={<Customers />} />
                     <Route
-                        path="orders-tracking/:id"
+                        path="orders/:id"
                         element={<SingleOrderTracking />}
                     />
+                    <Route path="all-orders" element={<AllOrders />} />
+                    <Route path="all-orders/:status" element={<AllOrders />} />
                     <Route path="staff/add" element={<AddStaff />} />
                     <Route
                         path="website-content"
@@ -93,10 +96,7 @@ function AppRoutes() {
                     <Route path="staff" element={<Staff />} />
                     <Route path="reviews" element={<Reviews />} />
                     <Route path="blogs" element={<Blogs />} />
-                    <Route
-                        path="orders-tracking"
-                        element={<OrdersTracking />}
-                    />
+                    <Route path="orders" element={<OrdersTracking />} />
                     <Route path="vehicle-detail" element={<VehicleDetail />} />
                 </Route>
             </Routes>

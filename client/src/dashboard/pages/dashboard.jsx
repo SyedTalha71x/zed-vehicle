@@ -38,8 +38,9 @@ const trackingOrderColumns = [
         dataIndex: "route",
     },
     {
-        title: "Fee",
+        title: "Broker Revenue",
         dataIndex: "fee",
+        render: (text) => <span className="text-blue-500">${text}</span>,
     },
     {
         title: "Status",
@@ -66,7 +67,7 @@ const trackingOrderColumns = [
         render: (_, record) => (
             <div className="flex items-center justify-center gap-2">
                 <Link
-                    to={`/dashboard/orders-tracking/${record.orderId}`}
+                    to={`/dashboard/orders/${record.orderId}`}
                     className="text-blue-500 cursor-pointer hover:underline"
                 >
                     <Eye className="size-4" />
@@ -119,7 +120,7 @@ const Dashboard = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 mt-5">
                         {dashboardStats?.map((stats, idx) => (
                             <StatCard key={idx} {...stats} Icon={stats.icon} />
                         ))}

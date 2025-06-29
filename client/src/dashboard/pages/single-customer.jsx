@@ -38,7 +38,7 @@ const columns = [
         render: (_, record) => (
             <div className="flex items-center justify-center gap-2">
                 <Link
-                    to={`/dashboard/orders-tracking/${record.orderId}`}
+                    to={`/dashboard/orders/${record.orderId}`}
                     className="text-blue-500 cursor-pointer hover:underline"
                 >
                     <Eye className="size-4" />

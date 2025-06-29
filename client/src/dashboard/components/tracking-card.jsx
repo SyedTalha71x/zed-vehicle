@@ -1,6 +1,7 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const TrackingCard = ({ title, Icon, changeType, value, change }) => {
+const TrackingCard = ({ title, Icon, path, changeType, value, change }) => {
     const getSvgIcon = (changeType) => {
         if (changeType === "increase") {
             return (
@@ -73,42 +74,46 @@ const TrackingCard = ({ title, Icon, changeType, value, change }) => {
         }
     };
     return (
-        <div className="w-full bg-white  rounded-lg shadow p-4">
-            <div className="w-full h-full flex flex-col gap-2">
-                <div className="w-full flex justify-between">
-                    <div className="text-[#0D062D] p-2 bg-white rounded-full border border-[#E5E5E5]">
-                        <Icon
-                            color="#0D062D"
-                            strokeWidth={1}
-                            className="size-5"
-                        />
+        <Link to={`/dashboard/all-orders/${path}`}>
+            <div className="w-full bg-white  rounded-lg shadow p-4">
+                <div className="w-full h-full flex flex-col gap-2">
+                    <div className="w-full flex justify-between">
+                        <div className="text-[#0D062D] p-2 bg-white rounded-full border border-[#E5E5E5]">
+                            <Icon
+                                color="#0D062D"
+                                strokeWidth={1}
+                                className="size-5"
+                            />
+                        </div>
+                        {getSvgIcon(changeType)}
                     </div>
-                    {getSvgIcon(changeType)}
-                </div>
-                <p className="text-[#898989] text-sm font-medium">{title}</p>
-                <p className="font-medium">{value}</p>
-                <div className="flex items-center gap-4">
-                    <span
-                        className={` flex items-center gap-1 rounded-full px-2 py-0.5  ${
-                            changeType === "increase"
-                                ? "text-[#1C8C6E] bg-[#F0F9F3]"
-                                : "bg-[#E65E5E1A] text-[#E65E5E]"
-                        } text-xs`}
-                    >
-                        {change}
-                        {changeType === "increase" ? (
-                            <ArrowUpRight className="size-4" />
-                        ) : (
-                            <ArrowDownRight className="size-4" />
-                        )}
-                    </span>
-                    <p className="text-[9px] text-[#7D7D91]">
-                        vs. previous month
+                    <p className="text-[#898989] text-sm font-medium">
+                        {title}
                     </p>
+                    <p className="font-medium">{value}</p>
+                    <div className="flex items-center gap-4">
+                        <span
+                            className={` flex items-center gap-1 rounded-full px-2 py-0.5  ${
+                                changeType === "increase"
+                                    ? "text-[#1C8C6E] bg-[#F0F9F3]"
+                                    : "bg-[#E65E5E1A] text-[#E65E5E]"
+                            } text-xs`}
+                        >
+                            {change}
+                            {changeType === "increase" ? (
+                                <ArrowUpRight className="size-4" />
+                            ) : (
+                                <ArrowDownRight className="size-4" />
+                            )}
+                        </span>
+                        <p className="text-[9px] text-[#7D7D91]">
+                            vs. previous month
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
-export default TrackingCard
+export default TrackingCard;

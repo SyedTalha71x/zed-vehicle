@@ -16,12 +16,25 @@ const columns = [
         dataIndex: "shippingDate",
     },
     {
+        title: "Arrival Time",
+        dataIndex: "arrivalTime",
+    },
+    {
         title: "Category",
         dataIndex: "category",
     },
     {
+        title: "Weight",
+        dataIndex: "weight",
+    },
+    {
         title: "Route",
         dataIndex: "route",
+    },
+    {
+        title: "Broker Revenue",
+        dataIndex: "fee",
+        render: (text) => <span className="text-blue-500">${text}</span>,
     },
     {
         title: "Status",
@@ -48,7 +61,7 @@ const columns = [
         render: (_, record) => (
             <div className="flex items-center justify-center gap-2">
                 <Link
-                    to={`/dashboard/orders-tracking/${record.orderId}`}
+                    to={`/dashboard/orders/${record.orderId}`}
                     className="text-blue-500 cursor-pointer hover:underline"
                 >
                     <Eye className="size-4" />
@@ -58,19 +71,29 @@ const columns = [
     },
 ];
 
-const OrdersTracking = () => {
+const Orders = () => {
     const [period, setPeriod] = useState("1Y");
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
-                <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="md:col-span-2  w-full h-full bg-white rounded-lg shadow p-4 ">
+                <div className="w-full h-full grid grid-cols-1  gap-4">
+                    <div className="col-span-1 w-full h-full">
+                        <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                            {trackingStats?.map((trackingStat, idx) => (
+                                <TrackingCard key={idx} {...trackingStat} />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="col-span-1 w-full h-full bg-white rounded-lg shadow p-4 ">
                         <div className="w-full h-full">
                             <div className="w-full flex mb-4 justify-between">
                                 <p className="font-medium">Tracking List</p>
-                                <p className="font-medium text-[#F7C761]">
+                                <Link
+                                    to={"/dashboard/all-orders"}
+                                    className="font-medium text-[#F7C761]"
+                                >
                                     See All
-                                </p>
+                                </Link>
                             </div>
                             <DataTable
                                 size="small"
@@ -80,7 +103,7 @@ const OrdersTracking = () => {
                             />
                         </div>
                     </div>
-                    <div className="md:col-span-1 w-full h-full bg-white rounded-lg shadow p-4 ">
+                    {/* <div className="md:col-span-1 w-full h-full bg-white rounded-lg shadow p-4 ">
                         <div className="w-full h-full flex flex-col gap-3">
                             <h2 className="text-[#525252] font-medium">
                                 Now On The Way
@@ -130,8 +153,8 @@ const OrdersTracking = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="md:col-span-2 w-full h-full bg-white rounded-lg shadow p-4 ">
+                    </div> */}
+                    <div className="col-span-1 w-full h-full bg-white rounded-lg shadow p-4 ">
                         <div className="flex gap-5 md:justify-between items-center justify-center flex-wrap  ">
                             <div className="flex items-center gap-4">
                                 <p className="font-medium">Tracking List</p>
@@ -168,17 +191,10 @@ const OrdersTracking = () => {
                         </div>
                         <ShipmentStatisticsChart />
                     </div>
-                    <div className="md:col-span-1 w-full h-full">
-                        <div className="w-full h-full grid grid-cols-2 gap-3">
-                            {trackingStats?.map((trackingStat, idx) => (
-                                <TrackingCard key={idx} {...trackingStat} />
-                            ))}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default OrdersTracking;
+export default Orders;

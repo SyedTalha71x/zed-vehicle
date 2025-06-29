@@ -18,6 +18,8 @@ import {
     Upload,
     User,
     X,
+    Pencil,
+    DollarSign,
 } from "lucide-react";
 import { trackingOrderData } from "../libs/dummy-data";
 import { useNavigate, useParams } from "react-router-dom";
@@ -28,47 +30,6 @@ const SingleOrderTracking = () => {
     const orderData = trackingOrderData.filter(
         (order) => order.orderId === orderId
     )[0];
-
-    // Initial tracking steps
-    const [trackingSteps, setTrackingSteps] = useState([
-        {
-            id: 1,
-            name: "Payment Received",
-            status: "Completed",
-            note: "Payment confirmed via wire transfer",
-            dateUpdated: "2023-06-15",
-            files: [
-                { name: "payment_receipt.pdf", visible: true, type: "pdf" },
-            ],
-        },
-        {
-            id: 2,
-            name: "Vehicle Inspection",
-            status: "Completed",
-            note: "Inspection completed, minor scratches noted",
-            dateUpdated: "2023-06-18",
-            files: [
-                { name: "inspection_report.pdf", visible: true, type: "pdf" },
-                { name: "vehicle_photos.jpg", visible: false, type: "image" },
-            ],
-        },
-        {
-            id: 3,
-            name: "Customs Clearance",
-            status: "In Progress",
-            note: "Documents submitted, awaiting clearance",
-            dateUpdated: "2023-06-20",
-            files: [],
-        },
-        {
-            id: 4,
-            name: "Loading for Export",
-            status: "Pending",
-            note: "",
-            dateUpdated: "2023-06-21",
-            files: [],
-        },
-    ]);
 
     const [isAddingStep, setIsAddingStep] = useState(false);
     const [editingStep, setEditingStep] = useState(null);
@@ -128,39 +89,117 @@ const SingleOrderTracking = () => {
         setTrackingSteps(trackingSteps.filter((step) => step.id !== id));
     };
 
-    const toggleFileVisibility = (stepId, fileName) => {
-        setTrackingSteps(
-            trackingSteps.map((step) =>
-                step.id === stepId
-                    ? {
-                          ...step,
-                          files: step.files.map((file) =>
-                              file.name === fileName
-                                  ? { ...file, visible: !file.visible }
-                                  : file
-                          ),
-                      }
-                    : step
-            )
-        );
+    // Updated order object structure
+    const [order, setOrder] = useState({
+        key: "2",
+        orderId: "0023456LKH",
+        status: "Pending",
+        customerName: "Mark Jennings",
+        businessName: "Jennings Corp",
+        customerEmail: "mark.jen@example.com",
+        customerPhone: "+1 (555) 123-4567",
+        notes: "Handle with care - fragile items included",
+        orderAmount: 25000,
+        productDetails: `Model: Deluxe Furniture Set
+Quantity: 3
+Type: Living Room Furniture
+Custom specs: Custom upholstery in navy blue
+Delivery info: Ground floor delivery required`,
+        category: "Furniture",
+        arrivalTime: "7/3/2023",
+        weight: "50kg",
+        route: "40 Broomfield Place → 44 Helland Bridge",
+        fee: 2200,
+        files: [
+            { name: "invoice_001.pdf", type: "pdf", visible: true },
+            { name: "product_specs.jpg", type: "image", visible: true },
+        ],
+    });
+
+    // Track which fields are being edited
+    const [editingField, setEditingField] = useState(null);
+    const [editValue, setEditValue] = useState("");
+
+    // Handle editing fields
+    const startEditing = (field, value) => {
+        setEditingField(field);
+        setEditValue(value);
     };
 
-    const handleFileUpload = (stepId, files) => {
-        const newFiles = Array.from(files).map((file) => ({
+    const saveEdit = () => {
+        setOrder({ ...order, [editingField]: editValue });
+        setEditingField(null);
+    };
+
+    const cancelEdit = () => {
+        setEditingField(null);
+    };
+
+    // Handle file upload
+    const handleFileUpload = (e) => {
+        const newFiles = Array.from(e.target.files).map((file) => ({
             name: file.name,
-            visible: true,
             type: file.type.startsWith("image/") ? "image" : "pdf",
+            visible: true,
         }));
-
-        setTrackingSteps(
-            trackingSteps.map((step) =>
-                step.id === stepId
-                    ? { ...step, files: [...step.files, ...newFiles] }
-                    : step
-            )
-        );
+        setOrder({ ...order, files: [...order.files, ...newFiles] });
     };
-    if (!orderData) {
+
+    const toggleFileVisibility = (fileName) => {
+        setOrder({
+            ...order,
+            files: order.files.map((file) =>
+                file.name === fileName
+                    ? { ...file, visible: !file.visible }
+                    : file
+            ),
+        });
+    };
+
+    // Initial tracking steps (same as before)
+    const [trackingSteps, setTrackingSteps] = useState([
+        {
+            id: 1,
+            name: "Payment Received",
+            status: "Completed",
+            note: "Payment confirmed via wire transfer",
+            dateUpdated: "2023-06-15",
+            files: [
+                { name: "payment_receipt.pdf", visible: true, type: "pdf" },
+            ],
+        },
+        {
+            id: 2,
+            name: "Vehicle Inspection",
+            status: "Completed",
+            note: "Inspection completed, minor scratches noted",
+            dateUpdated: "2023-06-18",
+            files: [
+                { name: "inspection_report.pdf", visible: true, type: "pdf" },
+                { name: "vehicle_photos.jpg", visible: false, type: "image" },
+            ],
+        },
+        {
+            id: 3,
+            name: "Customs Clearance",
+            status: "In Progress",
+            note: "Documents submitted, awaiting clearance",
+            dateUpdated: "2023-06-20",
+            files: [],
+        },
+        {
+            id: 4,
+            name: "Loading for Export",
+            status: "Pending",
+            note: "",
+            dateUpdated: "2023-06-21",
+            files: [],
+        },
+    ]);
+
+    // ... rest of your tracking step functions remain the same ...
+
+    if (!order) {
         return (
             <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
                 <div className="w-full h-full p-3 sm:p-5 lg:p-8">
@@ -188,8 +227,11 @@ const SingleOrderTracking = () => {
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-6">
-                    <button className="p-2 border bg-white border-[#292D3214] shadow rounded-lg hover:bg-gray-50">
-                        <Box className="size-5 text-[#3A4656]" />
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="p-2 border bg-white border-[#292D3214] shadow rounded-lg hover:bg-gray-50"
+                    >
+                        <ArrowLeft className="size-5 text-[#3A4656]" />
                     </button>
                     <h1 className="text-2xl font-semibold text-[#23293D]">
                         Order Details
@@ -202,13 +244,10 @@ const SingleOrderTracking = () => {
                         <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6">
                             <div className="flex items-center gap-2 mb-4">
                                 <div className="p-1 border border-[#292D3214] shadow rounded-lg">
-                                    <Package
-                                        className="size-5"
-                                        color="#E46320"
-                                    />
+                                    <User className="size-5" color="#307EF3" />
                                 </div>
                                 <h2 className="font-semibold text-[#23293D]">
-                                    Order Information
+                                    Customer Information
                                 </h2>
                             </div>
 
@@ -218,7 +257,7 @@ const SingleOrderTracking = () => {
                                         Order ID
                                     </label>
                                     <p className="font-medium text-[#23293D]">
-                                        {orderData.orderId}
+                                        {order.orderId}
                                     </p>
                                 </div>
 
@@ -228,109 +267,430 @@ const SingleOrderTracking = () => {
                                     </label>
                                     <span
                                         className={`py-1 text-xs px-2 rounded-sm font-medium ${getStatusStyle(
-                                            orderData.status
+                                            order.status
                                         )}`}
                                     >
-                                        {orderData.status}
+                                        {order.status}
                                     </span>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
+                                <div>
+                                    <div className="flex items-center justify-between">
                                         <label className="text-sm text-[#7D7D91]">
-                                            Category
+                                            Customer Name
                                         </label>
-                                        <p className="font-medium text-[#23293D]">
-                                            {orderData.category}
-                                        </p>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "customerName",
+                                                    order.customerName
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
                                     </div>
-                                    <div>
-                                        <label className="text-sm text-[#7D7D91]">
-                                            Weight
-                                        </label>
+                                    {editingField === "customerName" ? (
+                                        <div className="flex gap-2 mt-1">
+                                            <input
+                                                type="text"
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="flex-1 px-2 py-1 border rounded"
+                                            />
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
+                                    ) : (
                                         <p className="font-medium text-[#23293D]">
-                                            {orderData.weight}
+                                            {order.customerName}
                                         </p>
-                                    </div>
+                                    )}
                                 </div>
 
                                 <div>
-                                    <label className="text-sm text-[#7D7D91]">
-                                        Fee
-                                    </label>
-                                    <p className="font-medium text-[#23293D] text-lg">
-                                        {orderData.fee}
-                                    </p>
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-sm text-[#7D7D91]">
+                                            Business Name
+                                        </label>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "businessName",
+                                                    order.businessName
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
+                                    </div>
+                                    {editingField === "businessName" ? (
+                                        <div className="flex gap-2 mt-1">
+                                            <input
+                                                type="text"
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="flex-1 px-2 py-1 border rounded"
+                                            />
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <p className="font-medium text-[#23293D]">
+                                            {order.businessName}
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div>
-                                    <label className="text-sm text-[#7D7D91]">
-                                        Route
-                                    </label>
-                                    <p className="font-medium text-[#23293D]">
-                                        {orderData.route}
-                                    </p>
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-sm text-[#7D7D91]">
+                                            Phone Number
+                                        </label>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "customerPhone",
+                                                    order.customerPhone
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
+                                    </div>
+                                    {editingField === "customerPhone" ? (
+                                        <div className="flex gap-2 mt-1">
+                                            <input
+                                                type="text"
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="flex-1 px-2 py-1 border rounded"
+                                            />
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <p className="font-medium text-[#23293D]">
+                                            {order.customerPhone}
+                                        </p>
+                                    )}
+                                </div>
+
+                                <div>
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-sm text-[#7D7D91]">
+                                            Email
+                                        </label>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "customerEmail",
+                                                    order.customerEmail
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
+                                    </div>
+                                    {editingField === "customerEmail" ? (
+                                        <div className="flex gap-2 mt-1">
+                                            <input
+                                                type="text"
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="flex-1 px-2 py-1 border rounded"
+                                            />
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <p className="font-medium text-[#23293D]">
+                                            {order.customerEmail}
+                                        </p>
+                                    )}
+                                </div>
+
+                                <div>
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-sm text-[#7D7D91]">
+                                            Notes
+                                        </label>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "notes",
+                                                    order.notes
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
+                                    </div>
+                                    {editingField === "notes" ? (
+                                        <div className="mt-1">
+                                            <textarea
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="w-full px-2 py-1 border rounded h-20"
+                                            />
+                                            <div className="flex gap-2 mt-2">
+                                                <button
+                                                    onClick={saveEdit}
+                                                    className="text-green-600"
+                                                >
+                                                    <CheckCircle className="size-5" />
+                                                </button>
+                                                <button
+                                                    onClick={cancelEdit}
+                                                    className="text-red-600"
+                                                >
+                                                    <X className="size-5" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <p className="font-medium text-[#23293D] whitespace-pre-line">
+                                            {order.notes}
+                                        </p>
+                                    )}
+                                </div>
+
+                                {/* Files Section */}
+                                <div>
+                                    <div className="flex items-center justify-between mb-2">
+                                        <label className="text-sm text-[#7D7D91]">
+                                            Attachments
+                                        </label>
+                                        <label className="cursor-pointer text-[#7D7D91] hover:text-[#E46320]">
+                                            <input
+                                                type="file"
+                                                multiple
+                                                className="hidden"
+                                                onChange={handleFileUpload}
+                                            />
+                                            <div className="flex items-center gap-1">
+                                                <Upload className="size-4" />
+                                                <span className="text-sm">
+                                                    Upload
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    {order.files.length > 0 && (
+                                        <div className="space-y-2">
+                                            {order.files.map((file, index) => (
+                                                <div
+                                                    key={index}
+                                                    className="flex items-center justify-between p-2 bg-gray-50 rounded"
+                                                >
+                                                    <div className="flex items-center gap-2">
+                                                        <FileText className="size-4 text-[#7D7D91]" />
+                                                        <span className="text-sm text-[#23293D]">
+                                                            {file.name}
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            toggleFileVisibility(
+                                                                file.name
+                                                            )
+                                                        }
+                                                        className="text-[#7D7D91] hover:text-[#23293D]"
+                                                    >
+                                                        {file.visible ? (
+                                                            <Eye className="size-4" />
+                                                        ) : (
+                                                            <EyeOff className="size-4" />
+                                                        )}
+                                                    </button>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
 
-                        {/* Vehicle Information */}
+                        {/* Revenue Section */}
                         <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6 mt-6">
                             <div className="flex items-center gap-2 mb-4">
                                 <div className="p-1 border border-[#292D3214] shadow rounded-lg">
-                                    <MapPin
+                                    <DollarSign
                                         className="size-5"
-                                        color="#307EF3"
+                                        color="#1C8C6E"
                                     />
                                 </div>
                                 <h2 className="font-semibold text-[#23293D]">
-                                    Vehicle Details
+                                    Revenue
                                 </h2>
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 <div>
-                                    <label className="text-sm text-[#7D7D91]">
-                                        VIN
-                                    </label>
-                                    <p className="font-medium text-[#23293D]">
-                                        {orderData.vin}
-                                    </p>
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
+                                    <div className="flex items-center justify-between">
                                         <label className="text-sm text-[#7D7D91]">
-                                            Make
+                                            Order Amount
                                         </label>
-                                        <p className="font-medium text-[#23293D]">
-                                            {orderData.make}
-                                        </p>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "orderAmount",
+                                                    order.orderAmount
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
                                     </div>
-                                    <div>
-                                        <label className="text-sm text-[#7D7D91]">
-                                            Model
-                                        </label>
-                                        <p className="font-medium text-[#23293D]">
-                                            {orderData.model}
+                                    {editingField === "orderAmount" ? (
+                                        <div className="flex gap-2 mt-1">
+                                            <input
+                                                type="number"
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="flex-1 px-2 py-1 border rounded"
+                                            />
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <p className="font-medium text-[#23293D] text-lg">
+                                            $
+                                            {order.orderAmount?.toLocaleString()}
                                         </p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Product Details Section */}
+                        <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6 mt-6">
+                            <div className="flex items-center gap-2 mb-4">
+                                <div className="p-1 border border-[#292D3214] shadow rounded-lg">
+                                    <Package
+                                        className="size-5"
+                                        color="#E46320"
+                                    />
+                                </div>
+                                <h2 className="font-semibold text-[#23293D]">
+                                    Order / Product Details
+                                </h2>
+                            </div>
+
+                            <div>
+                                <div className="flex items-center justify-between mb-2">
+                                    <label className="text-sm text-[#7D7D91]">
+                                        Details
+                                    </label>
+                                    <button
+                                        onClick={() =>
+                                            startEditing(
+                                                "productDetails",
+                                                order.productDetails
+                                            )
+                                        }
+                                        className="text-[#7D7D91] hover:text-[#E46320]"
+                                    >
+                                        <Pencil className="size-4" />
+                                    </button>
+                                </div>
+                                {editingField === "productDetails" ? (
+                                    <div className="mt-1">
+                                        <textarea
+                                            value={editValue}
+                                            onChange={(e) =>
+                                                setEditValue(e.target.value)
+                                            }
+                                            className="w-full px-2 py-1 border rounded h-40"
+                                        />
+                                        <div className="flex gap-2 mt-2">
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <label className="text-sm text-[#7D7D91]">
-                                        Year
-                                    </label>
-                                    <p className="font-medium text-[#23293D]">
-                                        {orderData.year}
-                                    </p>
-                                </div>
-                                <div>
-                                    <label className="text-sm text-[#7D7D91]">
-                                        Destination Port
-                                    </label>
-                                    <p className="font-medium text-[#23293D]">
-                                        {orderData.destinationPort}
-                                    </p>
-                                </div>
+                                ) : (
+                                    <div className="font-medium text-[#23293D] whitespace-pre-line bg-gray-50 p-3 rounded">
+                                        {order.productDetails}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -712,3 +1072,5 @@ const EditStepForm = ({ step, onSave, onCancel, statusOptions }) => {
 };
 
 export default SingleOrderTracking;
+// this is the code, after merging, now I want you do some things which are admin could also edit orderId and customer and, also add brokerRevent and orderAmount separate  and show in the revenue section, both different and also admin can edit them too
+// this is the code, after merging, now I want you do some things which add brokerRevent and orderAmount separate  and show in the revenue section, both different and also admin can edit them too, and also if we click on attachment it should get seen as pop up or get download on device

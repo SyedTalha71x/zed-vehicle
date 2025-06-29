@@ -109,7 +109,7 @@ Delivery info: Ground floor delivery required`,
         arrivalTime: "7/3/2023",
         weight: "50kg",
         route: "40 Broomfield Place → 44 Helland Bridge",
-        fee: 2200,
+        brokerRevenue: 2200,
         files: [
             { name: "invoice_001.pdf", type: "pdf", visible: true },
             { name: "product_specs.jpg", type: "image", visible: true },
@@ -625,6 +625,53 @@ Delivery info: Ground floor delivery required`,
                                         <p className="font-medium text-[#23293D] text-lg">
                                             $
                                             {order.orderAmount?.toLocaleString()}
+                                        </p>
+                                    )}
+                                </div>
+                                <div>
+                                    <div className="flex items-center justify-between">
+                                        <label className="text-sm text-[#7D7D91]">
+                                            Broker Revenue
+                                        </label>
+                                        <button
+                                            onClick={() =>
+                                                startEditing(
+                                                    "brokerRevenue",
+                                                    order.brokerRevenue
+                                                )
+                                            }
+                                            className="text-[#7D7D91] hover:text-[#E46320]"
+                                        >
+                                            <Pencil className="size-4" />
+                                        </button>
+                                    </div>
+                                    {editingField === "brokerRevenue" ? (
+                                        <div className="flex gap-2 mt-1">
+                                            <input
+                                                type="number"
+                                                value={editValue}
+                                                onChange={(e) =>
+                                                    setEditValue(e.target.value)
+                                                }
+                                                className="flex-1 px-2 py-1 border rounded"
+                                            />
+                                            <button
+                                                onClick={saveEdit}
+                                                className="text-green-600"
+                                            >
+                                                <CheckCircle className="size-5" />
+                                            </button>
+                                            <button
+                                                onClick={cancelEdit}
+                                                className="text-red-600"
+                                            >
+                                                <X className="size-5" />
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <p className="font-medium text-[#23293D] text-lg">
+                                            $
+                                            {order.brokerRevenue?.toLocaleString()}
                                         </p>
                                     )}
                                 </div>

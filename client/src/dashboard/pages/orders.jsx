@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DataTable from "../components/table";
 import { trackingOrderData, trackingStats } from "../libs/dummy-data";
-import { Eye } from "lucide-react";
+import { Eye, Search } from "lucide-react";
 import ShipmentStatisticsChart from "../components/shipment-chart";
 import { Link } from "react-router-dom";
 import TrackingCard from "../components/tracking-card";
@@ -78,6 +78,13 @@ const columns = [
 
 const Orders = () => {
     const [period, setPeriod] = useState("1Y");
+    const [searchValue, setSearchValue] = useState("");
+    const searchableColumns = ["orderId", "category", "route", "status"];
+
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    };
+
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
@@ -91,17 +98,31 @@ const Orders = () => {
                     </div>
                     <div className="col-span-1 w-full h-full bg-white rounded-lg shadow p-4 ">
                         <div className="w-full h-full">
-                            <div className="w-full flex mb-4 justify-between">
+                            <div className="w-full flex mb-4 gap-4 flex-wrap justify-between">
                                 <p className="font-medium">Tracking List</p>
-                                <Link
-                                    to={"/dashboard/all-orders"}
-                                    className="font-medium text-[#F7C761]"
-                                >
-                                    See All
-                                </Link>
+                                <div className="flex items-center gap-2 ">
+                                    <div className="w-44 text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus-within:ring-2 focus-within:ring-blue-200 border border-[#0000001A]">
+                                        <Search className="size-5 text-gray-400" />
+                                        <input
+                                            type="search"
+                                            placeholder="Search orders..."
+                                            value={searchValue}
+                                            onChange={handleSearchChange}
+                                            className="w-full text-[#3A4656] outline-none text-sm placeholder:text-gray-400"
+                                        />
+                                    </div>
+                                    <Link
+                                        to={"/dashboard/all-orders"}
+                                        className="font-medium text-[#E46320]"
+                                    >
+                                        See All
+                                    </Link>
+                                </div>
                             </div>
                             <DataTable
                                 size="small"
+                                searchableColumns={searchableColumns}
+                                searchValue={searchValue}
                                 columns={columns}
                                 data={trackingOrderData.slice(0, 6)}
                                 pagination={false}
@@ -163,6 +184,7 @@ const Orders = () => {
                         <div className="flex gap-5 md:justify-between items-center justify-center flex-wrap  ">
                             <div className="flex items-center gap-4">
                                 <p className="font-medium">Tracking List</p>
+
                                 <div className="flex items-center gap-4">
                                     <div className="flex items-center gap-1">
                                         <span className="bg-[#F7C761] p-1 rounded-full" />

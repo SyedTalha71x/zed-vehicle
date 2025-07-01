@@ -15,7 +15,7 @@ const ProductChart = () => {
                 borderRadiusApplication: "end",
             },
         },
-        colors: ["#97ADFF", "#FFC879"], // Completed (orange), Reject (light yellow-green)
+        colors: ["#97ADFF", "#FFC879"], 
         dataLabels: {
             enabled: false,
         },

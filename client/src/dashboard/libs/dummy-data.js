@@ -85,13 +85,14 @@ export const staffs = [
         picture: "/dashboard-images/staff-2.jpg",
     },
 ];
+
 export const trackingStats = [
     {
         title: "Total Orders",
         value: 6521,
         change: "+23.5%",
         changeType: "increase",
-        Icon: Box, // Lucide Icon
+        Icon: Box,
         path: "",
     },
     {
@@ -99,7 +100,7 @@ export const trackingStats = [
         value: 1800,
         change: "-6%",
         changeType: "decrease",
-        Icon: Boxes, // Lucide Icon
+        Icon: Boxes,
         path: "in-progress",
     },
     {
@@ -107,7 +108,7 @@ export const trackingStats = [
         value: "1000",
         change: "-7.3%",
         changeType: "decrease",
-        Icon: Truck, // Lucide Icon
+        Icon: Truck,
         path: "pending",
     },
     {
@@ -115,7 +116,7 @@ export const trackingStats = [
         value: 1840,
         change: "+23.1%",
         changeType: "increase",
-        Icon: CircleCheckBig, // Lucide icon
+        Icon: CircleCheckBig,
         path: "completed",
     },
 ];
@@ -204,13 +205,14 @@ export const shipments = [
         },
     },
 ];
+
 export const dashboardStats = [
     {
         title: "Total Orders",
         value: 6521,
         change: "+1.3%",
         changeType: "increase",
-        icon: Truck, // Lucide icon
+        icon: Truck,
         path: "",
     },
     {
@@ -218,7 +220,7 @@ export const dashboardStats = [
         value: 105,
         change: "-2.1%",
         changeType: "decrease",
-        icon: Package, // Lucide icon
+        icon: Package,
         path: "pending",
     },
     {
@@ -226,7 +228,7 @@ export const dashboardStats = [
         value: 502,
         change: "+1.3%",
         changeType: "increase",
-        icon: CreditCard, // Lucide icon
+        icon: CreditCard,
         path: "in-progress",
     },
     {
@@ -234,7 +236,7 @@ export const dashboardStats = [
         value: 5840,
         change: "-3.1%",
         changeType: "decrease",
-        icon: Send, // Lucide icon
+        icon: Send,
         path: "completed",
     },
     {
@@ -242,7 +244,7 @@ export const dashboardStats = [
         value: 98,
         change: "+2.1%",
         changeType: "increase",
-        icon: Send, // Lucide icon
+        icon: Send,
         path: "cancelled",
     },
     {
@@ -250,7 +252,7 @@ export const dashboardStats = [
         value: 20213,
         change: "-3.1%",
         changeType: "increase",
-        icon: Send, // Lucide icon
+        icon: Send,
         path: "revenue",
     },
 ];

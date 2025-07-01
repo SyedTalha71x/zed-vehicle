@@ -10,7 +10,6 @@ const Signin = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate("/dashboard/home");
-        // Here you would typically handle the signup logic, such as sending the email and password to your backend.
     };
     return (
         <div className="w-full min-h-screen bg-white">

@@ -34,30 +34,30 @@ const mainMenu = [
         title: "Customers",
         Icon: UsersRound,
     },
-    // {
-    //     id: 4,
-    //     path: "staff",
-    //     title: "Add/Edit Staff",
-    //     Icon: UserRoundCog,
-    // },
-    // {
-    //     id: 5,
-    //     path: "blogs",
-    //     title: "Blog Management",
-    //     Icon: ScrollText,
-    // },
-    // {
-    //     id: 6,
-    //     path: "reviews",
-    //     title: "Manage Reviews",
-    //     Icon: Sparkles,
-    // },
-    // {
-    //     id: 7,
-    //     path: "website-content",
-    //     title: "Website Content Editing",
-    //     Icon: SquarePen,
-    // },
+    {
+        id: 4,
+        path: "staff",
+        title: "Add/Edit Staff",
+        Icon: UserRoundCog,
+    },
+    {
+        id: 5,
+        path: "blogs",
+        title: "Blog Management",
+        Icon: ScrollText,
+    },
+    {
+        id: 6,
+        path: "reviews",
+        title: "Manage Reviews",
+        Icon: Sparkles,
+    },
+    {
+        id: 7,
+        path: "website-content",
+        title: "Website Content Editing",
+        Icon: SquarePen,
+    },
 ];
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(true);

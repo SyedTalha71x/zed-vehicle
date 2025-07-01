@@ -8,7 +8,7 @@ function App() {
     useEffect(() => {
         if (isSidebarOpen) {
             document.body.style.overflow = "hidden";
-            document.body.style.touchAction = "none"; // mobile scroll
+            document.body.style.touchAction = "none";
         } else {
             document.body.style.overflow = "";
             document.body.style.touchAction = "";

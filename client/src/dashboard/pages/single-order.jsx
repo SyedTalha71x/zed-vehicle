@@ -113,7 +113,6 @@ const SingleOrderTracking = () => {
         setEditingField(null);
     };
 
-    // Handle file upload
     const handleFileUpload = (e) => {
         const newFiles = Array.from(e.target.files).map((file) => ({
             name: file.name,
@@ -134,7 +133,6 @@ const SingleOrderTracking = () => {
         });
     };
 
-    // Initial tracking steps (same as before)
     const [trackingSteps, setTrackingSteps] = useState([
         {
             id: 1,
@@ -203,7 +201,6 @@ const SingleOrderTracking = () => {
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
-                {/* Header */}
                 <div className="flex items-center gap-4 mb-6">
                     <button
                         onClick={() => navigate(-1)}
@@ -217,7 +214,6 @@ const SingleOrderTracking = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    {/* Order Information */}
                     <div className="lg:col-span-1">
                         <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6">
                             <div className="flex items-center gap-2 mb-4">
@@ -488,7 +484,6 @@ const SingleOrderTracking = () => {
                                     )}
                                 </div>
 
-                                {/* Files Section */}
                                 <div>
                                     <div className="flex items-center justify-between mb-2">
                                         <label className="text-sm text-[#7D7D91]">
@@ -544,7 +539,6 @@ const SingleOrderTracking = () => {
                             </div>
                         </div>
 
-                        {/* Revenue Section */}
                         <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6 mt-6">
                             <div className="flex items-center gap-2 mb-4">
                                 <div className="p-1 border border-[#292D3214] shadow rounded-lg">
@@ -656,7 +650,6 @@ const SingleOrderTracking = () => {
                             </div>
                         </div>
 
-                        {/* Product Details Section */}
                         <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6 mt-6">
                             <div className="flex items-center gap-2 mb-4">
                                 <div className="p-1 border border-[#292D3214] shadow rounded-lg">
@@ -720,7 +713,6 @@ const SingleOrderTracking = () => {
                         </div>
                     </div>
 
-                    {/* Tracking Section */}
                     <div className="lg:col-span-2">
                         <div className="bg-white border-2 border-[#1A2F570F] shadow rounded-xl p-6">
                             <div className="flex items-center justify-between mb-6">
@@ -744,7 +736,6 @@ const SingleOrderTracking = () => {
                             </div>
 
                             <div className="space-y-4">
-                                {/* Add New Step Form */}
                                 {isAddingStep && (
                                     <div className="border-2 border-[#E46320] bg-[#FFF8F5] rounded-lg p-4">
                                         <h3 className="font-medium text-[#23293D] mb-3">
@@ -844,7 +835,6 @@ const SingleOrderTracking = () => {
                                     </div>
                                 )}
 
-                                {/* Tracking Steps */}
                                 {trackingSteps.map((step, index) => (
                                     <div
                                         key={step.id}

@@ -6,7 +6,7 @@ const BarChart = () => {
         series: [
             {
                 name: "Users",
-                data: [1200, 800, 600], // Vietnam, US, Indonesia
+                data: [1200, 800, 600],
             },
         ],
         options: {
@@ -23,7 +23,7 @@ const BarChart = () => {
                     borderRadiusApplication: "end",
                 },
             },
-            colors: ["#91D0FF", "#FDB0AC"], // Per-bar coloring
+            colors: ["#91D0FF", "#FDB0AC"],
             xaxis: {
                 categories: ["Vietnam", "United States", "Indonesia"],
                 labels: {

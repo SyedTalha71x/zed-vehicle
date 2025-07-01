@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Table } from "antd";
 
-// rowSelection config must receive selectedRowKeys & selectedRows
 const getRowSelection = (onSelectionChange) => ({
     onChange: (selectedRowKeys, selectedRows) => {
         console.log("selectedRowKeys:", selectedRowKeys);
@@ -22,15 +21,42 @@ const DataTable = ({
     size = "",
     pagination = true,
     onSelectionChange,
+    searchValue = "",
+    searchableColumns = [],
 }) => {
+    const filteredData = useMemo(() => {
+        if (!searchValue || !searchValue.trim()) {
+            return data;
+        }
+
+        const searchTerm = searchValue.toLowerCase().trim();
+
+        return data.filter((item) => {
+            if (searchableColumns.length > 0) {
+                return searchableColumns.some((columnKey) => {
+                    const value = item[columnKey];
+                    return (
+                        value &&
+                        value.toString().toLowerCase().includes(searchTerm)
+                    );
+                });
+            }
+
+            return Object.values(item).some((value) => {
+                if (value == null) return false;
+                return value.toString().toLowerCase().includes(searchTerm);
+            });
+        });
+    }, [data, searchValue, searchableColumns]);
+
     return (
         <Table
             pagination={pagination}
             size={size}
             rowSelection={getRowSelection(onSelectionChange)}
             columns={columns}
-            dataSource={data.map((item, index) => ({
-                key: item.customerId || index, // Ensure every row has a unique key
+            dataSource={filteredData.map((item, index) => ({
+                key: item.customerId || item.orderId || index,
                 ...item,
             }))}
             scroll={{ x: "max-content" }}

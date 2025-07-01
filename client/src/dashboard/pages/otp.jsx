@@ -9,21 +9,19 @@ const Otp = () => {
 
     const handleChange = (index, value) => {
         if (value.length > 1) {
-            value = value.slice(0, 1); // Ensure only one digit is entered
+            value = value.slice(0, 1);
         }
 
         const newOtp = [...otp];
         newOtp[index] = value;
         setOtp(newOtp);
 
-        // Auto-focus to next input if a digit was entered
         if (value && index < 3) {
             inputRefs[index + 1].current.focus();
         }
     };
 
     const handleKeyDown = (index, e) => {
-        // Handle backspace to move to previous input
         if (e.key === "Backspace" && !otp[index] && index > 0) {
             inputRefs[index - 1].current.focus();
         }
@@ -34,7 +32,6 @@ const Otp = () => {
         const enteredOtp = otp.join("");
         navigate("/signin");
         console.log("OTP submitted:", enteredOtp);
-        // Add your OTP verification logic here
     };
     return (
         <div className="w-full min-h-screen bg-white">

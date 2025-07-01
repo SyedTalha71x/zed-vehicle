@@ -15,7 +15,7 @@ const ShipmentStatisticsChart = () => {
                 borderRadiusApplication: "end",
             },
         },
-        colors: [ "#EDE9C8","#F7C761"], // Completed (orange), Reject (light yellow-green)
+        colors: [ "#EDE9C8","#F7C761"], 
         dataLabels: {
             enabled: false,
         },

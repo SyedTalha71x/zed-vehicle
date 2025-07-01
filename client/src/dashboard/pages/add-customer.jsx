@@ -259,7 +259,6 @@ const AddCustomer = () => {
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
-                {/* Customer Information Section */}
                 <div>
                     <h4 className="font-bold text-lg">Customer Information</h4>
                     <div className="mt-6 space-y-6">
@@ -432,8 +431,6 @@ const AddCustomer = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Order Information Section */}
                 {showOrderForm && (
                     <div className="mt-12 border-t pt-8">
                         <h4 className="font-bold text-lg">Order Information</h4>

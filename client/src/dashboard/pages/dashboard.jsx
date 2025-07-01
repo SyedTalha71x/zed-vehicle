@@ -37,7 +37,7 @@ const trackingOrderColumns = [
         title: "Route",
         dataIndex: "route",
     },
-   {
+    {
         title: "Order Amount",
         dataIndex: "orderAmount",
         render: (text) => <span className="text-blue-500">${text}</span>,
@@ -85,6 +85,13 @@ const trackingOrderColumns = [
 const Dashboard = () => {
     const [type, setType] = useState("overviews");
     const [selectedShipment, setSelectedShipment] = useState(1);
+    const [searchValue, setSearchValue] = useState("");
+    const searchableColumns = ["orderId", "category", "route", "status"];
+
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    };
+
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
@@ -177,29 +184,35 @@ const Dashboard = () => {
                                 <p className="font-medium">Tracking Order</p>
                             </div>
                             <div className="flex items-center flex-wrap gap-2">
-                                <div className=" w-44 text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] ">
-                                    <Search className="size-5" />
+                                <div className="w-44 text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus-within:ring-2 focus-within:ring-blue-200 border border-[#0000001A]">
+                                    <Search className="size-5 text-gray-400" />
                                     <input
                                         type="search"
-                                        placeholder="Search.."
-                                        className="w-full text-[#3A4656] outline-none text-sm"
+                                        placeholder="Search orders..."
+                                        value={searchValue}
+                                        onChange={handleSearchChange}
+                                        className="w-full text-[#3A4656] outline-none text-sm placeholder:text-gray-400"
                                     />
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
-                                        <Settings2 className="size-4" />
-                                        Filter
-                                    </button>
-                                    <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
                                         <Share className="size-4" />
                                         Exports
                                     </button>
+                                    <Link
+                                        to={"/dashboard/all-orders"}
+                                        className="font-medium text-[#E46320]"
+                                    >
+                                        See All
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <DataTable
                             columns={trackingOrderColumns}
                             data={trackingOrderData}
+                            searchValue={searchValue}
+                            searchableColumns={searchableColumns}
                         />
                     </div>
                 </div>

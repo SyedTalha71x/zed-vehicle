@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 const PieChart = () => {
-    const series = [29.4, 30.1, 40.5]; // Desktop, Mobile, Tablet
+    const series = [29.4, 30.1, 40.5]; 
 
     const options = {
         chart: {
@@ -21,7 +21,7 @@ const PieChart = () => {
         stroke: {
             show: true,
             width: 5,
-            colors: ["#fff"], // white spacing
+            colors: ["#fff"], 
         },
         fill: {
             type: "solid",

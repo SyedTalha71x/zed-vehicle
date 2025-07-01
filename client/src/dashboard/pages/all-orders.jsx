@@ -69,9 +69,13 @@ const trackingOrderColumns = [
         ),
     },
 ];
+
 const AllOrders = () => {
     const { status } = useParams();
     const [filteredOrders, setFilteredOrders] = useState([]);
+    const [searchValue, setSearchValue] = useState("");
+
+    const searchableColumns = ["orderId", "category", "route", "status"];
 
     useEffect(() => {
         if (status && status !== "revenue") {
@@ -86,13 +90,15 @@ const AllOrders = () => {
         }
     }, [status]);
 
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    };
+
     return (
         <div className="w-full min-h-[calc(100vh-56px)] overflow-x-hidden">
             <div className="w-full h-full p-3 sm:p-5 lg:p-8">
-                <div
-                    className="w-full h-full flex p-4
-                        bg-white border-2 border-[#1A2F570F] mb-5 shadow  items-center justify-between rounded-xl gap-5"
-                >
+                {/* Stats Card */}
+                <div className="w-full h-full flex p-4 bg-white border-2 border-[#1A2F570F] mb-5 shadow items-center justify-between rounded-xl gap-5">
                     {status === "revenue" ? (
                         <p className="font-medium">Total Broker Revenue</p>
                     ) : (
@@ -110,48 +116,68 @@ const AllOrders = () => {
                         </p>
                     ) : (
                         <p className="font-black text-lg">
-                            {" "}
                             {filteredOrders.length}
                         </p>
                     )}
                 </div>
-                <div
-                    className="w-full h-full flex flex-col p-4
-                        bg-white border-2 border-[#1A2F570F] shadow rounded-xl gap-5"
-                >
+
+                <div className="w-full h-full flex flex-col p-4 bg-white border-2 border-[#1A2F570F] shadow rounded-xl gap-5">
                     <div className="flex flex-wrap justify-between gap-2">
                         <div className="flex items-center gap-2">
-                            <div className="p-1 border border-[#292D3214]  shadow rounded-lg">
+                            <div className="p-1 border border-[#292D3214] shadow rounded-lg">
                                 <Box className="size-5" color="#307EF3" />
                             </div>
                             <p className="font-medium capitalize flex items-center">
                                 {status} Orders
                             </p>
                         </div>
+
                         <div className="flex items-center flex-wrap gap-2">
-                            <div className=" w-44 text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] ">
-                                <Search className="size-5" />
+                            <div className="w-44 text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus-within:ring-2 focus-within:ring-blue-200 border border-[#0000001A]">
+                                <Search className="size-5 text-gray-400" />
                                 <input
                                     type="search"
-                                    placeholder="Search.."
-                                    className="w-full text-[#3A4656] outline-none text-sm"
+                                    placeholder="Search orders..."
+                                    value={searchValue}
+                                    onChange={handleSearchChange}
+                                    className="w-full text-[#3A4656] outline-none text-sm placeholder:text-gray-400"
                                 />
                             </div>
+
                             <div className="flex items-center gap-2">
-                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
+                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656] hover:bg-gray-50">
                                     <Settings2 className="size-4" />
                                     Filter
                                 </button>
-                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656]">
+                                <button className="text-sm flex items-center gap-1 px-2 py-2 rounded-lg focus:outline-none border border-[#0000001A] text-[#3A4656] hover:bg-gray-50">
                                     <Share className="size-4" />
                                     Exports
                                 </button>
                             </div>
                         </div>
                     </div>
+
+                    {searchValue && (
+                        <div className="text-sm text-gray-600">
+                            {
+                                filteredOrders.filter((order) =>
+                                    searchableColumns.some((col) =>
+                                        order[col]
+                                            ?.toString()
+                                            .toLowerCase()
+                                            .includes(searchValue.toLowerCase())
+                                    )
+                                ).length
+                            }{" "}
+                            results found for "{searchValue}"
+                        </div>
+                    )}
+
                     <DataTable
                         columns={trackingOrderColumns}
                         data={filteredOrders}
+                        searchValue={searchValue}
+                        searchableColumns={searchableColumns}
                     />
                 </div>
             </div>

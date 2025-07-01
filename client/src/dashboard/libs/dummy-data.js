@@ -265,7 +265,7 @@ export const customersList = [
         company: "Skyline Media LLC",
         profilePicture: "/dashboard-images/staff-1.jpg",
         orders: [
-            { orderId: "0023456LKH", date: "2025-04-12", status: "Shipped" },
+            { orderId: "0023456LKH", date: "2025-04-12", status: "Cancelled" },
             {
                 orderId: "0045678LMN",
                 date: "2025-05-02",
@@ -284,7 +284,7 @@ export const customersList = [
         company: "LumenTech Solutions",
         profilePicture: "/dashboard-images/staff-2.jpg",
         orders: [
-            { orderId: "0045678LMN", date: "2025-03-28", status: "Delivered" },
+            { orderId: "0045678LMN", date: "2025-03-28", status: "Completed" },
         ],
         internalNotes: "Requested priority handling for all orders.",
     },
@@ -323,7 +323,7 @@ export const customersList = [
         company: "Rivera Design Studio",
         profilePicture: "/dashboard-images/staff-2.jpg",
         orders: [
-            { orderId: "0045678LMN", date: "2025-04-15", status: "Delivered" },
+            { orderId: "0045678LMN", date: "2025-04-15", status: "Completed" },
         ],
         internalNotes:
             "Had an issue with last cancellation. May need follow-up.",
@@ -337,8 +337,12 @@ export const customersList = [
         company: "Greenstone Imports",
         profilePicture: "/dashboard-images/staff-3.jpg",
         orders: [
-            { orderId: "001234ABCD", date: "2025-05-27", status: "Delivered" },
-            { orderId: "0023456LKH", date: "2025-06-10", status: "Processing" },
+            { orderId: "001234ABCD", date: "2025-05-27", status: "Completed" },
+            {
+                orderId: "0023456LKH",
+                date: "2025-06-10",
+                status: "In Progress",
+            },
         ],
         internalNotes: "International customer. Needs invoices in PDF format.",
     },
@@ -362,7 +366,7 @@ export const customersList = [
         company: "Malik Brothers Export",
         profilePicture: "/dashboard-images/staff-2.jpg",
         orders: [
-            { orderId: "0034567XYZ", date: "2025-06-20", status: "Shipped" },
+            { orderId: "0034567XYZ", date: "2025-06-20", status: "Completed" },
         ],
         internalNotes: "Prefers call updates. Responsive during weekdays only.",
     },
@@ -385,9 +389,7 @@ export const trackingOrderData = [
         weight: "25kg",
         route: "87 Wem Ddu Lane → 15 Vicar Lane",
         brokerRevenue: 150,
-        files: [
-            { name: "invoice_elena.pdf", type: "pdf", visible: true },
-        ],
+        files: [{ name: "invoice_elena.pdf", type: "pdf", visible: true }],
     },
     {
         key: "2",
@@ -462,9 +464,7 @@ export const trackingOrderData = [
         weight: "1500kg",
         route: "Tokyo → Seattle",
         brokerRevenue: 600,
-        files: [
-            { name: "car_export_docs.pdf", type: "pdf", visible: true },
-        ],
+        files: [{ name: "car_export_docs.pdf", type: "pdf", visible: true }],
     },
     {
         key: "6",
